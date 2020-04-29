@@ -1,20 +1,38 @@
 import React from "react"
-import Me from "../components/Me"
 import styled from "styled-components"
-import StyledHero from "../components/StyledHero"
-import { graphql } from "gatsby"
+import BackgroundImage from "gatsby-background-image"
+import { graphql, StaticQuery } from "gatsby"
 
-export default () => {
+const StyledHero = ({ className }) => {
   return (
-    <>
-      <StyledHero />
-      <Me />
-      {/* <Container /> */}
-    </>
+    <StaticQuery
+      query={graphql`
+        query {
+          defaultbg: file(relativePath: { eq: "hero/computerdanb.jpg" }) {
+            childImageSharp {
+              fluid(quality: 90, maxWidth: 1920) {
+                ...GatsbyImageSharpFluid
+              }
+            }
+          }
+        }
+      `}
+      render={data => {
+        const imageData = data.defaultbg.childImageSharp.fluid
+        console.log(data)
+        return (
+          <BackgroundImage
+            Tag="section"
+            className={className}
+            fluid={imageData}
+          ></BackgroundImage>
+        )
+      }}
+    />
   )
 }
 
-const Container = styled.div`
+export default styled(StyledHero)`
   z-index: 1;
   width: 100vw;
   height: 100vh;
@@ -25,8 +43,10 @@ const Container = styled.div`
   background-attachment: fixed;
   */
   opacity: 1;
-  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
-    url(${require(`../../static/computerdan.jpg`)});
+  background: ${props =>
+    props.home
+      ? "linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5))"
+      : "none"};
   background-size: cover;
   background-position: center center;
   clip-path: polygon(25% 0%, 0% 25%, 0% 100%, 50% 100%, 100% 50%, 100% 0%);

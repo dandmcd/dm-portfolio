@@ -1,11 +1,11 @@
 import React from "react"
-import { Link } from "gatsby"
+import ImageTesting from "../components/ImageTesting"
 
 const Blog = () => {
   return (
     <div>
-      Blog
-      <Link to="/"> Go home</Link>
+      <div>Hello</div>
+      <ImageTesting />
     </div>
   )
 }
