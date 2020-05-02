@@ -78,7 +78,7 @@ const List = styled.ul`
 const ListItem = styled.li`
   ::first-letter {
     text-shadow: 1px 1px 2px #fdef98;
-    color: #aaa166;
+    color: #e8bc90;
     transition: color 0.5s;
   }
   :hover {

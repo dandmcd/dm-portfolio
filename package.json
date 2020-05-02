@@ -17,6 +17,7 @@
     "type-check": "tsc"
   },
   "dependencies": {
+    "@contentful/rich-text-react-renderer": "^13.4.0",
     "@openfonts/barlow-semi-condensed_all": "^1.44.1",
     "@types/react-transition-group": "^4.2.4",
     "@types/styled-components": "^5.1.0",

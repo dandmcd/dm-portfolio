@@ -9,7 +9,7 @@ const Transition = ({ children, location }) => {
   const getTransitionStyles = {
     entering: {
       position: `absolute`,
-      opacity: 0.5,
+      opacity: 0,
     },
     entered: {
       transition: `opacity ${timeout}ms ease-in-out`,

@@ -36,7 +36,7 @@ export const GlobalStyle = createGlobalStyle`
   color: #eeeeea;
   }
   a {
-  color: ${props => props.theme.link};
+  color: #8c8c57;
   text-decoration: none;
 }
 h1 {

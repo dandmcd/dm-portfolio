@@ -6,7 +6,7 @@ export default [
   },
   {
     className: "linkcolor",
-    path: "/blog",
+    path: "/blogs",
     text: "blog",
   },
   {
