@@ -39,7 +39,7 @@ const Title = styled.h1`
 `
 
 const Intro = styled.h3`
-  padding-top: 15em;
+  padding-top: 8rem;
   color: #fff8f1;
   margin: 0 auto;
   font-weight: 100;
