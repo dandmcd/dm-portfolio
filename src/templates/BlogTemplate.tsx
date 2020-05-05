@@ -12,7 +12,7 @@ const BlogTemplate = ({ data }) => {
 
   const options = {
     renderNode: {
-      "embedded-asset-block": node => {
+      "embedded-asset-block": (node) => {
         return (
           <div>
             <h3>this is cool image</h3>

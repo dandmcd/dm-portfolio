@@ -1,5 +1,5 @@
 import React, { memo } from "react"
-import { Link, useStaticQuery } from "gatsby"
+import { Link } from "gatsby"
 
 const BlogPost = ({ blog }) => {
   const { slug, title, image, updatedAt } = blog
