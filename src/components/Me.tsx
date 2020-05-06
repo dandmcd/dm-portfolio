@@ -1,15 +1,20 @@
 import React from "react"
-import styled from "styled-components"
+import styled, { keyframes } from "styled-components"
 
-const Me = () => {
+const Me = ({ isRunning, setIsRunning }) => {
   return (
     <Cta>
-      <Title>Developing your ideas front and back ...</Title>
-      <Intro>
-        Hello, I'm Daniel McDermott, a full stack web designer / developer in
-        the United States for hire. I create full-stack web apps using the
-        latest tools like React, Gatsby and GraphQL combined with PostgeSQL.
-      </Intro>
+      <Title>
+        Developing your ideas<FadeTitle> front </FadeTitle>{" "}
+        <FadeTitleB>and</FadeTitleB> <FadeTitleC>back ...</FadeTitleC>
+      </Title>
+      <IntroSection>
+        <Intro>
+          Hello, I'm Daniel McDermott, a full stack web designer / developer in
+          the United States for hire. I create full-stack web apps using the
+          latest tools like React, Gatsby and GraphQL combined with PostgeSQL.
+        </Intro>
+      </IntroSection>
       <CtaBtns>
         <ButtonFlex>
           <Btn>Projects</Btn>
@@ -30,7 +35,15 @@ const Cta = styled.div`
   transform: translateX(-50%);
 `
 
+const fadeIn = keyframes`
+    0% { opacity: 0; }
+
+    50% {opacity: 0;}
+    100%   { opacity: 1; }
+`
+
 const Title = styled.h1`
+  animation: ${fadeIn} 2s;
   color: #fff8f1;
   margin: 0 auto;
   font-weight: 800;
@@ -38,10 +51,28 @@ const Title = styled.h1`
   font-size: 72px;
 `
 
+const FadeTitle = styled.span`
+  animation: ${fadeIn} 6s;
+`
+
+const FadeTitleB = styled.span`
+  animation: ${fadeIn} 8s;
+`
+
+const FadeTitleC = styled.span`
+  animation: ${fadeIn} 10s;
+`
+
+const IntroSection = styled.div`
+  width: 50vw;
+  margin: 6rem auto 0 auto;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 4px;
+  animation: ${fadeIn} 16s;
+`
+
 const Intro = styled.h3`
-  padding-top: 8rem;
   color: #fff8f1;
-  margin: 0 auto;
   font-weight: 100;
   text-align: left;
 `
@@ -50,20 +81,22 @@ const ButtonFlex = styled.div`
   display: flex;
   justify-content: space-around;
   align-items: center;
+  width: 50vw;
+  margin: 0 auto;
 `
 
 const CtaBtns = styled.div`
+  animation: ${fadeIn} 10s;
   padding: 3em 3em;
 `
 
 const Btn = styled.button`
-  background-color: rgba(255, 255, 255, 0.5);
+  background-color: rgba(255, 255, 255, 0.8);
   border-top-left-radius: 20px;
   border-top-right-radius: 20px;
   border-bottom-right-radius: 20px;
   border-bottom-left-radius: 20px;
   text-indent: 0px;
-  border: 1px solid #000;
   display: inline-block;
   color: #666666;
   font-size: 20px;

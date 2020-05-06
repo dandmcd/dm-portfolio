@@ -29,7 +29,7 @@ export const GlobalStyle = createGlobalStyle`
   font-family: "Barlow Semi Condensed", sans-serif;
   margin: 0 auto;
   padding: 0;
-  color: #eeeeea;
+  color: #111;
   }
   a {
   color: #8c8c57;
