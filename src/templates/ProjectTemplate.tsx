@@ -11,7 +11,7 @@ const ProjectTemplate = ({ data }) => {
 
   const options = {
     renderNode: {
-      "embedded-asset-block": node => {
+      "embedded-asset-block": (node) => {
         return (
           <div>
             <h3>this is cool image</h3>
@@ -47,7 +47,7 @@ export const query = graphql`
       featured
       images {
         fluid {
-          src
+          ...GatsbyContentfulFluid
         }
       }
       slug

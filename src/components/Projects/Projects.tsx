@@ -18,8 +18,8 @@ const Projects = () => {
               json
             }
             images {
-              fluid {
-                src
+              fixed(width: 280, height: 280) {
+                ...GatsbyContentfulFixed
               }
             }
           }
@@ -27,7 +27,11 @@ const Projects = () => {
       }
     }
   `)
-  return <ProjectsList projects={projects} />
+  return (
+    <>
+      <ProjectsList projects={projects} />
+    </>
+  )
 }
 
 export default Projects

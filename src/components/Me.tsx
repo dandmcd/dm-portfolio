@@ -92,10 +92,8 @@ const CtaBtns = styled.div`
 
 const Btn = styled.button`
   background-color: rgba(255, 255, 255, 0.8);
-  border-top-left-radius: 20px;
-  border-top-right-radius: 20px;
-  border-bottom-right-radius: 20px;
-  border-bottom-left-radius: 20px;
+  border: 0.0625rem solid #80868b;
+  border-radius: 20px;
   text-indent: 0px;
   display: inline-block;
   color: #666666;
