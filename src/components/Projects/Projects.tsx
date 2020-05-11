@@ -1,6 +1,7 @@
 import React from "react"
 import { useStaticQuery, graphql } from "gatsby"
 import ProjectsList from "./ProjectsList"
+import styled from "styled-components"
 
 const Projects = () => {
   const { projects } = useStaticQuery(graphql`
@@ -18,7 +19,7 @@ const Projects = () => {
               json
             }
             images {
-              fixed(width: 280, height: 280) {
+              fixed(width: 480) {
                 ...GatsbyContentfulFixed
               }
             }
