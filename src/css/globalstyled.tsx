@@ -33,7 +33,7 @@ export const GlobalStyle = createGlobalStyle`
   outline: none;
   }
   a {
-  color: #8c8c57;
+  color: #6b2d09;
   text-decoration: none;
 }
 h1 {
@@ -55,4 +55,5 @@ h1 {
     h6 {
       font-size: 8px;
   }
+  /* #EFD213 */
 `

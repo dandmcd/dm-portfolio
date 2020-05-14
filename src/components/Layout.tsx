@@ -10,12 +10,13 @@ interface Props {
 }
 
 const Layout = ({ children, location }: Props) => {
+  console.log(location)
   return (
     <>
       <ThemeProvider theme={theme}>
         <GlobalStyle />
         <Transition location={location}>{children}</Transition>
-        <Footer />
+        <Footer location={location} />
       </ThemeProvider>
     </>
   )

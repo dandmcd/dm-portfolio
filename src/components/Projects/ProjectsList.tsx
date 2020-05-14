@@ -15,7 +15,9 @@ const ProjectsList = ({ projects }) => {
   )
 }
 
-const Container = styled.div``
+const Container = styled.div`
+  height: 100vh;
+`
 
 const ProjectsContainer = styled.div`
   display: grid;
@@ -35,7 +37,7 @@ const ProjectsContainer = styled.div`
 
 const Title = styled.h1`
   position: relative;
-  color: #fff8f1;
+  color: #414033;
   margin: 0 auto;
   font-weight: 800;
   text-align: center;

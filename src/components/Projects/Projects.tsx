@@ -13,10 +13,8 @@ const Projects = () => {
             slug
             contentful_id
             featured
-            updatedAt(formatString: "MMMM Do, YYYY")
-            technology
-            description {
-              json
+            preview {
+              preview
             }
             images {
               fixed(width: 480) {

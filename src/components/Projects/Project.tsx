@@ -5,28 +5,31 @@ import Img from "gatsby-image"
 import styled from "styled-components"
 
 const Project = ({ project }) => {
-  const { title, slug, featured, images } = project
-  console.log(images)
+  console.log(project)
+  const {
+    title,
+    slug,
+    featured,
+    preview: { preview },
+    images,
+  } = project
   return (
-    <Figure>
-      <FigCaption>
-        <ProjectTitle>
-          <ProjectLink to={`/project/${slug}`}>{title}</ProjectLink>
-        </ProjectTitle>
-        <ProjectDescription>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua. Purus
-          faucibus ornare suspendisse sed. Quis auctor elit sed vulputate mi sit
-          amet mauris commodo.
-        </ProjectDescription>
-        <ProjectViewMore>
-          <ProjectLink to={`/project/${slug}`}>View More</ProjectLink>
-        </ProjectViewMore>
-      </FigCaption>
-      <div>
-        <ProjectImg fixed={images[0].fixed} />
-      </div>
-    </Figure>
+    <>
+      <Figure>
+        <FigCaption>
+          <ProjectTitle>
+            <ProjectLink to={`/project/${slug}`}>{title}</ProjectLink>
+          </ProjectTitle>
+          <ProjectDescription>{preview}</ProjectDescription>
+          <ProjectViewMore>
+            <ProjectLink to={`/project/${slug}`}>View More</ProjectLink>
+          </ProjectViewMore>
+        </FigCaption>
+        <div>
+          <ProjectImg fixed={images[0].fixed} />
+        </div>
+      </Figure>
+    </>
   )
 }
 

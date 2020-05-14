@@ -3,10 +3,10 @@ import { Link } from "gatsby"
 import links from "../constants/links"
 import styled, { keyframes } from "styled-components"
 
-const Footer = () => {
+const Footer = ({ location }) => {
   return (
     <Container>
-      <List>
+      <List location={location}>
         {links.map((item, index) => {
           return (
             <ListItem key={index}>
@@ -67,18 +67,20 @@ const List = styled.ul`
   animation-iteration-count: 1;
 
   a {
+    color: ${(props) =>
+      props.location.pathname === "/" ? "#fef8f5" : "#414033"};
     text-decoration: none;
     transition: color 0.5s;
   }
   a:hover {
-    color: #6d6c66;
+    color: #706d57;
   }
 `
 
 const ListItem = styled.li`
   ::first-letter {
-    text-shadow: 1px 1px 2px #fdef98;
-    color: #e8bc90;
+    text-shadow: 1px 1px 2px #f9efac;
+    color: #efd318;
     transition: color 0.5s;
   }
   :hover {
