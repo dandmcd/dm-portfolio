@@ -19,6 +19,8 @@ const Container = styled.div`
   height: 100vh;
 `
 const Title = styled.h1`
+  padding-top: 0.25em;
+  padding-bottom: 0.25em;
   background-color: #dfc412;
   position: relative;
   color: #414033;
@@ -38,7 +40,7 @@ const ProjectsContainer = styled.div`
   align-items: center;
   justify-items: center;
   max-width: 900px;
-  top: 3em;
+  top: 2em;
 
   left: 50%;
   transform: translateX(-50%);
