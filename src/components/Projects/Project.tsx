@@ -46,11 +46,11 @@ const Figure = styled.div`
   /* background: #3085a3; */
   text-align: center;
   cursor: pointer;
-  background: rgb(154, 122, 104);
+  background: rgb(72, 63, 6);
   background: linear-gradient(
     90deg,
-    rgba(154, 122, 104, 0.95) 0%,
-    rgba(150, 166, 67, 0.9) 100%
+    rgba(72, 63, 6, 0.95) 20%,
+    rgba(156, 137, 12, 0.9) 100%
   );
   /* background: -webkit-linear-gradient(45deg, #ff89e9 0%, #05abe0 100%);
   background: linear-gradient(45deg, #ff89e9 0%, #05abe0 100%); */
@@ -63,7 +63,7 @@ const FigCaption = styled.div`
   width: 100%;
   font-size: 1.25em;
   text-align: left;
-  color: #fff;
+  color: #faf9f8;
   backface-visibility: hidden;
 
   &:after {
@@ -82,23 +82,24 @@ const ProjectTitle = styled.h2`
   grid-row: 1 / 2;
   margin: 0;
   a {
-    color: #111;
+    color: #414033;
   }
+  letter-spacing: 2px;
   font-size: 32px;
   padding: 0.5em 0.5em;
   word-spacing: -0.15em;
   font-weight: 600;
   position: relative;
   overflow: hidden;
-  background-color: rgba(255, 255, 255, 0.6);
+  background-color: rgba(255, 249, 248, 0.6);
   &:after {
     position: absolute;
     bottom: 0;
     left: 0;
     width: 100%;
     height: 3px;
-    color: #fff;
-    background: #fff;
+    color: #faf9f8;
+    background: #efd318;
     content: "";
     -webkit-transition: -webkit-transform 0.35s;
     transition: transform 0.35s;
@@ -113,12 +114,12 @@ const ProjectTitle = styled.h2`
 
 const ProjectViewMore = styled.h2`
   background-color: rgba(255, 255, 255, 0.6);
+a {
+  font-weight: 400;
+}
   padding: 0.5em 0.5em;
-  word-spacing: -0.15em;
+  word-spacing: -0.1em;
   font-weight: 300;
-  a {
-    color: #111;
-  }
   position: relative;
   overflow: hidden;
   opacity: 0;
@@ -155,15 +156,18 @@ const ProjectImg = styled(Img)`
 
 const ProjectDescription = styled.p`
   grid-row: 2 / 4;
-  padding: 1em;
+  color: #faf9f8;
+  margin: 1em;
+  padding: 0.5em;
   opacity: 0;
-  font-size: 68.5%;
+  font-size: 14px;
   -webkit-transition: opacity 0.35s, -webkit-transform 0.35s;
   transition: opacity 0.35s, transform 0.35s;
   -webkit-transform: translate3d(100%, 0, 0);
   transform: translate3d(100%, 0, 0);
   ${Figure}:hover & {
     opacity: 1;
+    border-left: 5px solid #414033;
     -webkit-transform: translate3d(0, 0, 0);
     transform: translate3d(0, 0, 0);
   }

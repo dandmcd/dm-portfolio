@@ -18,6 +18,15 @@ const ProjectsList = ({ projects }) => {
 const Container = styled.div`
   height: 100vh;
 `
+const Title = styled.h1`
+  background-color: #dfc412;
+  position: relative;
+  color: #414033;
+  margin: 0 auto;
+  font-weight: 800;
+  text-align: center;
+  font-size: 72px;
+`
 
 const ProjectsContainer = styled.div`
   display: grid;
@@ -33,15 +42,6 @@ const ProjectsContainer = styled.div`
 
   left: 50%;
   transform: translateX(-50%);
-`
-
-const Title = styled.h1`
-  position: relative;
-  color: #414033;
-  margin: 0 auto;
-  font-weight: 800;
-  text-align: center;
-  font-size: 72px;
 `
 
 export default ProjectsList
