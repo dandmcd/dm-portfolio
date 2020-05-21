@@ -9,16 +9,27 @@ require("dotenv").config({
 module.exports = {
   /* Your site config here */
   siteMetadata: {
-    title: "Daniel.me",
+    title: "Daniel.Me",
     description: "Portfolio for Daniel McDermott",
     author: "Daniel McDermott",
-    data: { hireable: false },
+    email: "dandmcd@live.com",
+    siteUrl: "https://www.danielmcdermott.me",
   },
   plugins: [
     `gatsby-plugin-typescript`,
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     `gatsby-plugin-styled-components`,
+    `gatsby-plugin-react-helmet`,
+    `gatsby-plugin-sitemap`,
+    {
+      resolve: "gatsby-plugin-robots-txt",
+      options: {
+        host: "https://www.danielmcdermott.me",
+        sitemap: "https://www.danielmcdermott.me/sitemap.xml",
+        policy: [{ userAgent: "*", allow: "/" }],
+      },
+    },
     {
       resolve: `gatsby-plugin-layout`,
       options: {

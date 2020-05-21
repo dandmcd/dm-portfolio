@@ -70,10 +70,6 @@ const List = styled.ul`
     color: ${(props) =>
       props.location.pathname === "/" ? "#fef8f5" : "#414033"};
     text-decoration: none;
-    transition: color 0.5s;
-  }
-  a:hover {
-    color: #706d57;
   }
 `
 

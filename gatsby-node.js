@@ -22,7 +22,6 @@ module.exports.createPages = async ({ graphql, actions }) => {
       }
     }
   `)
-  console.log(data)
   data.projects.edges.forEach(({ node }) => {
     createPage({
       path: `project/${node.slug}`,

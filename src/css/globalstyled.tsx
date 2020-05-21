@@ -35,6 +35,10 @@ export const GlobalStyle = createGlobalStyle`
   a {
   color: #483f06;
   text-decoration: none;
+  transition: color 0.5s;
+  :hover {
+    color: #706d57;
+  }
 }
 h1 {
       font-size: 36px;

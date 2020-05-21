@@ -2,8 +2,10 @@ import React, { memo } from "react"
 import BlogPost from "../components/BlogPosts/BlogPost"
 import BlogPostList from "../components/BlogPosts/BlogPostList"
 import { Link, graphql } from "gatsby"
+import styled from "styled-components"
+import SEO from "../components/SEO"
 
-const BlogListTemplate = props => {
+const BlogListTemplate = (props) => {
   const { currentPage, numPages } = props.pageContext
   const isFirst = currentPage === 1
   const isLast = currentPage === numPages
@@ -14,15 +16,17 @@ const BlogListTemplate = props => {
   const { data } = props
 
   return (
-    <div>
-      <div>Posts</div>
-      <div>
-        {data.posts.edges.map(({ node }) => {
-          return <BlogPost key={node.contentful_id} blog={node} />
-        })}
-      </div>
-      <div>
-        {!isFirst && <Link to={prevPage}>Previous Page</Link>}
+    <>
+      <SEO title="blog" description="Random thoughts from Daniel" />
+      {data.posts.edges.map(({ node }) => {
+        return (
+          <BlogListing>
+            <BlogPost key={node.contentful_id} blog={node} />
+          </BlogListing>
+        )
+      })}
+      <PageTurner>
+        <Prev>{!isFirst && <Link to={prevPage}>Previous Page</Link>}</Prev>
         {/* {Array.from({ length: numPages }, (_, i) => (
           <Link
             key={`pagination-number${i + 1}`}
@@ -31,11 +35,31 @@ const BlogListTemplate = props => {
             {i + 1}
           </Link>
         ))} */}
-        {!isLast && <Link to={nextPage}>Next Page</Link>}
-      </div>
-    </div>
+        <Next>{!isLast && <Link to={nextPage}>Next Page</Link>}</Next>
+      </PageTurner>
+    </>
   )
 }
+
+const BlogListing = styled.div`
+  :nth-child(odd) {
+    background-color: #f5e269;
+  }
+  :nth-child(even) {
+    background-color: #f9efac;
+  }
+`
+const PageTurner = styled.div`
+  display: flex;
+  justify-content: center;
+`
+
+const Prev = styled.div`
+  padding: 1em;
+`
+const Next = styled.div`
+  padding: 1em;
+`
 
 export const query = graphql`
   query getPosts($skip: Int!, $limit: Int) {
@@ -50,8 +74,11 @@ export const query = graphql`
           slug
           contentful_id
           updatedAt(formatString: "MMMM Do, YYYY")
+          previewText {
+            previewText
+          }
           images {
-            fluid {
+            fluid(maxWidth: 700) {
               ...GatsbyContentfulFluid
             }
           }

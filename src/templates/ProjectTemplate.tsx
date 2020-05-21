@@ -3,6 +3,7 @@ import { graphql, Link } from "gatsby"
 import { BLOCKS, INLINES, MARKS } from "@contentful/rich-text-types"
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
 import styled from "styled-components"
+import SEO from "../components/SEO"
 
 const ProjectTemplate = ({ data }) => {
   console.log(data)
@@ -15,24 +16,6 @@ const ProjectTemplate = ({ data }) => {
     demoLink,
     images,
   } = data.contentfulDmPortfolioProjects
-
-  const ContentfulImg = styled.div`
-    text-align: center;
-  `
-
-  const ImgCaption = styled.p`
-    margin: 0 auto;
-  `
-
-  const ContentfulHeading = styled.h2`
-    border-left: 3px solid #7b6c0a;
-    padding: 0 0 0 0.2em;
-    margin: 0 auto 0 0.5em;
-  `
-
-  const ContentfulP = styled.p`
-    padding: 0 0.5em 0.5em 1em;
-  `
 
   const options = {
     renderNode: {
@@ -54,6 +37,7 @@ const ProjectTemplate = ({ data }) => {
   }
   return (
     <Container>
+      <SEO title={title} description={preview} />
       <Grid>
         <ContentSide>{documentToReactComponents(json, options)}</ContentSide>
         <SideBar>
@@ -91,6 +75,24 @@ const ProjectTemplate = ({ data }) => {
     </Container>
   )
 }
+
+const ContentfulImg = styled.div`
+  text-align: center;
+`
+
+const ImgCaption = styled.p`
+  margin: 0 auto;
+`
+
+const ContentfulHeading = styled.h2`
+  border-left: 3px solid #7b6c0a;
+  padding: 0 0 0 0.2em;
+  margin: 0 auto 0 0.5em;
+`
+
+const ContentfulP = styled.p`
+  padding: 0 0.5em 0.5em 1em;
+`
 
 const Container = styled.div`
   max-width: 1100px;

@@ -1,53 +1,98 @@
 import React from "react"
-import { graphql } from "gatsby"
+import { graphql, navigate } from "gatsby"
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
 import styled from "styled-components"
+import SEO from "../components/SEO"
 
 const BlogTemplate = ({ data }) => {
   const {
     title,
     updatedAt,
+    previewText: { previewText },
     post: { json },
   } = data.post
+
+  const goBack = () => {
+    window.history.back()
+  }
 
   const options = {
     renderNode: {
       "embedded-asset-block": (node) => {
         return (
-          <div>
-            <h3>this is cool image</h3>
-            <img width="400" src={node.data.target.fields.file["en-US"].url} />
-            <p>images provided by me</p>
-          </div>
+          <ContentfulImg>
+            <img width="320" src={node.data.target.fields.file["en-US"].url} />
+            <ImgCaption>{node.data.target.fields.title["en-US"]}</ImgCaption>
+          </ContentfulImg>
         )
       },
     },
   }
 
   return (
-    <Wrapper>
+    <>
+      <SEO title={title} description={previewText} />
       <RichText>
-        <h1>{title}</h1>
-        <h4>Date: {updatedAt}</h4>
-        <div>{documentToReactComponents(json, options)}</div>
+        <Wrapper>
+          <BlogTitle>{title}</BlogTitle>
+          <UpdatedAt>Date: {updatedAt}</UpdatedAt>
+          <Content>{documentToReactComponents(json, options)}</Content>
+        </Wrapper>
       </RichText>
-    </Wrapper>
+      <GoBackBlock>
+        <GoBack onClick={goBack}>Return to Previous Page</GoBack>
+      </GoBackBlock>
+    </>
   )
 }
 
-const Wrapper = styled.div`
+const ContentfulImg = styled.div`
+  text-align: center;
+`
+
+const GoBackBlock = styled.div`
+  display: flex;
+  justify-content: flex-start;
+  padding: 0.2em 0 0 0.4em;
+`
+
+const ImgCaption = styled.p`
+  margin: 0 auto;
+`
+
+const GoBack = styled.a`
+  cursor: pointer;
+`
+
+const Container = styled.div`
   position: relative;
 `
+
+const BlogTitle = styled.h1`
+  margin: 0.2em auto 0.2em auto;
+  letter-spacing: 1px;
+`
+const UpdatedAt = styled.h4`
+  color: #706d57;
+  margin: 0 auto 0 1em;
+`
+
+const Content = styled.div`
+  margin-top: 0.3em;
+`
+
 const RichText = styled.div`
   position: absolute;
   overflow-y: auto;
   left: 50%;
-  margin-left: -30vw;
-  margin-top: 2rem;
-  border-radius: 4px;
+  padding: 0 3em 0 3em;
+
+  top: 30%;
+  transform: translate(-50%, -30%);
+  border-radius: 14px;
   width: 60vw;
   height: 80vh;
-  background-color: rgba(0, 0, 0, 0.72);
+  background-color: #fdfae5;
   ::-webkit-scrollbar {
     width: 3px;
     height: 3px;
@@ -57,37 +102,42 @@ const RichText = styled.div`
     height: 0px;
   }
   ::-webkit-scrollbar-thumb {
-    background: #fefcab;
+    background: #f9efac;
     border: 0px none #ffffff;
     border-radius: 50px;
   }
   ::-webkit-scrollbar-thumb:hover {
-    background: #f3f397;
+    background: #f5e269;
   }
   ::-webkit-scrollbar-thumb:active {
-    background: #c8c77c;
+    background: #efd318;
   }
   ::-webkit-scrollbar-track {
-    background: #f9ca9b;
+    background: #483f06;
     border: 0px none #ffffff;
     border-radius: 50px;
   }
   ::-webkit-scrollbar-track:hover {
-    background: #d4ac84;
+    background: #9c890c;
   }
   ::-webkit-scrollbar-track:active {
-    background: #a28365;
+    background: #efd318;
   }
   ::-webkit-scrollbar-corner {
     background: transparent;
   }
 `
 
+const Wrapper = styled.div``
+
 export const query = graphql`
   query getPost($slug: String!) {
     post: contentfulDmPortfolioBlog(slug: { eq: $slug }) {
       title
       updatedAt(formatString: "MMMM Do, YYYY")
+      previewText {
+        previewText
+      }
       post {
         json
       }
