@@ -19,9 +19,11 @@ const Contact = () => {
         method="POST"
         data-netlify-recaptcha="true"
         data-netlify="true"
+        data-netlify-honeypot="bot-field"
       >
         <EmailSmHeader>No time for email? </EmailSmHeader>
         <EmailExSmHeader>Fill in the easy contact form below:</EmailExSmHeader>
+        <input type="hidden" name="form-name" value="contact" />
         <P>
           <label>
             Your Name: <Input type="text" name="name" />
