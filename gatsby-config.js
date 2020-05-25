@@ -10,7 +10,7 @@ module.exports = {
   /* Your site config here */
   siteMetadata: {
     title: "Daniel.Me",
-    description: "Portfolio for Daniel McDermott",
+    description: "Development portfolio for Daniel McDermott",
     author: "Daniel McDermott",
     email: "dandmcd@live.com",
     siteUrl: "https://www.danielmcdermott.me",
@@ -28,6 +28,29 @@ module.exports = {
         host: "https://www.danielmcdermott.me",
         sitemap: "https://www.danielmcdermott.me/sitemap.xml",
         policy: [{ userAgent: "*", allow: "/" }],
+      },
+    },
+    {
+      resolve: `gatsby-plugin-manifest`,
+      options: {
+        name: `Daniel.Me`,
+        description: `Development portfolio for Daniel McDermott`,
+        short_name: `Daniel.Me`,
+        lang: `en`,
+        start_url: `/`,
+        background_color: `#fff`,
+        theme_color: `#DFC411`,
+        display: `standalone`,
+        icon: "src/images/icon.png",
+        cache_busting_mode: "none",
+      },
+    },
+    {
+      resolve: "gatsby-plugin-offline",
+      options: {
+        workboxConfig: {
+          globPatterns: ["**/*"],
+        },
       },
     },
     {
