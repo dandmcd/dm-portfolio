@@ -1,9 +1,8 @@
 import React from "react"
-import Footer from "./Footer"
 import Transition from "./Transition"
 import { GlobalStyle, theme } from "../css/globalstyled"
 import { ThemeProvider } from "styled-components"
-import Footx from "./Footx"
+import Footer from "./Footer"
 
 interface Props {
   children?: any
@@ -18,7 +17,7 @@ const Layout = ({ children, location }: Props) => {
         <GlobalStyle />
         <Transition location={location}>{children}</Transition>
 
-        <Footx location={location} />
+        <Footer location={location} />
       </ThemeProvider>
     </>
   )
