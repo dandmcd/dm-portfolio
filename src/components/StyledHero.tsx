@@ -17,35 +17,35 @@ const StyledHero = ({ className }) => {
         query {
           defaultbg: file(relativePath: { eq: "hero/computerguy.jpg" }) {
             childImageSharp {
-              fluid(quality: 80, maxWidth: 1920) {
+              fluid(quality: 80, maxWidth: 2560) {
                 ...GatsbyImageSharpFluid_noBase64
               }
             }
           }
           changingbg1: file(relativePath: { eq: "hero/computersplash.jpg" }) {
             childImageSharp {
-              fluid(quality: 80, maxWidth: 1920) {
+              fluid(quality: 80, maxWidth: 2560) {
                 ...GatsbyImageSharpFluid_noBase64
               }
             }
           }
           changingbg2: file(relativePath: { eq: "hero/computersplash2.jpg" }) {
             childImageSharp {
-              fluid(quality: 80, maxWidth: 1920) {
+              fluid(quality: 80, maxWidth: 2560) {
                 ...GatsbyImageSharpFluid_noBase64
               }
             }
           }
           changingbg3: file(relativePath: { eq: "hero/computersplash3.jpg" }) {
             childImageSharp {
-              fluid(quality: 80, maxWidth: 1920) {
+              fluid(quality: 80, maxWidth: 2560) {
                 ...GatsbyImageSharpFluid_noBase64
               }
             }
           }
           changingbgfinal: file(relativePath: { eq: "hero/computerdanb.jpg" }) {
             childImageSharp {
-              fluid(quality: 80, maxWidth: 1920) {
+              fluid(quality: 80, maxWidth: 2560) {
                 ...GatsbyImageSharpFluid_noBase64
               }
             }
