@@ -1,7 +1,7 @@
 import React from "react"
 import styled, { keyframes } from "styled-components"
 
-const Me = ({ isRunning, setIsRunning }) => {
+const Me = () => {
   return (
     <Cta>
       <Title>

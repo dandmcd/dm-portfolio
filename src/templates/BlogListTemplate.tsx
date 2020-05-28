@@ -17,6 +17,7 @@ const BlogListTemplate = (props) => {
 
   return (
     <>
+      <Title>The Whatever Blog</Title>
       <SEO title="blog" description="Random thoughts from Daniel" />
       {data.posts.edges.map(({ node }) => {
         return (
@@ -26,7 +27,13 @@ const BlogListTemplate = (props) => {
         )
       })}
       <PageTurner>
-        <Prev>{!isFirst && <Link to={prevPage}>Previous Page</Link>}</Prev>
+        <Prev>
+          {!isFirst && (
+            <Link to={prevPage}>
+              <ArrowLeft></ArrowLeft>Previous Page
+            </Link>
+          )}
+        </Prev>
         {/* {Array.from({ length: numPages }, (_, i) => (
           <Link
             key={`pagination-number${i + 1}`}
@@ -35,13 +42,20 @@ const BlogListTemplate = (props) => {
             {i + 1}
           </Link>
         ))} */}
-        <Next>{!isLast && <Link to={nextPage}>Next Page</Link>}</Next>
+        <Next>
+          {!isLast && (
+            <Link to={nextPage}>
+              Next Page<ArrowRight></ArrowRight>
+            </Link>
+          )}
+        </Next>
       </PageTurner>
     </>
   )
 }
 
 const BlogListing = styled.div`
+  margin: 1em auto 0 auto;
   :nth-child(odd) {
     background-color: #f5e269;
   }
@@ -54,11 +68,39 @@ const PageTurner = styled.div`
   justify-content: center;
 `
 
+const Title = styled.h1`
+  padding-top: 0.25em;
+  padding-bottom: 0.25em;
+  background-color: #dfc412;
+  position: relative;
+  color: #414033;
+  margin: 0 auto;
+  font-weight: 800;
+  text-align: center;
+  font-size: 72px;
+`
+
 const Prev = styled.div`
   padding: 1em;
 `
 const Next = styled.div`
   padding: 1em;
+`
+
+const ArrowLeft = styled.i`
+  border: solid #706d57;
+  border-width: 0 2px 2px 0;
+  display: inline-block;
+  padding: 4px;
+  transform: rotate(135deg);
+`
+
+const ArrowRight = styled.i`
+  border: solid #706d57;
+  border-width: 0 2px 2px 0;
+  display: inline-block;
+  padding: 4px;
+  transform: rotate(-45deg);
 `
 
 export const query = graphql`

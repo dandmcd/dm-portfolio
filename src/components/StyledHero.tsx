@@ -4,7 +4,8 @@ import BackgroundImage from "gatsby-background-image"
 import { graphql, StaticQuery } from "gatsby"
 import { useInterval } from "../utilities/useInterval"
 
-const StyledHero = ({ className, isRunning, setIsRunning }) => {
+const StyledHero = ({ className }) => {
+  const [isRunning, setIsRunning] = useState(true)
   const [background, setBackground] = useState([])
   const [selectedImage, setSelectedImage] = useState([])
   const [count, setCount] = useState(0)

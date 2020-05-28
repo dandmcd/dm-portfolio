@@ -40,7 +40,9 @@ const BlogTemplate = ({ data }) => {
         </Wrapper>
       </RichText>
       <GoBackBlock>
-        <GoBack onClick={goBack}>Return to Previous Page</GoBack>
+        <GoBack onClick={goBack}>
+          <Arrow></Arrow>Return to previous page
+        </GoBack>
       </GoBackBlock>
     </>
   )
@@ -53,7 +55,7 @@ const ContentfulImg = styled.div`
 const GoBackBlock = styled.div`
   display: flex;
   justify-content: flex-start;
-  padding: 0.2em 0 0 0.4em;
+  padding: 0.2em 0 0 0.8em;
 `
 
 const ImgCaption = styled.p`
@@ -64,8 +66,12 @@ const GoBack = styled.a`
   cursor: pointer;
 `
 
-const Container = styled.div`
-  position: relative;
+const Arrow = styled.i`
+  border: solid #706d57;
+  border-width: 0 2px 2px 0;
+  display: inline-block;
+  padding: 4px;
+  transform: rotate(135deg);
 `
 
 const BlogTitle = styled.h1`
