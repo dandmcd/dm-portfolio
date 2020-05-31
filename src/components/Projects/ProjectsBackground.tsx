@@ -9,7 +9,7 @@ const ProjectsBackground = ({ className }) => {
     <StaticQuery
       query={graphql`
         query {
-          projectsbg: file(relativePath: { eq: "hero/projectssplash.jpg" }) {
+          projectsbg: file(relativePath: { eq: "hero/computersplash3.jpg" }) {
             childImageSharp {
               fluid(quality: 80, maxWidth: 1920) {
                 ...GatsbyImageSharpFluid_noBase64
@@ -33,7 +33,7 @@ const ProjectsBackground = ({ className }) => {
 }
 
 export default styled(ProjectsBackground)`
-  width: 100vw;
+  width: 100%;
   height: 100vh;
   display: block;
   background-color: transparent;

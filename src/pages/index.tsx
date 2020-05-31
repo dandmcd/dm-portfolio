@@ -7,7 +7,6 @@ export default () => {
   return (
     <>
       <SEO title="home" />
-      <StyledHero />
       <Me />
     </>
   )

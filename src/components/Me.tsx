@@ -1,38 +1,45 @@
 import React from "react"
+import ProjectsBackground from "../components/Projects/ProjectsBackground"
 import styled, { keyframes } from "styled-components"
 
 const Me = () => {
   return (
     <Cta>
-      <Title>
-        Developing your ideas<FadeTitle> front </FadeTitle>{" "}
-        <FadeTitleB>and</FadeTitleB> <FadeTitleC>back ...</FadeTitleC>
-      </Title>
-      <IntroSection>
-        <Intro>
-          Hello, I'm Daniel McDermott, a full stack web designer / developer in
-          the United States for hire. I create full-stack web apps using the
-          latest tools like React, Gatsby and GraphQL combined with PostgeSQL.
-        </Intro>
-      </IntroSection>
-      <CtaBtns>
-        <ButtonFlex>
-          <Btn>Projects</Btn>
-          <Btn>Contact</Btn>
-        </ButtonFlex>
-      </CtaBtns>
+      <div>
+        <Title>
+          Developing your ideas<FadeTitle> front </FadeTitle>{" "}
+          <FadeTitleB>and</FadeTitleB> <FadeTitleC>back ...</FadeTitleC>
+        </Title>
+      </div>
+      <Wrapper>
+        <ProjectsBackground />
+        <IntroSection>
+          <Intro>
+            Hello, I'm Daniel McDermott, a full stack web designer / developer
+            in the United States for hire. I create full-stack web apps using
+            the latest tools like React, Gatsby and GraphQL combined with
+            PostgeSQL.
+          </Intro>
+        </IntroSection>
+        <CtaBtns>
+          <ButtonFlex>
+            <Btn>Projects</Btn>
+            <Btn>Contact</Btn>
+          </ButtonFlex>
+        </CtaBtns>
+      </Wrapper>
     </Cta>
   )
 }
 
 const Cta = styled.div`
-  top: 75px;
-  z-index: 5;
-  position: fixed;
-  width: 75vw;
+  max-width: 1100px;
   margin: 0 auto;
-  left: 50%;
-  transform: translateX(-50%);
+`
+
+const Wrapper = styled.div`
+  max-width: 1100px;
+  margin: 0 auto;
 `
 
 const fadeIn = keyframes`
@@ -44,7 +51,11 @@ const fadeIn = keyframes`
 
 const Title = styled.h1`
   animation: ${fadeIn} 2s;
-  color: #fff8f1;
+  padding-top: 0.25em;
+  padding-bottom: 0.25em;
+  background-color: #dfc412;
+  position: relative;
+  color: #414033;
   margin: 0 auto;
   font-weight: 800;
   text-align: center;
@@ -65,16 +76,19 @@ const FadeTitleC = styled.span`
 
 const IntroSection = styled.div`
   width: 50vw;
-  margin: 6rem auto 0 auto;
+  margin: 0 auto;
   background-color: rgba(255, 255, 255, 0.1);
   border-radius: 4px;
   animation: ${fadeIn} 16s;
 `
 
 const Intro = styled.h3`
+  position: relative;
   color: #fff8f1;
   font-weight: 100;
   text-align: left;
+  margin: 0 auto;
+  padding 1em 0;
 `
 
 const ButtonFlex = styled.div`
@@ -86,6 +100,7 @@ const ButtonFlex = styled.div`
 `
 
 const CtaBtns = styled.div`
+  position: relative;
   animation: ${fadeIn} 10s;
   padding: 3em 3em;
 `
