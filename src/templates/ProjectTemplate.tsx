@@ -154,7 +154,7 @@ const GitLink = styled.button`
   margin: 0.3rem auto;
   background-color: rgba(255, 255, 255, 0.8);
   border: 0.0625rem solid #80868b;
-  border-radius: 20px;
+  border-radius: 14px;
   width: 230px;
   text-indent: 0px;
   display: inline-block;

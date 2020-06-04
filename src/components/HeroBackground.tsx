@@ -4,7 +4,7 @@ import BackgroundImage from "gatsby-background-image"
 import { graphql, StaticQuery } from "gatsby"
 import { useInterval } from "../utilities/useInterval"
 
-const ProjectsBackground = ({ className }) => {
+const HeroBackground = ({ className }) => {
   return (
     <StaticQuery
       query={graphql`
@@ -32,7 +32,7 @@ const ProjectsBackground = ({ className }) => {
   )
 }
 
-export default styled(ProjectsBackground)`
+export default styled(HeroBackground)`
   width: 100%;
   height: 100vh;
   display: block;

@@ -230,9 +230,7 @@ const List = styled.ul`
     text-decoration: none;
   }
 `
-const FilterDiv = styled.div`
-  filter: blur(1px);
-`
+
 const ListItem = styled.li`
   display: ${(props) => (props.clicked ? "block" : "none")};
   list-style: none;

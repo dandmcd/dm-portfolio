@@ -41,7 +41,6 @@ const ProjectsContainer = styled.div`
   justify-items: center;
   max-width: 900px;
   top: 2em;
-
   left: 50%;
   transform: translateX(-50%);
 `
