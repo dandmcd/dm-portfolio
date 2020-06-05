@@ -20,13 +20,18 @@ const Me = () => {
   const data = useStaticQuery(getImage)
   return (
     <Cta>
-      <Title>
-        Developing your ideas<FadeTitle> front </FadeTitle>{" "}
-        <FadeTitleB>and</FadeTitleB> <FadeTitleC>back ...</FadeTitleC>
-      </Title>
-
+      <Header>
+        <Title>
+          Developing your ideas
+          <FadeTitle>
+            <br />
+            front{" "}
+          </FadeTitle>{" "}
+          <FadeTitleB>and</FadeTitleB> <FadeTitleC>back ...</FadeTitleC>
+        </Title>
+      </Header>
+      <HeroBackground className="div" />
       <Wrapper>
-        <HeroBackground />
         <div>
           <IntroSection>
             <MeImg
@@ -51,16 +56,50 @@ const Me = () => {
           </IntroSection>
         </div>
       </Wrapper>
+      <Footer>Footer</Footer>
     </Cta>
   )
 }
 
 const Cta = styled.div`
-  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 0 1fr 0;
+  grid-template-rows: auto 8em 1fr auto;
+  @media (min-width: 600px) {
+    grid-template-columns: 20px 1fr 20px;
+  }
+  :before {
+    content: "";
+    grid-column: 1/-1;
+    grid-row: 1/3;
+    background-color: #063;
+  }
+  /* margin: 0 auto; */
 `
 
-const Wrapper = styled.div`
-  margin: 0 auto;
+const Header = styled.header`
+  grid-column: 2 / 3;
+  grid-row: 1 / 2;
+
+  color: #fff;
+  background-color: #063;
+  padding: 35px 20px;
+`
+
+const Wrapper = styled.main`
+  grid-row: 2 / 4;
+  grid-column: 2 / 3;
+  min-height: 50vh;
+  padding: 20px;
+  border-radius: 14px;
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.25);
+  background-color: #fff;
+`
+
+const Footer = styled.footer`
+  grid-column: 2/3;
+  grid-row: -1;
+  padding: 20px;
 `
 
 const fadeIn = keyframes`
