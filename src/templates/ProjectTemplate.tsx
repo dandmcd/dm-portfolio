@@ -6,7 +6,6 @@ import styled from "styled-components"
 import SEO from "../components/SEO"
 
 const ProjectTemplate = ({ data }) => {
-  console.log(data)
   const {
     title,
     description: { json },
@@ -111,10 +110,12 @@ const ContentSide = styled.div`
   grid-row: 1 / 2;
   background: #f5e269;
   padding: 0.4rem;
+  @media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
+    grid-column: 1 / 3;
+    grid-row: 2 / 3;
+  }
 `
 const ProjectTitle = styled.h1`
-  grid-column: 1 / 2;
-  grid-row: 1 / 2;
   color: #414033;
   margin: 0 auto;
   font-weight: 800;
@@ -128,6 +129,9 @@ const SideBar = styled.div`
   grid-row: 1 / 2;
   border-left: 0.5px solid #c6c4b6;
   padding: 0.4rem;
+  @media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
+    grid-column: 1 / 3;
+  }
 `
 const LinkSection = styled.div``
 

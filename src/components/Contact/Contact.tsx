@@ -150,13 +150,13 @@ const EmailDiv = styled.div`
 `
 
 const EmailButton = styled.a`
-  background-color: rgba(255, 255, 255, 0.8);
+  background-color: rgba(238, 238, 222, 0.8);
   border: 0.0625rem solid #80868b;
-  border-radius: 20px;
+  border-radius: 14px;
   text-indent: 0px;
   display: inline-block;
-  color: #666666;
-  font-size: 12px;
+  color: #414033;
+  font-size: 14px;
   font-weight: 400;
   padding-top: 10px;
   padding-bottom: 10px;

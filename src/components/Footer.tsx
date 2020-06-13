@@ -53,7 +53,7 @@ const Footer = ({ location }) => {
 }
 
 const Tooltip = styled.div`
-  position: absolute;
+  position: fixed;
   display: inline-block;
   width: 40px;
   bottom: 190px;
