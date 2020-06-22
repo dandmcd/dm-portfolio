@@ -1,7 +1,7 @@
 import React from "react"
 import HeroBackground from "./HeroBackground"
 import styled, { keyframes } from "styled-components"
-import { graphql, useStaticQuery } from "gatsby"
+import { graphql, useStaticQuery, Link } from "gatsby"
 import Img from "gatsby-image"
 
 const getImage = graphql`
@@ -52,12 +52,16 @@ const Me = () => {
 
         <CtaBtns>
           <ButtonFlex>
-            <Btn>Projects</Btn>
-            <Btn2>Contact</Btn2>
+            <Link to="/projects">
+              <Btn>Projects</Btn>
+            </Link>
+            <Link to="/contact">
+              <Btn2>Contact</Btn2>
+            </Link>
           </ButtonFlex>
         </CtaBtns>
       </Wrapper>
-      <Footer>Footer</Footer>
+      <Footer></Footer>
     </Cta>
   )
 }
@@ -200,8 +204,8 @@ const CtaBtns = styled.div`
 `
 
 const Btn = styled.button`
-  background-color: rgba(238, 238, 222, 0.75);
-  border: 2px solid #f5e269;
+  background-color: rgba(245, 226, 105, 1);
+  border: 2px solid #414033;
   border-radius: 14px;
   text-indent: 0px;
   min-width: 156px;
@@ -216,6 +220,10 @@ const Btn = styled.button`
   padding-right: 40px;
   text-decoration: none;
   text-align: center;
+  cursor: pointer;
+  @media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
+    width: 120px;
+  }
 `
 
 const Btn2 = styled(Btn)`
