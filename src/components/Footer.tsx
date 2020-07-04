@@ -18,7 +18,9 @@ const Footer = ({ location }) => {
       {(state) => (
         <>
           <Tooltip>
-            <Email src={email} state={state} alt="Email" />
+            <Link to="/contact">
+              <Email src={email} state={state} alt="Email" />
+            </Link>
             <TooltipText clicked={clicked} location={location}>
               Contact Me
             </TooltipText>

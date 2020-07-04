@@ -5,7 +5,7 @@ import {
 } from "react-transition-group"
 
 const Transition = ({ children, location }) => {
-  const timeout = 1000
+  const timeout = 200
   const getTransitionStyles = {
     entering: {
       position: `absolute`,
@@ -27,7 +27,7 @@ const Transition = ({ children, location }) => {
           key={location.pathname}
           timeout={{ enter: timeout, exit: timeout }}
         >
-          {status => (
+          {(status) => (
             <div style={{ ...getTransitionStyles[status] }}>{children}</div>
           )}
         </ReactTransition>

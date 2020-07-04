@@ -204,8 +204,8 @@ const CtaBtns = styled.div`
 `
 
 const Btn = styled.button`
-  background-color: rgba(245, 226, 105, 1);
-  border: 2px solid #414033;
+  background-color: rgba(238, 238, 222, 0.8);
+  border: 0.0625rem solid #80868b;
   border-radius: 14px;
   text-indent: 0px;
   min-width: 156px;

@@ -21,7 +21,7 @@ const ProjectTemplate = ({ data }) => {
       "embedded-asset-block": (node) => {
         return (
           <ContentfulImg>
-            <img width="320" src={node.data.target.fields.file["en-US"].url} />
+            <img width="80%" src={node.data.target.fields.file["en-US"].url} />
             <ImgCaption>{node.data.target.fields.title["en-US"]}</ImgCaption>
           </ContentfulImg>
         )
@@ -81,6 +81,7 @@ const ContentfulImg = styled.div`
 
 const ImgCaption = styled.p`
   margin: 0 auto;
+  padding: 0 0 0.8em 0;
 `
 
 const ContentfulHeading = styled.h2`
