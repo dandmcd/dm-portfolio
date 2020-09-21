@@ -1,11 +1,23 @@
-import React, { memo } from "react"
-import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
+import React, { memo, FunctionComponent } from "react"
 import { Link } from "gatsby"
-import Img from "gatsby-image"
+import Img, { FluidObject } from "gatsby-image"
 import styled from "styled-components"
 
-const BlogPost = ({ blog }) => {
-  console.log(blog)
+interface Props {
+  blog: {
+    slug: string
+    title: string
+    updatedAt: string
+    images: {
+      fluid: FluidObject[]
+    }[]
+    previewText: {
+      previewText: string
+    }
+  }
+}
+
+const BlogPost: FunctionComponent<Props> = ({ blog }) => {
   const {
     slug,
     title,
@@ -14,11 +26,10 @@ const BlogPost = ({ blog }) => {
     updatedAt,
   } = blog
   const image = images[0].fluid
-  console.log(image)
   return (
     <Container>
       <Grid>
-        <BlogImg fluid={image} />
+        <BlogImg as={BlogImg} fluid={image} />
         <TextFields>
           <Title>
             <Link to={`/blog/${slug}`}>{title}</Link>

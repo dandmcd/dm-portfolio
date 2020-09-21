@@ -1,11 +1,10 @@
-import React from "react"
-import Image from "gatsby-image"
+import React, { FC } from "react"
 import { Link } from "gatsby"
 import Img from "gatsby-image"
 import styled from "styled-components"
+import { ProjectProps } from "./Projects"
 
-const Project = ({ project }) => {
-  console.log(project)
+const Project: FC<ProjectProps> = ({ project }): JSX.Element => {
   const {
     title,
     slug,
@@ -26,7 +25,7 @@ const Project = ({ project }) => {
           </ProjectViewMore>
         </FigCaption>
         <div>
-          <ProjectImg fixed={images[0].fixed} />
+          <ProjectImg as={ProjectImg} fixed={images[0].fixed} />
         </div>
       </Figure>
     </>

@@ -1,10 +1,9 @@
-import React, { useEffect, useState } from "react"
+import React from "react"
 import styled from "styled-components"
 import BackgroundImage from "gatsby-background-image"
 import { graphql, StaticQuery } from "gatsby"
-import { useInterval } from "../utilities/useInterval"
 
-const HeroBackground = ({ className }) => {
+const HeroBackground = ({ className }: { className: string }) => {
   return (
     <StaticQuery
       query={graphql`
@@ -23,7 +22,7 @@ const HeroBackground = ({ className }) => {
           <BackgroundImage
             Tag="section"
             className={className}
-            style={{ position: "" }}
+            style={{ position: undefined }}
             fluid={data.projectsbg.childImageSharp.fluid}
           ></BackgroundImage>
         )

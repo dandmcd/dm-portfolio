@@ -1,9 +1,8 @@
-import React, { useState } from "react"
+import React from "react"
 import Me from "../components/Me"
-import StyledHero from "../components/StyledHero"
 import SEO from "../components/SEO"
 
-export default () => {
+export default (): JSX.Element => {
   return (
     <>
       <SEO title="home" />

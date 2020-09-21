@@ -1,10 +1,30 @@
-import React from "react"
-import { graphql, navigate } from "gatsby"
+import React, { FC } from "react"
+import { graphql } from "gatsby"
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
 import styled from "styled-components"
 import SEO from "../components/SEO"
 
-const BlogTemplate = ({ data }) => {
+interface GetPost {
+  data: {
+    target: {
+      fields: {
+        file: {
+          url: string
+        }
+        title: string
+      }
+    }
+    post: {
+      title: string
+      updatedAt: string
+      previewText: {
+        previewText: string
+      }
+    }
+  }
+}
+
+const BlogTemplate: FC<GetPost> = ({ data }) => {
   const {
     title,
     updatedAt,
@@ -18,7 +38,7 @@ const BlogTemplate = ({ data }) => {
 
   const options = {
     renderNode: {
-      "embedded-asset-block": (node) => {
+      "embedded-asset-block": (node: GetPost) => {
         return (
           <ContentfulImg>
             <img width="320" src={node.data.target.fields.file["en-US"].url} />

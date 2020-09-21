@@ -4,20 +4,17 @@ import { GlobalStyle, theme } from "../css/globalstyled"
 import { ThemeProvider } from "styled-components"
 import Footer from "./Footer"
 
-interface Props {
-  children?: any
-  location?: any
-}
-
-const Layout = ({ children, location }: Props) => {
-  console.log(location)
+const Layout = (props: {
+  children: React.ReactNode
+  location: Location
+}): JSX.Element => {
   return (
     <>
       <ThemeProvider theme={theme}>
         <GlobalStyle />
-        <Transition location={location}>{children}</Transition>
+        <Transition location={location}>{props.children}</Transition>
 
-        <Footer location={location} />
+        <Footer location={props.location} />
       </ThemeProvider>
     </>
   )

@@ -1,8 +1,16 @@
-import React from "react"
+import React, { FC } from "react"
 import HeroBackground from "./HeroBackground"
 import styled, { keyframes } from "styled-components"
 import { graphql, useStaticQuery, Link } from "gatsby"
-import Img from "gatsby-image"
+import Img, { GatsbyImageFixedProps } from "gatsby-image"
+
+interface GetImage {
+  file: {
+    childImageSharp: {
+      fixed: GatsbyImageFixedProps
+    }
+  }
+}
 
 const getImage = graphql`
   query {
@@ -16,8 +24,8 @@ const getImage = graphql`
   }
 `
 
-const Me = () => {
-  const data = useStaticQuery(getImage)
+const Me: FC = (): JSX.Element => {
+  const data: GetImage = useStaticQuery(getImage)
   return (
     <Cta>
       <div>

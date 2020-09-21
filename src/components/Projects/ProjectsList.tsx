@@ -1,8 +1,9 @@
-import React from "react"
+import React, { FC } from "react"
 import Project from "./Project"
 import styled from "styled-components"
+import { ProjectProps } from "./Projects"
 
-const ProjectsList = ({ projects }) => {
+const ProjectsList: FC<ProjectProps> = ({ projects }) => {
   return (
     <Container>
       <Title>My Projects. Have a look.</Title>

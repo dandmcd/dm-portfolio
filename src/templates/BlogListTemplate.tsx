@@ -1,18 +1,42 @@
-import React, { memo } from "react"
+import React, { memo, FC } from "react"
 import BlogPost from "../components/BlogPosts/BlogPost"
-import BlogPostList from "../components/BlogPosts/BlogPostList"
 import { Link, graphql } from "gatsby"
 import styled from "styled-components"
 import SEO from "../components/SEO"
+import { FluidObject } from "gatsby-image"
 
-const BlogListTemplate = (props) => {
+export interface GetPosts {
+  data: {
+    posts: {
+      edges: {
+        node: {
+          contentful_id: number
+          slug: string
+          title: string
+          updatedAt: string
+          images: {
+            fluid: FluidObject[]
+          }[]
+          previewText: {
+            previewText: string
+          }
+        }
+      }[]
+    }
+  }
+  pageContext: {
+    currentPage: number
+    numPages: number
+  }
+}
+
+const BlogListTemplate: FC<GetPosts> = (props) => {
   const { currentPage, numPages } = props.pageContext
   const isFirst = currentPage === 1
   const isLast = currentPage === numPages
   const prevPage =
     currentPage - 1 === 1 ? "/blogs" : `/blogs/${currentPage - 1}`
   const nextPage = `/blogs/${currentPage + 1}`
-
   const { data } = props
 
   return (
@@ -21,7 +45,7 @@ const BlogListTemplate = (props) => {
       <SEO title="blog" description="Random thoughts from Daniel" />
       {data.posts.edges.map(({ node }) => {
         return (
-          <BlogListing>
+          <BlogListing key={node.contentful_id}>
             <BlogPost key={node.contentful_id} blog={node} />
           </BlogListing>
         )
@@ -34,14 +58,6 @@ const BlogListTemplate = (props) => {
             </Link>
           )}
         </Prev>
-        {/* {Array.from({ length: numPages }, (_, i) => (
-          <Link
-            key={`pagination-number${i + 1}`}
-            to={`/blogs/${i === 0 ? "" : i + 1}`}
-          >
-            {i + 1}
-          </Link>
-        ))} */}
         <Next>
           {!isLast && (
             <Link to={nextPage}>

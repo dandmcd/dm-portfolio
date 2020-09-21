@@ -1,7 +1,7 @@
-import React from "react"
+import React, { FC } from "react"
 import styled from "styled-components"
 
-const Contact = () => {
+const Contact: FC = (): JSX.Element => {
   return (
     <ContactSection>
       <EmailSection>
@@ -169,8 +169,6 @@ const EmailButton = styled.a`
   display: flex;
   max-width: fit-content;
 `
-
-const Email = styled.a``
 
 const EmailHeader = styled.h1`
   font-weight: 800;

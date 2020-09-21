@@ -1,11 +1,43 @@
-import React from "react"
-import { graphql, Link } from "gatsby"
-import { BLOCKS, INLINES, MARKS } from "@contentful/rich-text-types"
+import React, { FC, Fragment } from "react"
+import { graphql } from "gatsby"
+import { BLOCKS } from "@contentful/rich-text-types"
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
 import styled from "styled-components"
 import SEO from "../components/SEO"
+import { FluidObject } from "gatsby-image"
 
-const ProjectTemplate = ({ data }) => {
+interface GetProjects {
+  data: {
+    target: {
+      fields: {
+        file: {
+          url: string
+        }
+        title: string
+      }
+    }
+    contentfulDmPortfolioProjects: {
+      title: string
+      description: {
+        json: any
+      }
+      technology: string[]
+      updatedAt: string
+      featured: boolean
+      githubLink: string
+      demoLink: string
+      preview: {
+        preview: string
+      }
+      images: {
+        fluid: FluidObject[]
+      }[]
+      slug: string
+    }
+  }
+}
+
+const ProjectTemplate: FC<GetProjects> = ({ data }) => {
   const {
     title,
     description: { json },
@@ -59,13 +91,13 @@ const ProjectTemplate = ({ data }) => {
           <PackageBox>Tech Stack:</PackageBox>
           <TechTags>
             <TagList>
-              {technology.map((tag) => (
-                <>
-                  <Tag key={tag} disabled>
+              {technology.map((tag, index) => (
+                <Fragment key={index}>
+                  <Tag as={Tag} key={tag} disabled>
                     {tag}
                   </Tag>
                   <TagLine />
-                </>
+                </Fragment>
               ))}
             </TagList>
           </TechTags>

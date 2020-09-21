@@ -4,7 +4,10 @@ import {
   Transition as ReactTransition,
 } from "react-transition-group"
 
-const Transition = ({ children, location }) => {
+const Transition = (props: {
+  children: React.ReactNode
+  location: Location
+}): JSX.Element => {
   const timeout = 200
   const getTransitionStyles = {
     entering: {
@@ -24,11 +27,13 @@ const Transition = ({ children, location }) => {
     <div>
       <TransitionGroup>
         <ReactTransition
-          key={location.pathname}
+          key={props.location.pathname}
           timeout={{ enter: timeout, exit: timeout }}
         >
           {(status) => (
-            <div style={{ ...getTransitionStyles[status] }}>{children}</div>
+            <div style={{ ...getTransitionStyles[status] }}>
+              {props.children}
+            </div>
           )}
         </ReactTransition>
       </TransitionGroup>

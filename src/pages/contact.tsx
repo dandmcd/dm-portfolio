@@ -1,23 +1,8 @@
-import React from "react"
-import { useStaticQuery, graphql } from "gatsby"
-import styled from "styled-components"
+import React, { FC } from "react"
 import Contact from "../components/Contact/Contact"
 import SEO from "../components/SEO"
 
-const getContactImg = graphql`
-  query contactImage {
-    contactImage: file(relativePath: { eq: "hero/computerguy.jpg" }) {
-      childImageSharp {
-        fluid(maxWidth: 600) {
-          ...GatsbyImageSharpFluid_tracedSVG
-        }
-      }
-    }
-  }
-`
-
-const ContactPage = () => {
-  const { contactImage } = useStaticQuery(getContactImg)
+const ContactPage: FC = (): JSX.Element => {
   return (
     <>
       <SEO title="contact" description="Get in touch" />
