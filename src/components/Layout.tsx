@@ -12,7 +12,7 @@ const Layout = (props: {
     <>
       <ThemeProvider theme={theme}>
         <GlobalStyle />
-        <Transition location={location}>{props.children}</Transition>
+        <Transition location={props.location}>{props.children}</Transition>
 
         <Footer location={props.location} />
       </ThemeProvider>
