@@ -54,6 +54,10 @@ module.exports = {
       },
     },
     {
+      resolve: `gatsby-remark-prismjs`,
+      options: {},
+    },
+    {
       resolve: `gatsby-plugin-layout`,
       options: {
         component: require.resolve(`./src/components/Layout.tsx`),

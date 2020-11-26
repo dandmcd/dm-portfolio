@@ -14,6 +14,10 @@ export interface GetPosts {
           slug: string
           title: string
           updatedAt: string
+          codeSnippet: {
+            id: number
+            codeSnippet: string
+          }
           images: {
             fluid: FluidObject[]
           }[]
@@ -132,6 +136,10 @@ export const query = graphql`
           slug
           contentful_id
           updatedAt(formatString: "MMMM Do, YYYY")
+          codeSnippet {
+            id
+            codeSnippet
+          }
           previewText {
             previewText
           }

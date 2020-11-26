@@ -75,7 +75,7 @@ const UpdatedAt = styled.h5`
   margin: 0.1em 0 0 1em;
 `
 
-const Preview = styled.h4`
+const Preview = styled.h3`
   font-weight: 400;
   padding: 0.3em 0.5em 0.5em 1em;
 `

@@ -1,8 +1,10 @@
 import React, { FC } from "react"
 import { graphql } from "gatsby"
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
+import { BLOCKS } from "@contentful/rich-text-types"
 import styled from "styled-components"
 import SEO from "../components/SEO"
+import CodeSnippet from "../components/CodeSnippet"
 
 interface GetPost {
   data: {
@@ -38,12 +40,28 @@ const BlogTemplate: FC<GetPost> = ({ data }) => {
 
   const options = {
     renderNode: {
+      [BLOCKS.HEADING_4]: (node, children) => (
+        <ContentfulHeading>{children}</ContentfulHeading>
+      ),
+      [BLOCKS.PARAGRAPH]: (node, children) => (
+        <ContentfulP>{children}</ContentfulP>
+      ),
       "embedded-asset-block": (node: GetPost) => {
         return (
           <ContentfulImg>
             <img width="320" src={node.data.target.fields.file["en-US"].url} />
             <ImgCaption>{node.data.target.fields.title["en-US"]}</ImgCaption>
           </ContentfulImg>
+        )
+      },
+      "embedded-entry-block": (node: GetPost) => {
+        console.log(node)
+        return (
+          <CodeBlock>
+            <CodeSnippet
+              markdown={node.data.target.fields.codeSnippet["en-US"]}
+            />
+          </CodeBlock>
         )
       },
     },
@@ -107,6 +125,23 @@ const Content = styled.div`
   margin-top: 0.3em;
 `
 
+const CodeBlock = styled.div`
+  padding: 0 1em 0 1em;
+`
+
+const ContentfulHeading = styled.h4`
+  border-left: 3px solid #7b6c0a;
+  padding: 0 0 0 0.2em;
+  font-size: 18px;
+  font-weight: 400;
+`
+
+const ContentfulP = styled.p`
+  font-size: 18px;
+  font-weight: 300;
+  padding: 0 1em 0 1em;
+`
+
 const RichText = styled.div`
   position: absolute;
   overflow-y: auto;
@@ -163,6 +198,10 @@ export const query = graphql`
       updatedAt(formatString: "MMMM Do, YYYY")
       previewText {
         previewText
+      }
+      codeSnippet {
+        id
+        codeSnippet
       }
       post {
         json
