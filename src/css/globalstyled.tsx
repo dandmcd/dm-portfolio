@@ -31,6 +31,9 @@ export const GlobalStyle = createGlobalStyle`
   color: #111;
   outline: none;
   }
+  button {
+    font-family: "Barlow Semi Condensed", sans-serif;
+  }
   a {
   color: #483f06;
   text-decoration: none;

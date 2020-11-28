@@ -53,7 +53,7 @@ const ProjectTemplate: FC<GetProjects> = ({ data }) => {
       "embedded-asset-block": (node) => {
         return (
           <ContentfulImg>
-            <img width="80%" src={node.data.target.fields.file["en-US"].url} />
+            <img width="320" src={node.data.target.fields.file["en-US"].url} />
             <ImgCaption>{node.data.target.fields.title["en-US"]}</ImgCaption>
           </ContentfulImg>
         )
