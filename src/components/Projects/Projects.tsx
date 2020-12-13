@@ -17,6 +17,9 @@ export interface ProjectProps {
         images: {
           fixed: FixedObject[]
         }[]
+        featuredImages: {
+          fixed: FixedObject[]
+        }[]
       }
     }[]
   }
@@ -29,6 +32,9 @@ export interface ProjectProps {
       preview: string
     }
     images: {
+      fixed: FixedObject[]
+    }[]
+    featuredImages: {
       fixed: FixedObject[]
     }[]
   }
@@ -49,6 +55,11 @@ const Projects: FC = (): JSX.Element => {
             }
             images {
               fixed(width: 480) {
+                ...GatsbyContentfulFixed
+              }
+            }
+            featuredImages: images {
+              fixed(width: 1000) {
                 ...GatsbyContentfulFixed
               }
             }

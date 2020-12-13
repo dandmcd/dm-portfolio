@@ -2,13 +2,24 @@ import React, { FC } from "react"
 import Project from "./Project"
 import styled from "styled-components"
 import { ProjectProps } from "./Projects"
+import FeaturedProject from "./FeaturedProject"
 
 const ProjectsList: FC<ProjectProps> = ({ projects }) => {
+  const featured = projects.edges.filter((edge) => edge.node.featured === true)
+  const notFeatured = projects.edges.filter(
+    (edge) => edge.node.featured === false
+  )
   return (
     <Container>
-      <Title>My Projects. Have a look.</Title>
+      <Title>Daniel's Projects</Title>
+      <FeaturedProjectContainer>
+        <FeaturedProject
+          key={featured[0].node.contentful_id}
+          project={featured[0].node}
+        />
+      </FeaturedProjectContainer>
       <ProjectsContainer>
-        {projects.edges.map(({ node }) => {
+        {notFeatured.map(({ node }) => {
           return <Project key={node.contentful_id} project={node} />
         })}
       </ProjectsContainer>
@@ -31,6 +42,16 @@ const Title = styled.h1`
   font-size: 72px;
 `
 
+const FeaturedProjectContainer = styled.div`
+  padding-top: 1em;
+  padding-bottom: 1em;
+  background-color: #414033;
+  position: relative;
+  color: #414033;
+  margin: 0 auto;
+  text-align: center;
+`
+
 const ProjectsContainer = styled.div`
   display: grid;
   z-index: 2;
@@ -41,7 +62,7 @@ const ProjectsContainer = styled.div`
   align-items: center;
   justify-items: center;
   max-width: 900px;
-  top: 2em;
+  padding: 1em 0;
   left: 50%;
   transform: translateX(-50%);
 `

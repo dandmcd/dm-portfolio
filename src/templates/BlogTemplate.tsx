@@ -55,7 +55,6 @@ const BlogTemplate: FC<GetPost> = ({ data }) => {
         )
       },
       "embedded-entry-block": (node: GetPost) => {
-        console.log(node)
         return (
           <CodeBlock>
             <CodeSnippet

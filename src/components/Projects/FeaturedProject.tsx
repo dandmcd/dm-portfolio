@@ -4,43 +4,43 @@ import Img from "gatsby-image"
 import styled from "styled-components"
 import { ProjectProps } from "./Projects"
 
-const Project: FC<ProjectProps> = ({ project }): JSX.Element => {
+const FeaturedProject: FC<ProjectProps> = ({ project }): JSX.Element => {
   const {
     title,
     slug,
     featured,
     preview: { preview },
-    images,
+    featuredImages,
   } = project
   return (
-    <>
-      <ProjectLink to={`/project/${slug}`}>
-        <Figure>
-          <FigCaption>
-            <ProjectTitle>{title}</ProjectTitle>
-            <ProjectDescription>{preview}</ProjectDescription>
-            <ProjectViewMore>View More</ProjectViewMore>
-          </FigCaption>
-          <div>
-            <ProjectImg as={ProjectImg} fixed={images[0].fixed} />
-          </div>
-        </Figure>
-      </ProjectLink>
-    </>
+    <Figure>
+      <FigCaption>
+        <ProjectTitle>
+          <ProjectLink to={`/project/${slug}`}>
+            <FeaturedSpan>Featured Project:</FeaturedSpan> {title}
+          </ProjectLink>
+        </ProjectTitle>
+        <ProjectDescription>{preview}</ProjectDescription>
+        <ProjectViewMore>
+          <ProjectLink to={`/project/${slug}`}>View More</ProjectLink>
+        </ProjectViewMore>
+      </FigCaption>
+      <div>
+        <ProjectImg as={ProjectImg} fixed={featuredImages[0].fixed} />
+      </div>
+    </Figure>
   )
 }
 
 const Figure = styled.div`
   z-index: 2;
   position: relative;
-  float: left;
   overflow: hidden;
   border-radius: 4px;
-  min-width: 420px;
-  max-width: 420px;
+  min-width: 320px;
   max-height: 360px;
-  width: 48%;
-  /* background: #3085a3; */
+  max-width: 900px;
+  margin: 0 auto;
   text-align: center;
   cursor: pointer;
   background: rgb(72, 63, 6);
@@ -49,8 +49,6 @@ const Figure = styled.div`
     rgba(72, 63, 6, 0.95) 20%,
     rgba(156, 137, 12, 0.9) 100%
   );
-  /* background: -webkit-linear-gradient(45deg, #ff89e9 0%, #05abe0 100%);
-  background: linear-gradient(45deg, #ff89e9 0%, #05abe0 100%); */
 `
 
 const FigCaption = styled.div`
@@ -82,7 +80,7 @@ const ProjectTitle = styled.h2`
     color: #414033;
   }
   letter-spacing: 2px;
-  font-size: 32px;
+  font-size: 38px;
   padding: 0.5em 0.5em;
   word-spacing: -0.15em;
   font-weight: 600;
@@ -107,6 +105,12 @@ const ProjectTitle = styled.h2`
     -webkit-transform: translate3d(0, 0, 0);
     transform: translate3d(0, 0, 0);
   }
+`
+
+const FeaturedSpan = styled.span`
+  font-weight: 700;
+  word-spacing: 0;
+  letter-spacing: 0px;
 `
 
 const ProjectViewMore = styled.h2`
@@ -170,4 +174,4 @@ const ProjectDescription = styled.p`
   }
 `
 
-export default Project
+export default FeaturedProject
