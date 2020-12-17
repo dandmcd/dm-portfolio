@@ -13,22 +13,22 @@ const FeaturedProject: FC<ProjectProps> = ({ project }): JSX.Element => {
     featuredImages,
   } = project
   return (
-    <Figure>
-      <FigCaption>
-        <ProjectTitle>
-          <ProjectLink to={`/project/${slug}`}>
-            <FeaturedSpan>Featured Project:</FeaturedSpan> {title}
-          </ProjectLink>
-        </ProjectTitle>
-        <ProjectDescription>{preview}</ProjectDescription>
-        <ProjectViewMore>
-          <ProjectLink to={`/project/${slug}`}>View More</ProjectLink>
-        </ProjectViewMore>
-      </FigCaption>
-      <div>
-        <ProjectImg as={ProjectImg} fixed={featuredImages[0].fixed} />
-      </div>
-    </Figure>
+    <>
+      <ProjectLink to={`/project/${slug}`}>
+        <Figure>
+          <FigCaption>
+            <ProjectTitle>
+              <FeaturedSpan>Featured Project:</FeaturedSpan> {title}
+            </ProjectTitle>
+            <ProjectDescription>{preview}</ProjectDescription>
+            <ProjectViewMore>View More</ProjectViewMore>
+          </FigCaption>
+          <div>
+            <ProjectImg as={ProjectImg} fixed={featuredImages[0].fixed} />
+          </div>
+        </Figure>
+      </ProjectLink>
+    </>
   )
 }
 

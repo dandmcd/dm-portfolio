@@ -4,15 +4,23 @@ import styled, { keyframes } from "styled-components"
 import { graphql, useStaticQuery, Link } from "gatsby"
 import Img, { GatsbyImageFixedProps } from "gatsby-image"
 
-interface GetImage {
+interface GetCta {
   file: {
     childImageSharp: {
       fixed: GatsbyImageFixedProps
     }
   }
+  lastEntry: {
+    edges: {
+      node: {
+        slug: string
+        title: string
+      }
+    }
+  }
 }
 
-const getImage = graphql`
+const getCta = graphql`
   query {
     file(relativePath: { eq: "hero/computerdan.jpg" }) {
       childImageSharp {
@@ -21,11 +29,20 @@ const getImage = graphql`
         }
       }
     }
+    lastEntry: allContentfulDmPortfolioBlog(limit: 1) {
+      edges {
+        node {
+          slug
+          title
+        }
+      }
+    }
   }
 `
 
 const Me: FC = (): JSX.Element => {
-  const data: GetImage = useStaticQuery(getImage)
+  const data: GetCta = useStaticQuery(getCta)
+  const lastEntry = data.lastEntry.edges[0].node
   return (
     <Cta>
       <div>
@@ -49,13 +66,14 @@ const Me: FC = (): JSX.Element => {
               objectFit: "contain",
             }}
           />
-
-          <Intro>
-            Hello, I'm Daniel McDermott, a full stack web designer / developer
-            in the United States for hire. I create full-stack web apps using
-            the latest tools like React, Gatsby and GraphQL combined with
-            PostgeSQL.
-          </Intro>
+          <IntroBox>
+            <Intro>
+              Hello, I'm Daniel McDermott, a full-stack software developer in
+              the United States for hire. I create full-stack web apps using the
+              latest tools like React, Typescript and Gatsby, backed with
+              GraphQL and SQL.
+            </Intro>
+          </IntroBox>
         </IntroSection>
 
         <CtaBtns>
@@ -67,6 +85,12 @@ const Me: FC = (): JSX.Element => {
               <Btn2>Contact</Btn2>
             </Link>
           </ButtonFlex>
+          <BlogEntry>
+            Latest Blog Entry:{" "}
+            <BlogSpan>
+              <Link to={`/blog/${lastEntry.slug}`}>{lastEntry.title}</Link>
+            </BlogSpan>
+          </BlogEntry>
         </CtaBtns>
       </Wrapper>
       <Footer></Footer>
@@ -89,7 +113,6 @@ const Cta = styled.div`
     grid-row: 1/3;
     background-color: #dfc412;
   }
-  /* margin: 0 auto; */
 `
 
 const Header = styled.header`
@@ -118,7 +141,6 @@ const Wrapper = styled.main`
   grid-row: 2 / 4;
   grid-column: 2 / 3;
   grid-column-gap: 5px;
-  min-height: 50vh;
   margin: 0 auto;
   padding: 20px;
   border-radius: 14px;
@@ -166,20 +188,26 @@ const IntroSection = styled.div`
   display: grid;
   grid-column-gap: 1em;
 `
-
-const Intro = styled.h2`
+const IntroBox = styled.div`
   grid-column: 2 / 3;
   grid-row: 1 / 2;
   position: relative;
-  color: #fff8f1;
-  font-weight: 100;
-  text-align: left;
-  margin: 0 auto;
   padding: 1em 1em;
   @media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
     grid-row: 2 /3;
     grid-column: 1 / 3;
   }
+`
+
+const Intro = styled.h2`
+  position: relative;
+  color: #fff8f1;
+  font-weight: 100;
+  text-align: left;
+  margin: 0 auto;
+  padding-left: 0.3em;
+  border-left: 3px solid #7b6c0a;
+
   @media only screen and (min-width: 1824px) {
     font-size: 28px;
   }
@@ -208,23 +236,42 @@ const CtaBtns = styled.div`
   grid-row: 2 / 3;
   position: relative;
   animation: ${fadeIn} 7s;
-  padding: 3em 3em;
+  padding: 2em 2em;
+`
+
+const BlogEntry = styled.p`
+  padding: 0.3em 0 0 0;
+  color: #dfc412;
+  text-align: center;
+  font-size: 18px;
+  line-height: 1.4;
+  a {
+    color: #fef8f5;
+    transition: color 0.6s ease;
+    &:hover {
+      color: rgba(254, 248, 245, 0.5);
+    }
+  }
+`
+
+const BlogSpan = styled.span`
+  text-indent: 1em;
 `
 
 const Btn = styled.button`
-  background-color: rgba(238, 238, 222, 0.8);
+  background-color: rgba(254, 248, 245, 0.8);
   border: 0.0625rem solid #80868b;
-
+outline: none;
   border-radius: 14px;
   text-indent: 0px;
   min-width: 156px;
-  width: 230px;
+  width: 100%;
   display: inline-block;
   color: #414033;
   font-size: 20px;
   font-weight: 600;
-  padding-top: 10px;
-  padding-bottom: 10px;
+  padding-top: 8px;
+  padding-bottom: 8px;
   padding-left: 40px;
   padding-right: 40px;
   text-decoration: none;

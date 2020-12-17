@@ -7,11 +7,9 @@ import email from "../images/e-mail.png"
 
 const Footer = ({ location }: { location: Location }): JSX.Element => {
   const [clicked, setIsClicked] = useState(false)
-
   const toggleMenu = () => {
     setIsClicked(clicked === false ? true : false)
   }
-
   return (
     <Transition in={clicked} timeout={500}>
       {(state) => (
@@ -67,7 +65,7 @@ const TooltipMenu = styled(Tooltip)`
 `
 
 const TooltipText = styled.span`
-  visibility: hidden;
+visibility: hidden;
   width: 100px;
   background-color: ${(props) =>
     props.location.pathname === "/" ? "#f9efac" : "#483f06"};
