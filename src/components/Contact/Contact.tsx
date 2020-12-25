@@ -51,7 +51,7 @@ const Form = styled.form`
   height: 490px;
   background: #fdfae5;
   border-radius: 8px;
-  margin: 3em auto 1em auto;
+  margin: 2em auto 2em auto;
   padding: 20px 30px;
   max-width: calc(100vw - 40px);
   box-sizing: border-box;
@@ -138,7 +138,7 @@ const ContactSection = styled.div`
 
 const EmailSection = styled.div`
   padding-top: 0.25em;
-  padding-bottom: 0.25em;
+  padding-bottom: 1em;
   background-color: #dfc412;
   position: relative;
   color: #414033;
@@ -157,7 +157,8 @@ const EmailButton = styled.a`
   display: inline-block;
   color: #414033;
   font-size: 14px;
-  font-weight: 400;
+  font-weight: 600;
+  letter-spacing: 1px;
   padding-top: 10px;
   padding-bottom: 10px;
   padding-left: 60px;
