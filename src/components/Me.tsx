@@ -259,7 +259,7 @@ const BlogSpan = styled.span`
 `
 
 const Btn = styled.button`
-  background-color: rgba(254, 248, 245, 0.8);
+  background-color: rgba(255, 255, 255, 0.75);
   border: 0.0625rem solid #80868b;
 outline: none;
   border-radius: 14px;

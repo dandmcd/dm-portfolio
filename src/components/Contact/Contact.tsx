@@ -150,17 +150,18 @@ const EmailDiv = styled.div`
 `
 
 const EmailButton = styled.a`
-  background-color: rgba(238, 238, 222, 0.8);
+  background-color: rgba(255, 255, 255, 0.75);
   border: 0.0625rem solid #80868b;
+  outline: none;
   border-radius: 14px;
   text-indent: 0px;
   display: inline-block;
   color: #414033;
-  font-size: 14px;
+  font-size: 20px;
   font-weight: 600;
   letter-spacing: 1px;
-  padding-top: 10px;
-  padding-bottom: 10px;
+  padding-top: 8px;
+  padding-bottom: 8px;
   padding-left: 60px;
   padding-right: 60px;
   text-decoration: none;
@@ -169,6 +170,13 @@ const EmailButton = styled.a`
   text-align: center;
   display: flex;
   max-width: fit-content;
+  cursor: pointer;
+  transition: background-color .6s ease;
+  &:hover {
+    background-color: rgba(238, 238, 222, 0.5);
+  @media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
+    width: 120px;
+  }
 `
 
 const EmailHeader = styled.h1`

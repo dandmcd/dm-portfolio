@@ -69,13 +69,13 @@ const BlogTemplate: FC<GetPost> = ({ data }) => {
   return (
     <>
       <SEO title={title} description={previewText} />
-      <RichText>
-        <Wrapper>
-          <BlogTitle>{title}</BlogTitle>
+      <Wrapper>
+        <BlogTitle>{title}</BlogTitle>
+        <ContentWrapper>
           <UpdatedAt>Date: {updatedAt}</UpdatedAt>
           <Content>{documentToReactComponents(json, options)}</Content>
-        </Wrapper>
-      </RichText>
+        </ContentWrapper>
+      </Wrapper>
       <GoBackBlock>
         <GoBack onClick={goBack}>
           <Arrow></Arrow>Return to previous page
@@ -112,12 +112,14 @@ const Arrow = styled.i`
 `
 
 const BlogTitle = styled.h1`
-  margin: 0.2em auto 0.2em auto;
+  margin: 0 auto;
+  padding: 0.3em 0.3em;
   letter-spacing: 1px;
+  background-color: #f5e269;
 `
 const UpdatedAt = styled.h4`
   color: #706d57;
-  margin: 0 auto 0 1em;
+  margin: 0.3em auto 0 1em;
 `
 
 const Content = styled.div`
@@ -125,33 +127,37 @@ const Content = styled.div`
 `
 
 const CodeBlock = styled.div`
-  padding: 0 1em 0 1em;
+  padding: 0 2em 0 2em;
 `
 
 const ContentfulHeading = styled.h4`
   border-left: 3px solid #7b6c0a;
+  background-color: #f9efac;
+  border-radius: 0 4px 4px 0;
   padding: 0 0 0 0.2em;
   font-size: 18px;
-  font-weight: 400;
+  font-weight: 600;
+  letter-spacing: 0.2px;
 `
 
 const ContentfulP = styled.p`
   font-size: 18px;
   font-weight: 300;
-  padding: 0 1em 0 1em;
 `
 
-const RichText = styled.div`
+const Wrapper = styled.div`
   position: absolute;
   overflow-y: auto;
   left: 50%;
-  padding: 0 3em 0 3em;
 
   top: 30%;
   transform: translate(-50%, -30%);
   border-radius: 14px;
   width: 60vw;
   height: 80vh;
+  @media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
+    width: 100vw;
+  }
   background-color: #fdfae5;
   ::-webkit-scrollbar {
     width: 3px;
@@ -188,7 +194,9 @@ const RichText = styled.div`
   }
 `
 
-const Wrapper = styled.div``
+const ContentWrapper = styled.div`
+  padding: 0 3em 0 3em;
+`
 
 export const query = graphql`
   query getPost($slug: String!) {
