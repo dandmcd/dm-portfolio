@@ -1,57 +1,6 @@
-import React, { useState } from "react"
-import { Link } from "gatsby"
-import links from "../constants/links"
 import styled, { keyframes } from "styled-components"
-import { Transition } from "react-transition-group"
-import email from "../images/e-mail.png"
 
-const Footer = ({ location }: { location: Location }): JSX.Element => {
-  const [clicked, setIsClicked] = useState(false)
-  const toggleMenu = () => {
-    setIsClicked(clicked === false ? true : false)
-  }
-  return (
-    <Transition in={clicked} timeout={500}>
-      {(state) => (
-        <>
-          <Tooltip>
-            <Link to="/contact">
-              <Email as={Email} src={email} state={state} alt="Email" />
-            </Link>
-            <TooltipText as={TooltipText} clicked={clicked} location={location}>
-              Contact Me
-            </TooltipText>
-          </Tooltip>
-          <TooltipMenu>
-            <Float state={state} onClick={toggleMenu} id="menu-share">
-              <MyFloat>
-                <Hamburger as={Hamburger} clicked={clicked}>
-                  <span></span>
-                  <span></span>
-                  <span></span>
-                </Hamburger>
-              </MyFloat>
-            </Float>
-            <TooltipText as={TooltipText} clicked={clicked} location={location}>
-              Menu
-            </TooltipText>
-          </TooltipMenu>
-          <List as={List} location={location} state={state}>
-            {links.map((item, index) => {
-              return (
-                <ListItem as={ListItem} clicked={clicked} key={index}>
-                  <Link to={item.path}>{item.text}</Link>
-                </ListItem>
-              )
-            })}
-          </List>
-        </>
-      )}
-    </Transition>
-  )
-}
-
-const Tooltip = styled.div`
+export const Tooltip = styled.div`
   position: fixed;
   display: inline-block;
   width: 40px;
@@ -60,12 +9,12 @@ const Tooltip = styled.div`
   z-index: 1000;
 `
 
-const TooltipMenu = styled(Tooltip)`
+export const TooltipMenu = styled(Tooltip)`
   bottom: 140px;
 `
 
-const TooltipText = styled.span`
-visibility: hidden;
+export const TooltipText = styled.span`
+  visibility: hidden;
   width: 100px;
   background-color: ${(props) =>
     props.location.pathname === "/" ? "#f9efac" : "#483f06"};
@@ -81,44 +30,45 @@ visibility: hidden;
     visibility: ${(props) => (props.clicked ? "hidden" : "visible")};
   }
   ::after {
-  content: " ";
-  position: absolute;
-  top: 100%;
-  left: 50%; 
-  border-width: 5px;
-  border-style: solid;
-  border-color: black transparent transparent transparent;
-`
-
-const swing = keyframes`
-
-  15% {
-    -webkit-transform: translateX(2px);
-    transform: translateX(2px);
-  }
-  30% {
-    -webkit-transform: translateX(-2px);
-    transform: translateX(-2px);
-  }
-  50% {
-    -webkit-transform: translateX(1px);
-    transform: translateX(1px);
-  }
-  65% {
-    -webkit-transform: translateX(-1px);
-    transform: translateX(-1px);
-  }
-  80% {
-    -webkit-transform: translateX(0.5px);
-    transform: translateX(0.5px);
-  }
-  100% {
-    -webkit-transform: translateX(0);
-    transform: translateX(0);
+    content: " ";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    border-width: 5px;
+    border-style: solid;
+    border-color: black transparent transparent transparent;
   }
 `
 
-const Float = styled.a`
+export const swing = keyframes`
+
+15% {
+  -webkit-transform: translateX(2px);
+  transform: translateX(2px);
+}
+30% {
+  -webkit-transform: translateX(-2px);
+  transform: translateX(-2px);
+}
+50% {
+  -webkit-transform: translateX(1px);
+  transform: translateX(1px);
+}
+65% {
+  -webkit-transform: translateX(-1px);
+  transform: translateX(-1px);
+}
+80% {
+  -webkit-transform: translateX(0.5px);
+  transform: translateX(0.5px);
+}
+100% {
+  -webkit-transform: translateX(0);
+  transform: translateX(0);
+}
+`
+
+export const Float = styled.a`
   position: fixed;
   width: ${({ state }) => (state === "entered" ? "20px" : "60px")};
   height: ${({ state }) => (state === "entered" ? "20px" : "60px")};
@@ -142,12 +92,7 @@ const Float = styled.a`
   }
 `
 
-const FloatEmail = styled(Float)`
-  width: 50;
-  height: 50;
-`
-
-const Email = styled.img`
+export const Email = styled.img`
   position: fixed;
   width: 40px;
   bottom: 120px;
@@ -164,7 +109,7 @@ const Email = styled.img`
   }
 `
 
-const Hamburger = styled.div`
+export const Hamburger = styled.div`
   width: 35px;
   height: 30px;
   cursor: pointer;
@@ -204,11 +149,11 @@ const Hamburger = styled.div`
   }
 `
 
-const MyFloat = styled.div`
+export const MyFloat = styled.div`
   display: inline-block;
 `
 
-const List = styled.ul`
+export const List = styled.ul`
   position: fixed;
   right: 20px;
   border-radius: 14px;
@@ -230,7 +175,7 @@ const List = styled.ul`
   }
 `
 
-const ListItem = styled.li`
+export const ListItem = styled.li`
   display: ${(props) => (props.clicked ? "block" : "none")};
   list-style: none;
   font-size: 24px;
@@ -246,5 +191,3 @@ const ListItem = styled.li`
     opacity: 1 !important;
   }
 `
-
-export default Footer

@@ -1,6 +1,6 @@
 import React, { FC } from "react"
 import { useStaticQuery, graphql } from "gatsby"
-import ProjectsList from "./ProjectsList"
+import ProjectsList from "../ProjectsList/ProjectsList"
 import { FixedObject } from "gatsby-image"
 
 export interface ProjectProps {
@@ -21,21 +21,6 @@ export interface ProjectProps {
           fixed: FixedObject[]
         }[]
       }
-    }[]
-  }
-  project: {
-    title: string
-    slug: string
-    contentful_id: number
-    featured: boolean
-    preview: {
-      preview: string
-    }
-    images: {
-      fixed: FixedObject[]
-    }[]
-    featuredImages: {
-      fixed: FixedObject[]
     }[]
   }
 }

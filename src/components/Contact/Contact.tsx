@@ -1,16 +1,31 @@
 import React, { FC } from "react"
-import styled from "styled-components"
+
+import {
+  Form,
+  Input,
+  InputMsg,
+  EmailSmHeader,
+  EmailExSmHeader,
+  P,
+  SubmitButton,
+  ContactSection,
+  EmailSection,
+  EmailDiv,
+  EmailButton,
+} from "./style"
+
+import { CommonTitle } from "../../css/styledCommon"
 
 const Contact: FC = (): JSX.Element => {
   return (
     <ContactSection>
+      <CommonTitle>Let's get in touch.</CommonTitle>
       <EmailSection>
-        <EmailHeader>Let's get in touch.</EmailHeader>
         <EmailDiv>
           <EmailSmHeader>Contact me by email:</EmailSmHeader>
-          <EmailButton href="mailto:mail@danielmcdermott.me">
-            mail@danielmcdermott.me
-          </EmailButton>
+          <form action="mailto:mail@danielmcdermott.me">
+            <EmailButton type="submit">mail@danielmcdermott.me</EmailButton>
+          </form>
         </EmailDiv>
       </EmailSection>
 
@@ -45,144 +60,5 @@ const Contact: FC = (): JSX.Element => {
     </ContactSection>
   )
 }
-
-const Form = styled.form`
-  width: 340px;
-  height: 490px;
-  background: #fdfae5;
-  border-radius: 8px;
-  margin: 2em auto 2em auto;
-  padding: 20px 30px;
-  max-width: calc(100vw - 40px);
-  box-sizing: border-box;
-  position: relative;
-`
-
-const Input = styled.input`
-  width: 100%;
-  padding: 10px;
-  box-sizing: border-box;
-  background: none;
-  outline: none;
-  resize: none;
-  border: 0;
-  transition: all 0.3s;
-  border-bottom: 2px solid #a4a089;
-  :focus {
-    border-bottom: 2px solid #414033;
-  }
-`
-
-const InputMsg = styled.textarea`
-  width: 100%;
-  margin-top: 10px;
-  padding: 10px;
-  box-sizing: border-box;
-  background: none;
-  outline: none;
-  resize: none;
-  border: 0;
-  transition: all 0.3s;
-  border: 2px solid #a4a089;
-  :focus {
-    border: 2px solid #414033;
-  }
-`
-
-const EmailSmHeader = styled.h2`
-  text-align: center;
-`
-
-const EmailExSmHeader = styled.h3`
-  text-align: center;
-`
-
-const P = styled.p`
-  :before {
-    content: attr(type);
-    display: block;
-    margin: 28px 0 0;
-    font-size: 16px;
-    color: #5a5a5a;
-  }
-`
-
-const SubmitButton = styled.button`
-  float: right;
-  background-color: rgba(250, 249, 249, 0.8);
-  border: 2px solid #b6b4a1;
-  border-radius: 20px;
-  text-indent: 0px;
-  color: #414033;
-  font-size: 12px;
-  font-weight: bold;
-  padding-top: 10px;
-  padding-bottom: 10px;
-  padding-left: 60px;
-  padding-right: 60px;
-  text-decoration: none;
-  position: relative;
-  margin: 0 auto;
-  text-align: center;
-  cursor: pointer;
-  transition: all 0.3s;
-  :hover {
-    background: #78788c;
-    color: #fff;
-  }
-`
-
-const ContactSection = styled.div`
-  max-width: 100vw;
-`
-
-const EmailSection = styled.div`
-  padding-top: 0.25em;
-  padding-bottom: 1em;
-  background-color: #dfc412;
-  position: relative;
-  color: #414033;
-  margin: 0 auto;
-`
-
-const EmailDiv = styled.div`
-  position: relative;
-`
-
-const EmailButton = styled.a`
-  background-color: rgba(255, 255, 255, 0.75);
-  border: 0.0625rem solid #80868b;
-  outline: none;
-  border-radius: 14px;
-  text-indent: 0px;
-  display: inline-block;
-  color: #414033;
-  font-size: 20px;
-  font-weight: 600;
-  letter-spacing: 1px;
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 60px;
-  padding-right: 60px;
-  text-decoration: none;
-  position: relative;
-  margin: 0 auto;
-  text-align: center;
-  display: flex;
-  max-width: fit-content;
-  cursor: pointer;
-  transition: background-color .6s ease;
-  &:hover {
-    background-color: rgba(238, 238, 222, 0.5);
-  @media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
-    width: 120px;
-  }
-`
-
-const EmailHeader = styled.h1`
-  font-weight: 800;
-  text-align: center;
-  font-size: 72px;
-`
 
 export default Contact

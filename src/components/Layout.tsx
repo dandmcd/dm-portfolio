@@ -2,7 +2,7 @@ import React from "react"
 import Transition from "./Transition"
 import { GlobalStyle, theme } from "../css/globalstyled"
 import { ThemeProvider } from "styled-components"
-import Footer from "./Footer"
+import Footer from "./Footer/Footer"
 
 const Layout = (props: {
   children: React.ReactNode

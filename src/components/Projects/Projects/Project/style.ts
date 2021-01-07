@@ -1,36 +1,8 @@
-import React, { FC } from "react"
+import styled from "styled-components"
 import { Link } from "gatsby"
 import Img from "gatsby-image"
-import styled from "styled-components"
-import { ProjectProps } from "./Projects"
 
-const Project: FC<ProjectProps> = ({ project }): JSX.Element => {
-  const {
-    title,
-    slug,
-    featured,
-    preview: { preview },
-    images,
-  } = project
-  return (
-    <>
-      <ProjectLink to={`/project/${slug}`}>
-        <Figure>
-          <FigCaption>
-            <ProjectTitle>{title}</ProjectTitle>
-            <ProjectDescription>{preview}</ProjectDescription>
-            <ProjectViewMore>View More</ProjectViewMore>
-          </FigCaption>
-          <div>
-            <ProjectImg as={ProjectImg} fixed={images[0].fixed} />
-          </div>
-        </Figure>
-      </ProjectLink>
-    </>
-  )
-}
-
-const Figure = styled.div`
+export const Figure = styled.div`
   z-index: 2;
   position: relative;
   float: left;
@@ -40,7 +12,6 @@ const Figure = styled.div`
   max-width: 420px;
   max-height: 360px;
   width: 48%;
-  /* background: #3085a3; */
   text-align: center;
   cursor: pointer;
   background: rgb(72, 63, 6);
@@ -49,11 +20,9 @@ const Figure = styled.div`
     rgba(72, 63, 6, 0.95) 20%,
     rgba(156, 137, 12, 0.9) 100%
   );
-  /* background: -webkit-linear-gradient(45deg, #ff89e9 0%, #05abe0 100%);
-  background: linear-gradient(45deg, #ff89e9 0%, #05abe0 100%); */
 `
 
-const FigCaption = styled.div`
+export const FigCaption = styled.div`
   display: grid;
   position: absolute;
   z-index: 2;
@@ -75,7 +44,7 @@ const FigCaption = styled.div`
   }
 `
 
-const ProjectTitle = styled.h2`
+export const ProjectTitle = styled.h2`
   grid-row: 1 / 2;
   margin: 0;
   a {
@@ -109,7 +78,7 @@ const ProjectTitle = styled.h2`
   }
 `
 
-const ProjectViewMore = styled.h2`
+export const ProjectViewMore = styled.h2`
   background-color: rgba(255, 255, 255, 0.6);
 a {
   font-weight: 400;
@@ -130,9 +99,9 @@ a {
     transform: translate3d(0, 0, 0);
 `
 
-const ProjectLink = styled(Link)``
+export const ProjectLink = styled(Link)``
 
-const ProjectImg = styled(Img)`
+export const ProjectImg = styled(Img)`
   grid-row: 1 / 4;
   min-height: 100%;
   max-width: 100%;
@@ -151,7 +120,7 @@ const ProjectImg = styled(Img)`
   }
 `
 
-const ProjectDescription = styled.p`
+export const ProjectDescription = styled.p`
   grid-row: 2 / 4;
   color: #faf9f8;
   margin: 1em;
@@ -169,5 +138,3 @@ const ProjectDescription = styled.p`
     transform: translate3d(0, 0, 0);
   }
 `
-
-export default Project

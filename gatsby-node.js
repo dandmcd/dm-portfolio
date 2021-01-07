@@ -25,7 +25,9 @@ module.exports.createPages = async ({ graphql, actions }) => {
   data.projects.edges.forEach(({ node }) => {
     createPage({
       path: `project/${node.slug}`,
-      component: path.resolve("./src/templates/ProjectTemplate.tsx"),
+      component: path.resolve(
+        "./src/templates/ProjectTemplate/ProjectTemplate.tsx"
+      ),
       context: {
         slug: node.slug,
       },
@@ -35,7 +37,7 @@ module.exports.createPages = async ({ graphql, actions }) => {
   data.posts.edges.forEach(({ node }) => {
     createPage({
       path: `blog/${node.slug}`,
-      component: path.resolve("./src/templates/BlogTemplate.tsx"),
+      component: path.resolve("./src/templates//BlogTemplate/BlogTemplate.tsx"),
       context: {
         slug: node.slug,
       },
@@ -48,7 +50,9 @@ module.exports.createPages = async ({ graphql, actions }) => {
   Array.from({ length: numPages }).forEach((_, i) => {
     createPage({
       path: i === 0 ? `/blogs` : `/blogs/${i + 1}`,
-      component: path.resolve("./src/templates/BlogListTemplate.tsx"),
+      component: path.resolve(
+        "./src/templates//BlogListTemplate/BlogListTemplate.tsx"
+      ),
       context: {
         limit: postsPerPage,
         skip: i * postsPerPage,

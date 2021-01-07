@@ -1,9 +1,18 @@
 import React, { memo, FC } from "react"
-import BlogPost from "../components/BlogPosts/BlogPost"
+import BlogPost from "../../components/BlogPosts/BlogPost"
 import { Link, graphql } from "gatsby"
-import styled from "styled-components"
-import SEO from "../components/SEO"
+import SEO from "../../components/SEO"
 import { FluidObject } from "gatsby-image"
+
+import {
+  BlogListing,
+  PageTurner,
+  Title,
+  Prev,
+  Next,
+  ArrowLeft,
+  ArrowRight,
+} from "./style"
 
 export interface GetPosts {
   data: {
@@ -33,6 +42,37 @@ export interface GetPosts {
     numPages: number
   }
 }
+
+export const query = graphql`
+  query getPosts($skip: Int!, $limit: Int) {
+    posts: allContentfulDmPortfolioBlog(
+      skip: $skip
+      limit: $limit
+      sort: { fields: updatedAt, order: DESC }
+    ) {
+      edges {
+        node {
+          title
+          slug
+          contentful_id
+          updatedAt(formatString: "MMMM Do, YYYY")
+          codeSnippet {
+            id
+            codeSnippet
+          }
+          previewText {
+            previewText
+          }
+          images {
+            fluid(maxWidth: 700) {
+              ...GatsbyContentfulFluid
+            }
+          }
+        }
+      }
+    }
+  }
+`
 
 const BlogListTemplate: FC<GetPosts> = (props) => {
   const { currentPage, numPages } = props.pageContext
@@ -73,85 +113,5 @@ const BlogListTemplate: FC<GetPosts> = (props) => {
     </>
   )
 }
-
-const BlogListing = styled.div`
-  margin: 1em auto 0 auto;
-  :nth-child(odd) {
-    background-color: #f5e269;
-  }
-  :nth-child(even) {
-    background-color: #f9efac;
-  }
-`
-const PageTurner = styled.div`
-  display: flex;
-  justify-content: center;
-`
-
-const Title = styled.h1`
-  padding-top: 0.25em;
-  padding-bottom: 0.25em;
-  background-color: #dfc412;
-  position: relative;
-  color: #414033;
-  margin: 0 auto;
-  font-weight: 800;
-  text-align: center;
-  font-size: 72px;
-`
-
-const Prev = styled.div`
-  padding: 1em;
-`
-const Next = styled.div`
-  padding: 1em;
-`
-
-const ArrowLeft = styled.i`
-  border: solid #706d57;
-  border-width: 0 2px 2px 0;
-  display: inline-block;
-  padding: 4px;
-  transform: rotate(135deg);
-`
-
-const ArrowRight = styled.i`
-  border: solid #706d57;
-  border-width: 0 2px 2px 0;
-  display: inline-block;
-  padding: 4px;
-  transform: rotate(-45deg);
-`
-
-export const query = graphql`
-  query getPosts($skip: Int!, $limit: Int) {
-    posts: allContentfulDmPortfolioBlog(
-      skip: $skip
-      limit: $limit
-      sort: { fields: updatedAt, order: DESC }
-    ) {
-      edges {
-        node {
-          title
-          slug
-          contentful_id
-          updatedAt(formatString: "MMMM Do, YYYY")
-          codeSnippet {
-            id
-            codeSnippet
-          }
-          previewText {
-            previewText
-          }
-          images {
-            fluid(maxWidth: 700) {
-              ...GatsbyContentfulFluid
-            }
-          }
-        }
-      }
-    }
-  }
-`
 
 export default memo(BlogListTemplate)

@@ -32,7 +32,7 @@ const HeroBackground = ({ className }: { className: string }) => {
 }
 
 export default styled(HeroBackground)`
-  width: 100vw;
+  width: 100%;
   z-index: -100;
   height: 100vh;
   display: block;

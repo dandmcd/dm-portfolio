@@ -1,38 +1,8 @@
-import React, { FC } from "react"
-import { Link } from "gatsby"
-import Img from "gatsby-image"
 import styled from "styled-components"
-import { ProjectProps } from "./Projects"
+import Img from "gatsby-image"
+import { Link } from "gatsby"
 
-const FeaturedProject: FC<ProjectProps> = ({ project }): JSX.Element => {
-  const {
-    title,
-    slug,
-    featured,
-    preview: { preview },
-    featuredImages,
-  } = project
-  return (
-    <>
-      <ProjectLink to={`/project/${slug}`}>
-        <Figure>
-          <FigCaption>
-            <ProjectTitle>
-              <FeaturedSpan>Featured Project:</FeaturedSpan> {title}
-            </ProjectTitle>
-            <ProjectDescription>{preview}</ProjectDescription>
-            <ProjectViewMore>View More</ProjectViewMore>
-          </FigCaption>
-          <div>
-            <ProjectImg as={ProjectImg} fixed={featuredImages[0].fixed} />
-          </div>
-        </Figure>
-      </ProjectLink>
-    </>
-  )
-}
-
-const Figure = styled.div`
+export const Figure = styled.div`
   z-index: 2;
   position: relative;
   overflow: hidden;
@@ -51,7 +21,7 @@ const Figure = styled.div`
   );
 `
 
-const FigCaption = styled.div`
+export const FigCaption = styled.div`
   display: grid;
   position: absolute;
   z-index: 2;
@@ -73,7 +43,7 @@ const FigCaption = styled.div`
   }
 `
 
-const ProjectTitle = styled.h2`
+export const ProjectTitle = styled.h2`
   grid-row: 1 / 2;
   margin: 0;
   a {
@@ -107,20 +77,20 @@ const ProjectTitle = styled.h2`
   }
 `
 
-const FeaturedSpan = styled.span`
+export const FeaturedSpan = styled.span`
   font-weight: 700;
   word-spacing: 0;
   letter-spacing: 0px;
 `
 
-const ProjectViewMore = styled.h2`
-  background-color: rgba(255, 255, 255, 0.6);
-a {
-  font-weight: 400;
-}
-  padding: 0.5em 0.5em;
+export const ProjectViewMore = styled.h2`
+  background-color: rgba(255, 249, 248, 0.85);
+  a {
+    font-weight: 400;
+  }
+  padding: 0.5em 0.7em;
   word-spacing: -0.1em;
-  font-weight: 300;
+  font-weight: 200;
   position: relative;
   overflow: hidden;
   opacity: 0;
@@ -132,11 +102,12 @@ a {
     opacity: 1;
     -webkit-transform: translate3d(0, 0, 0);
     transform: translate3d(0, 0, 0);
+  }
 `
 
-const ProjectLink = styled(Link)``
+export const ProjectLink = styled(Link)``
 
-const ProjectImg = styled(Img)`
+export const ProjectImg = styled(Img)`
   grid-row: 1 / 4;
   min-height: 100%;
   max-width: 100%;
@@ -155,7 +126,7 @@ const ProjectImg = styled(Img)`
   }
 `
 
-const ProjectDescription = styled.p`
+export const ProjectDescription = styled.p`
   grid-row: 2 / 4;
   color: #faf9f8;
   margin: 1em;
@@ -173,5 +144,3 @@ const ProjectDescription = styled.p`
     transform: translate3d(0, 0, 0);
   }
 `
-
-export default FeaturedProject

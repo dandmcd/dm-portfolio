@@ -1,5 +1,5 @@
 import React from "react"
-import Me from "../components/Me"
+import Me from "../components/Me/Me"
 import SEO from "../components/SEO"
 
 export default (): JSX.Element => {
