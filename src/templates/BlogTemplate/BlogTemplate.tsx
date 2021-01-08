@@ -1,6 +1,10 @@
+/* eslint-disable react/display-name */
 import React, { FC } from "react"
 import { graphql } from "gatsby"
-import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
+import {
+  ContentfulRichTextGatsbyReference,
+  renderRichText,
+} from "gatsby-source-contentful/rich-text"
 import { BLOCKS } from "@contentful/rich-text-types"
 import SEO from "../../components/SEO"
 import CodeSnippet from "../../components/CodeSnippet"
@@ -23,19 +27,27 @@ import {
 
 interface GetPost {
   data: {
-    target: {
-      fields: {
-        file: {
-          url: string
-        }
-        title: string
-      }
-    }
-    post: {
+    blogPost: {
       title: string
       updatedAt: string
       previewText: {
         previewText: string
+      }
+      post: {
+        raw: string
+      }
+    }
+  }
+}
+interface ContentfulProps {
+  data: {
+    target: {
+      file: {
+        url: string
+      }
+      title: string
+      codeSnippet: {
+        codeSnippet: string
       }
     }
   }
@@ -43,18 +55,35 @@ interface GetPost {
 
 export const query = graphql`
   query getPost($slug: String!) {
-    post: contentfulDmPortfolioBlog(slug: { eq: $slug }) {
+    blogPost: contentfulDmPortfolioBlog(slug: { eq: $slug }) {
       title
       updatedAt(formatString: "MMMM Do, YYYY")
       previewText {
         previewText
       }
-      codeSnippet {
-        id
-        codeSnippet
-      }
       post {
-        json
+        raw
+        references {
+          ... on ContentfulCodeSnippets {
+            id
+            codeSnippet {
+              codeSnippet
+            }
+            __typename
+          }
+          ... on ContentfulEntry {
+            contentful_id
+            __typename
+          }
+          ... on ContentfulAsset {
+            contentful_id
+            title
+            file {
+              url
+            }
+            __typename
+          }
+        }
       }
     }
   }
@@ -65,8 +94,8 @@ const BlogTemplate: FC<GetPost> = ({ data }) => {
     title,
     updatedAt,
     previewText: { previewText },
-    post: { json },
-  } = data.post
+    post,
+  } = data.blogPost
 
   const goBack = () => {
     window.history.back()
@@ -74,26 +103,26 @@ const BlogTemplate: FC<GetPost> = ({ data }) => {
 
   const options = {
     renderNode: {
-      [BLOCKS.HEADING_4]: (node, children) => (
-        <ContentfulHeading>{children}</ContentfulHeading>
-      ),
-      [BLOCKS.PARAGRAPH]: (node, children) => (
-        <ContentfulP>{children}</ContentfulP>
-      ),
-      "embedded-asset-block": (node: GetPost) => {
+      [BLOCKS.HEADING_4]: (
+        node: ContentfulProps,
+        children: ContentfulRichTextGatsbyReference
+      ) => <ContentfulHeading>{children}</ContentfulHeading>,
+      [BLOCKS.PARAGRAPH]: (
+        node: ContentfulProps,
+        children: ContentfulRichTextGatsbyReference
+      ) => <ContentfulP>{children}</ContentfulP>,
+      [BLOCKS.EMBEDDED_ASSET]: (node: ContentfulProps) => {
         return (
           <ContentfulImg>
-            <img width="320" src={node.data.target.fields.file["en-US"].url} />
-            <ImgCaption>{node.data.target.fields.title["en-US"]}</ImgCaption>
+            <img width="320" src={node.data.target.file.url} />
+            <ImgCaption>{node.data.target.title}</ImgCaption>
           </ContentfulImg>
         )
       },
-      "embedded-entry-block": (node: GetPost) => {
+      [BLOCKS.EMBEDDED_ENTRY]: (node: ContentfulProps) => {
         return (
           <CodeBlock>
-            <CodeSnippet
-              markdown={node.data.target.fields.codeSnippet["en-US"]}
-            />
+            <CodeSnippet markdown={node.data.target.codeSnippet.codeSnippet} />
           </CodeBlock>
         )
       },
@@ -107,7 +136,7 @@ const BlogTemplate: FC<GetPost> = ({ data }) => {
         <BlogTitle>{title}</BlogTitle>
         <ContentWrapper>
           <UpdatedAt>Date: {updatedAt}</UpdatedAt>
-          <Content>{documentToReactComponents(json, options)}</Content>
+          <Content>{post && renderRichText(post, options)}</Content>
         </ContentWrapper>
       </Wrapper>
       <GoBackBlock>

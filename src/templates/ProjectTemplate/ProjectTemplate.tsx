@@ -1,7 +1,11 @@
+/* eslint-disable react/display-name */
 import React, { FC, Fragment } from "react"
 import { graphql } from "gatsby"
 import { BLOCKS } from "@contentful/rich-text-types"
-import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
+import {
+  ContentfulRichTextGatsbyReference,
+  renderRichText,
+} from "gatsby-source-contentful/rich-text"
 import { FluidObject } from "gatsby-image"
 
 import SEO from "../../components/SEO"
@@ -28,20 +32,22 @@ import {
   TagLine,
 } from "./style"
 
-interface GetProjects {
+interface ContentfulProps {
   data: {
     target: {
-      fields: {
-        file: {
-          url: string
-        }
-        title: string
+      file: {
+        url: string
       }
+      title: string
     }
+  }
+}
+interface GetProjects {
+  data: {
     contentfulDmPortfolioProjects: {
       title: string
       description: {
-        json: any
+        raw: string
       }
       technology: string[]
       updatedAt: string
@@ -64,7 +70,17 @@ export const query = graphql`
     contentfulDmPortfolioProjects(slug: { eq: $slug }) {
       title
       description {
-        json
+        raw
+        references {
+          ... on ContentfulAsset {
+            contentful_id
+            title
+            file {
+              url
+            }
+            __typename
+          }
+        }
       }
       technology
       updatedAt(formatString: "MMMM Do, YYYY")
@@ -87,7 +103,7 @@ export const query = graphql`
 const ProjectTemplate: FC<GetProjects> = ({ data }) => {
   const {
     title,
-    description: { json },
+    description,
     technology,
     preview: { preview },
     githubLink,
@@ -97,27 +113,31 @@ const ProjectTemplate: FC<GetProjects> = ({ data }) => {
 
   const options = {
     renderNode: {
-      "embedded-asset-block": (node) => {
+      [BLOCKS.EMBEDDED_ASSET]: (node: ContentfulProps) => {
         return (
           <ContentfulImg>
-            <img width="320" src={node.data.target.fields.file["en-US"].url} />
-            <ImgCaption>{node.data.target.fields.title["en-US"]}</ImgCaption>
+            <img width="320" src={node.data.target.file.url} />
+            <ImgCaption>{node.data.target.title}</ImgCaption>
           </ContentfulImg>
         )
       },
-      [BLOCKS.HEADING_2]: (node, children) => (
-        <ContentfulHeading>{children}</ContentfulHeading>
-      ),
-      [BLOCKS.PARAGRAPH]: (node, children) => (
-        <ContentfulP>{children}</ContentfulP>
-      ),
+      [BLOCKS.HEADING_2]: (
+        node: ContentfulProps,
+        children: ContentfulRichTextGatsbyReference
+      ) => <ContentfulHeading>{children}</ContentfulHeading>,
+      [BLOCKS.PARAGRAPH]: (
+        node: ContentfulProps,
+        children: ContentfulRichTextGatsbyReference
+      ) => <ContentfulP>{children}</ContentfulP>,
     },
   }
   return (
     <Container>
       <SEO title={title} description={preview} />
       <Grid>
-        <ContentSide>{documentToReactComponents(json, options)}</ContentSide>
+        <ContentSide>
+          {description && renderRichText(description, options)}
+        </ContentSide>
         <SideBar>
           <LinkSection>
             <ProjectTitle>{title}</ProjectTitle>
