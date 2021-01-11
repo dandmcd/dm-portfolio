@@ -5,7 +5,7 @@ export const Form = styled.form`
   width: 340px;
   height: 490px;
   background: #fdfae5;
-  border-radius: 8px;
+  border-radius: 1em;
   margin: 2em auto 2em auto;
   padding: 20px 30px;
   max-width: calc(100vw - 40px);

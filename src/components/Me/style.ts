@@ -47,7 +47,7 @@ export const Wrapper = styled.main`
   grid-column-gap: 5px;
   margin: 0 auto;
   padding: 20px;
-  border-radius: 14px;
+  border-radius: 1em;
   box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.25);
   backdrop-filter: blur(5px) brightness(80%);
   z-index: 50;
@@ -158,7 +158,7 @@ export const Btn = styled.button`
   background-color: rgba(255, 255, 255, 0.75);
   border: 0.0625rem solid #80868b;
   outline: none;
-  border-radius: 14px;
+  border-radius: 1em;
   text-indent: 0px;
   min-width: 156px;
   width: 100%;

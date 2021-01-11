@@ -23,7 +23,7 @@ export const TooltipText = styled.span`
 
   text-align: center;
   padding: 5px 0;
-  border-radius: 6px;
+  border-radius: 0.5em;
   position: absolute;
   z-index: 5000;
   ${Tooltip}:hover & {
@@ -75,7 +75,7 @@ export const Float = styled.a`
   bottom: ${({ state }) => (state === "entered" ? "60px" : "40px")};
   right: ${({ state }) => (state === "entered" ? "40px" : "20px")};
   background-color: #efd318;
-  border-radius: 14px;
+  border-radius: 1em;
   text-align: center;
   cursor: pointer;
   box-shadow: 2px 2px 3px #483f06;
@@ -156,7 +156,7 @@ export const MyFloat = styled.div`
 export const List = styled.ul`
   position: fixed;
   right: 20px;
-  border-radius: 14px;
+  border-radius: 1em;
   padding: 0 0.2em 0 0.2em;
   bottom: 90px;
   z-index: 100;

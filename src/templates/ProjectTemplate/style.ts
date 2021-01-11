@@ -5,9 +5,16 @@ export const ContentfulImg = styled.div`
   text-align: center;
 `
 
+export const Img = styled.img`
+  width: 80%;
+  border-radius: 1em;
+  cursor: zoom-in;
+`
+
 export const ImgCaption = styled.p`
   margin: 0 auto;
   padding: 0 0 0.8em 0;
+  font-weight: 300;
 `
 
 export const ContentfulHeading = styled.h2`

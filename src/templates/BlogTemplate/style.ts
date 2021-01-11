@@ -4,6 +4,12 @@ export const ContentfulImg = styled.div`
   text-align: center;
 `
 
+export const Img = styled.img`
+  width: 80%;
+  border-radius: 1em;
+  cursor: zoom-in;
+`
+
 export const GoBackBlock = styled.div`
   display: flex;
   justify-content: flex-start;
@@ -66,7 +72,7 @@ export const Wrapper = styled.div`
   left: 50%;
   top: 30%;
   transform: translate(-50%, -30%);
-  border-radius: 14px;
+  border-radius: 1em;
   width: 60vw;
   height: 80vh;
   @media only screen and (min-device-width: 320px) and (max-device-width: 480px) {

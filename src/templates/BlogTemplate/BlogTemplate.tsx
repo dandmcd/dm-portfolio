@@ -11,6 +11,7 @@ import CodeSnippet from "../../components/CodeSnippet"
 
 import {
   ContentfulImg,
+  Img,
   GoBackBlock,
   ImgCaption,
   GoBack,
@@ -114,8 +115,14 @@ const BlogTemplate: FC<GetPost> = ({ data }) => {
       [BLOCKS.EMBEDDED_ASSET]: (node: ContentfulProps) => {
         return (
           <ContentfulImg>
-            <img width="320" src={node.data.target.file.url} />
-            <ImgCaption>{node.data.target.title}</ImgCaption>
+            <a
+              href={node.data.target.file.url}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <Img src={node.data.target.file.url} />
+              <ImgCaption>{node.data.target.title}</ImgCaption>
+            </a>
           </ContentfulImg>
         )
       },
