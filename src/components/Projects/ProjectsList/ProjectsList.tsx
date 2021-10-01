@@ -6,7 +6,7 @@ import FeaturedProject from "../FeaturedProject/FeaturedProject"
 
 import { CommonTitle } from "../../../css/styledCommon"
 import { Container, FeaturedProjectContainer, ProjectsContainer } from "./style"
-import { FixedObject } from "gatsby-image"
+import { GatsbyImageProps } from "gatsby-plugin-image"
 
 export interface NodeProps {
   node: {
@@ -18,10 +18,10 @@ export interface NodeProps {
       preview: string
     }
     images: {
-      fixed: FixedObject[]
+      gatsbyImageData: GatsbyImageProps
     }[]
     featuredImages: {
-      fixed: FixedObject[]
+      gatsbyImageData: GatsbyImageProps
     }[]
   }
 }

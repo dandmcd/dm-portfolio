@@ -1,5 +1,5 @@
 import styled from "styled-components"
-import Img from "gatsby-image"
+import { GatsbyImage } from "gatsby-plugin-image";
 
 export const Container = styled.div`
   max-width: 1100px;
@@ -11,7 +11,7 @@ export const Grid = styled.div`
   margin-bottom: 1em;
 `
 
-export const BlogImg = styled(Img)`
+export const BlogImg = styled(GatsbyImage)`
   grid-column: 1 / 2;
   max-width: 200px;
 `

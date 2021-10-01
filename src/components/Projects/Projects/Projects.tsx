@@ -1,7 +1,7 @@
 import React, { FC } from "react"
 import { useStaticQuery, graphql } from "gatsby"
 import ProjectsList from "../ProjectsList/ProjectsList"
-import { FixedObject } from "gatsby-image"
+import { GatsbyImageProps } from "gatsby-plugin-image"
 
 export interface ProjectProps {
   projects: {
@@ -15,10 +15,10 @@ export interface ProjectProps {
           preview: string
         }
         images: {
-          fixed: FixedObject[]
+          gatsbyImageData: GatsbyImageProps
         }[]
         featuredImages: {
-          fixed: FixedObject[]
+          gatsbyImageData: GatsbyImageProps
         }[]
       }
     }[]
@@ -39,14 +39,10 @@ const Projects: FC = (): JSX.Element => {
               preview
             }
             images {
-              fixed(width: 480) {
-                ...GatsbyContentfulFixed
-              }
+              gatsbyImageData(width: 480)
             }
             featuredImages: images {
-              fixed(width: 1000) {
-                ...GatsbyContentfulFixed
-              }
+              gatsbyImageData(width: 1000)
             }
           }
         }

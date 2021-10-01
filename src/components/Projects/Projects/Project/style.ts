@@ -1,6 +1,6 @@
 import styled from "styled-components"
 import { Link } from "gatsby"
-import Img from "gatsby-image"
+import { GatsbyImage } from "gatsby-plugin-image"
 
 export const Figure = styled.div`
   z-index: 2;
@@ -80,9 +80,9 @@ export const ProjectTitle = styled.h2`
 
 export const ProjectViewMore = styled.h2`
   background-color: rgba(255, 255, 255, 0.6);
-a {
-  font-weight: 400;
-}
+  a {
+    font-weight: 400;
+  }
   padding: 0.5em 0.5em;
   word-spacing: -0.1em;
   font-weight: 300;
@@ -97,11 +97,11 @@ a {
     opacity: 1;
     -webkit-transform: translate3d(0, 0, 0);
     transform: translate3d(0, 0, 0);
+  }
 `
-
 export const ProjectLink = styled(Link)``
 
-export const ProjectImg = styled(Img)`
+export const ProjectImg = styled(GatsbyImage)`
   grid-row: 1 / 4;
   min-height: 100%;
   max-width: 100%;

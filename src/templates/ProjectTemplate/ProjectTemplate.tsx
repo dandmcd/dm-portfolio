@@ -6,7 +6,6 @@ import {
   ContentfulRichTextGatsbyReference,
   renderRichText,
 } from "gatsby-source-contentful/rich-text"
-import { FluidObject } from "gatsby-image"
 
 import SEO from "../../components/SEO"
 
@@ -32,6 +31,7 @@ import {
   Tag,
   TagLine,
 } from "./style"
+import { GatsbyImageProps } from "gatsby-plugin-image"
 
 interface ContentfulProps {
   data: {
@@ -59,7 +59,7 @@ interface GetProjects {
         preview: string
       }
       images: {
-        fluid: FluidObject[]
+        gatsbyImageData: GatsbyImageProps
       }[]
       slug: string
     }
@@ -67,7 +67,7 @@ interface GetProjects {
 }
 
 export const query = graphql`
-  query($slug: String!) {
+  query ($slug: String!) {
     contentfulDmPortfolioProjects(slug: { eq: $slug }) {
       title
       description {
@@ -92,9 +92,7 @@ export const query = graphql`
         preview
       }
       images {
-        fluid {
-          ...GatsbyContentfulFluid
-        }
+        gatsbyImageData(layout: FULL_WIDTH)
       }
       slug
     }

@@ -1,5 +1,5 @@
 import styled, { keyframes } from "styled-components"
-import Img from "gatsby-image"
+import { GatsbyImage } from "gatsby-plugin-image"
 import { CommonTitle } from "../../css/styledCommon"
 
 export const Cta = styled.div`
@@ -109,7 +109,7 @@ export const Intro = styled.h2`
   }
 `
 
-export const MeImg = styled(Img)`
+export const MeImg = styled(GatsbyImage)`
   grid-column: 1 / 2;
   grid-row: 1 / 2;
   border-radius: 50%;

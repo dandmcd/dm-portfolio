@@ -31,7 +31,11 @@ const Project: FC<NodeProps> = ({ node }): JSX.Element => {
             <ProjectViewMore>View More</ProjectViewMore>
           </FigCaption>
           <div>
-            <ProjectImg as={ProjectImg} fixed={images[0].fixed} />
+            <ProjectImg
+              as={ProjectImg}
+              image={images[0].gatsbyImageData}
+              alt={title}
+            />
           </div>
         </Figure>
       </ProjectLink>
