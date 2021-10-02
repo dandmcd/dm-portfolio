@@ -62,6 +62,10 @@ export const P = styled.p`
   }
 `
 
+export const PHidden = styled.p`
+  visibility: hidden;
+`
+
 export const SubmitButton = styled(CommonButton)`
   float: right;
   font-size: 12px;

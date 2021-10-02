@@ -12,6 +12,7 @@ import {
   EmailSection,
   EmailDiv,
   EmailButton,
+  PHidden,
 } from "./style"
 
 import { CommonTitle } from "../../css/styledCommon"
@@ -31,13 +32,18 @@ const Contact: FC = (): JSX.Element => {
 
       <Form
         name="contact"
-        method="post"
+        method="POST"
+        netlify-honeypot="bot-field"
         data-netlify="true"
-        data-netlify-honeypot="bot-field"
       >
         <EmailSmHeader>No time for email? </EmailSmHeader>
         <EmailExSmHeader>Fill in the easy contact form below:</EmailExSmHeader>
         <input type="hidden" name="form-name" value="contact" />
+        <PHidden>
+          <label>
+            Don’t fill this out if you’re human: <input name="bot-field" />
+          </label>
+        </PHidden>
         <P>
           <label>
             Your Name: <Input type="text" name="name" />
