@@ -6,6 +6,7 @@ export const ContentfulImg = styled.div`
 
 export const Img = styled.img`
   width: 80%;
+  max-width: 800px;
   border-radius: 1em;
   cursor: zoom-in;
 `
@@ -18,6 +19,29 @@ export const GoBackBlock = styled.div`
 
 export const ImgCaption = styled.p`
   margin: 0 auto;
+  background-color: rgba(255, 249, 248, 0.85);
+  a {
+    font-weight: 400;
+  }
+  padding: 0.5em 0.7em;
+  word-spacing: -0.1em;
+  font-weight: 400;
+  position: relative;
+  overflow: hidden;
+  opacity: 0;
+  -webkit-transition: opacity 0.35s, -webkit-transform 0.35s;
+  transition: opacity 0.35s, transform 0.35s;
+  -webkit-transform: translate3d(-100%, 0, 0);
+  transform: translate3d(-100%, 0, 0);
+  ${ContentfulImg}:hover & {
+    opacity: 1;
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+  }
+`
+
+export const BlogLink = styled.a`
+  text-decoration: underline;
 `
 
 export const GoBack = styled.a`
@@ -64,6 +88,9 @@ export const ContentfulHeading = styled.h4`
 export const ContentfulP = styled.p`
   font-size: 18px;
   font-weight: 300;
+  a {
+    text-decoration: underline;
+  }
 `
 
 export const Wrapper = styled.div`
