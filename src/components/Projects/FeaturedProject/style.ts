@@ -1,5 +1,5 @@
 import styled from "styled-components"
-import Img from "gatsby-image"
+import { GatsbyImage } from "gatsby-plugin-image";
 import { Link } from "gatsby"
 
 export const Figure = styled.div`
@@ -107,7 +107,7 @@ export const ProjectViewMore = styled.h2`
 
 export const ProjectLink = styled(Link)``
 
-export const ProjectImg = styled(Img)`
+export const ProjectImg = styled(GatsbyImage)`
   grid-row: 1 / 4;
   min-height: 100%;
   max-width: 100%;

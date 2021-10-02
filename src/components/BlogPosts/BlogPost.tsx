@@ -1,6 +1,6 @@
 import React, { memo, FunctionComponent } from "react"
 import { Link } from "gatsby"
-import { FluidObject } from "gatsby-image"
+import { GatsbyImageProps } from "gatsby-plugin-image"
 
 import {
   Container,
@@ -19,7 +19,7 @@ interface Props {
     title: string
     updatedAt: string
     images: {
-      fluid: FluidObject[]
+      gatsbyImageData: GatsbyImageProps
     }[]
     previewText: {
       previewText: string
@@ -35,11 +35,11 @@ const BlogPost: FunctionComponent<Props> = ({ blog }) => {
     previewText: { previewText },
     updatedAt,
   } = blog
-  const image = images[0].fluid
+  const image = images[0].gatsbyImageData
   return (
     <Container>
       <Grid>
-        <BlogImg as={BlogImg} fluid={image} />
+        <BlogImg as={BlogImg} image={image} alt="test" />
         <TextFields>
           <Title>
             <Link to={`/blog/${slug}`}>{title}</Link>

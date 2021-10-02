@@ -2,7 +2,7 @@ import React, { memo, FC } from "react"
 import BlogPost from "../../components/BlogPosts/BlogPost"
 import { Link, graphql } from "gatsby"
 import SEO from "../../components/SEO"
-import { FluidObject } from "gatsby-image"
+import { GatsbyImageProps } from "gatsby-plugin-image"
 
 import {
   BlogListing,
@@ -28,7 +28,7 @@ export interface GetPosts {
             codeSnippet: string
           }
           images: {
-            fluid: FluidObject[]
+            gatsbyImageData: GatsbyImageProps
           }[]
           previewText: {
             previewText: string
@@ -64,9 +64,7 @@ export const query = graphql`
             previewText
           }
           images {
-            fluid(maxWidth: 700) {
-              ...GatsbyContentfulFluid
-            }
+            gatsbyImageData(layout: FULL_WIDTH)
           }
         }
       }

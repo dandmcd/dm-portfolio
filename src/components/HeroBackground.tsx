@@ -2,29 +2,36 @@ import React from "react"
 import styled from "styled-components"
 import BackgroundImage from "gatsby-background-image"
 import { graphql, StaticQuery } from "gatsby"
+import { BgImage } from "gbimage-bridge"
+import { getImage } from "gatsby-plugin-image"
 
 const HeroBackground = ({ className }: { className: string }) => {
   return (
     <StaticQuery
       query={graphql`
-        query {
+        {
           projectsbg: file(relativePath: { eq: "hero/computersplash3.jpg" }) {
             childImageSharp {
-              fluid(quality: 80, maxWidth: 1920) {
-                ...GatsbyImageSharpFluid_noBase64
-              }
+              gatsbyImageData(
+                quality: 80
+                placeholder: NONE
+                layout: FULL_WIDTH
+              )
             }
           }
         }
       `}
       render={(data) => {
+        const image = getImage(data.projectsbg.childImageSharp.gatsbyImageData)
+
         return (
-          <BackgroundImage
+          <BgImage
             Tag="section"
             className={className}
             style={{ position: undefined }}
-            fluid={data.projectsbg.childImageSharp.fluid}
-          ></BackgroundImage>
+            image={image}
+            alt=""
+          ></BgImage>
         )
       }}
     />

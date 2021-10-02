@@ -1,7 +1,7 @@
 import React, { FC } from "react"
 import HeroBackground from "../HeroBackground"
 import { graphql, useStaticQuery, Link } from "gatsby"
-import { GatsbyImageFixedProps } from "gatsby-image"
+import { GatsbyImageProps } from "gatsby-plugin-image"
 
 import {
   Cta,
@@ -27,7 +27,7 @@ import {
 interface GetCta {
   file: {
     childImageSharp: {
-      fixed: GatsbyImageFixedProps
+      gatsbyImageData: GatsbyImageProps
     }
   }
   lastEntry: {
@@ -41,12 +41,16 @@ interface GetCta {
 }
 
 const getCta = graphql`
-  query {
+  {
     file(relativePath: { eq: "hero/computerdan.jpg" }) {
       childImageSharp {
-        fixed(width: 150, height: 150, cropFocus: CENTER) {
-          ...GatsbyImageSharpFixed
-        }
+        gatsbyImageData(
+          width: 150
+          height: 150
+          transformOptions: { cropFocus: CENTER }
+          layout: FIXED
+          placeholder: BLURRED
+        )
       }
     }
     lastEntry: allContentfulDmPortfolioBlog(limit: 1) {
@@ -63,6 +67,7 @@ const getCta = graphql`
 const Me: FC = (): JSX.Element => {
   const data: GetCta = useStaticQuery(getCta)
   const lastEntry = data.lastEntry.edges[0].node
+
   return (
     <Cta>
       <div>
@@ -81,7 +86,9 @@ const Me: FC = (): JSX.Element => {
       <Wrapper>
         <IntroSection>
           <MeImg
-            fixed={data.file.childImageSharp.fixed}
+            as={MeImg}
+            alt="Img"
+            image={data.file.childImageSharp.gatsbyImageData}
             imgStyle={{
               objectFit: "contain",
             }}
