@@ -1,4 +1,2 @@
 [[plugins]]
 package = "netlify-plugin-gatsby-cache"
-[[build.environment]]
-NPM_VERSION = “7.10.0”
