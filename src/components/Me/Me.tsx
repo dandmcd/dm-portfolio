@@ -53,7 +53,10 @@ const getCta = graphql`
         )
       }
     }
-    lastEntry: allContentfulDmPortfolioBlog(limit: 1) {
+    lastEntry: allContentfulDmPortfolioBlog(
+      sort: { order: DESC, fields: createdAt }
+      limit: 1
+    ) {
       edges {
         node {
           slug
