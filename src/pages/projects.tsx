@@ -5,7 +5,7 @@ import SEO from "../components/SEO"
 const ProjectsPage: FC = (): JSX.Element => {
   return (
     <>
-      <SEO title="projects" description="Projected developed by Daniel" />
+      <SEO title="projects" description="Project developed by Daniel" />
       <Projects />
     </>
   )
