@@ -19,20 +19,9 @@ export const ImgCaption = styled.p`
     font-weight: 400;
   }
   padding: 0.5em 0.7em;
-  word-spacing: -0.1em;
   font-weight: 400;
   position: relative;
   overflow: hidden;
-  opacity: 0;
-  -webkit-transition: opacity 0.35s, -webkit-transform 0.35s;
-  transition: opacity 0.35s, transform 0.35s;
-  -webkit-transform: translate3d(-100%, 0, 0);
-  transform: translate3d(-100%, 0, 0);
-  ${ContentfulImg}:hover & {
-    opacity: 1;
-    -webkit-transform: translate3d(0, 0, 0);
-    transform: translate3d(0, 0, 0);
-  }
 `
 
 export const ContentfulHeading = styled.h2`

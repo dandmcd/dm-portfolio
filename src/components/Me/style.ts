@@ -52,7 +52,7 @@ export const Wrapper = styled.main`
   backdrop-filter: blur(5px) brightness(80%);
   z-index: 50;
   width: 70vw;
-  animation: ${fadeIn} 4s;
+  animation: ${fadeIn} 1s;
   @media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
     width: 80vw;
   }
@@ -62,22 +62,22 @@ export const Wrapper = styled.main`
 `
 
 export const Title = styled(CommonTitle)`
-  animation: ${fadeIn} 1.5s;
+  animation: ${fadeIn} 1s;
   @media only screen and (min-device-width: 320px) and (max-device-height: 640px) and (orientation: portrait) and (-webkit-device-pixel-ratio: 2) {
     font-size: 60px;
   }
 `
 
 export const FadeTitle = styled.span`
-  animation: ${fadeIn} 2s;
+  animation: ${fadeIn} 1s;
 `
 
 export const FadeTitleB = styled.span`
-  animation: ${fadeIn} 2.5s;
+  animation: ${fadeIn} 1s;
 `
 
 export const FadeTitleC = styled.span`
-  animation: ${fadeIn} 3s;
+  animation: ${fadeIn} 1s;
 `
 
 export const IntroSection = styled.div`
@@ -131,7 +131,7 @@ export const CtaBtns = styled.div`
   grid-column: 1 / 3;
   grid-row: 2 / 3;
   position: relative;
-  animation: ${fadeIn} 7s;
+  animation: ${fadeIn} 1s;
   padding: 2em 2em;
 `
 
