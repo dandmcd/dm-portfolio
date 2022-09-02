@@ -5,8 +5,9 @@ import SEO from "../components/SEO"
 export default (): JSX.Element => {
   return (
     <>
-      <SEO title="home" />
       <Me />
     </>
   )
 }
+
+export const Head = () => <SEO title="home" />
