@@ -1,5 +1,4 @@
 import React, { FunctionComponent } from "react"
-import { Helmet } from "react-helmet"
 import { useStaticQuery, graphql } from "gatsby"
 
 interface GetData {
@@ -41,9 +40,10 @@ const SEO: FunctionComponent<SEOProps> = ({
   const { siteDescription, siteTitle } = siteMetadata
 
   return (
-    <Helmet htmlAttributes={{ lang: "en" }} title={`${title} | ${siteTitle}`}>
+    <>
+      <title>{`${title} | ${siteTitle}`}</title>
       <meta name="description" content={description || siteDescription} />
-    </Helmet>
+    </>
   )
 }
 

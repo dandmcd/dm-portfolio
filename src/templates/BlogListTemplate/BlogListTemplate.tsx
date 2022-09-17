@@ -84,7 +84,6 @@ const BlogListTemplate: FC<GetPosts> = (props) => {
   return (
     <>
       <Title>The Whatever Blog</Title>
-      <SEO title="blog" description="Random thoughts from Daniel" />
       {data.posts.edges.map(({ node }) => {
         return (
           <BlogListing key={node.contentful_id}>
@@ -113,3 +112,7 @@ const BlogListTemplate: FC<GetPosts> = (props) => {
 }
 
 export default memo(BlogListTemplate)
+
+export const Head = () => (
+  <SEO title="blog" description="Random thoughts from Daniel" />
+)

@@ -5,10 +5,13 @@ import SEO from "../components/SEO"
 const ProjectsPage: FC = (): JSX.Element => {
   return (
     <>
-      <SEO title="projects" description="Project developed by Daniel" />
       <Projects />
     </>
   )
 }
 
 export default ProjectsPage
+
+export const Head = () => (
+  <SEO title="projects" description="Project developed by Daniel" />
+)
