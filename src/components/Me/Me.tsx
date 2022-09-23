@@ -73,9 +73,6 @@ const Me: FC = (): JSX.Element => {
 
   return (
     <Cta>
-      <div>
-        <HeroBackground className="div" />
-      </div>
       <Header>
         <Title>
           Developing your ideas

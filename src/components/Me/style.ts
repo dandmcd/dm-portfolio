@@ -18,6 +18,9 @@ export const Cta = styled.div`
     background-color: #dfc412;
   }
 `
+export const Hero = styled.div`
+  background-color: black;
+`
 
 export const Header = styled.header`
   grid-column: 2 / 3;
@@ -49,10 +52,10 @@ export const Wrapper = styled.main`
   padding: 20px;
   border-radius: 1em;
   box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.25);
-  backdrop-filter: blur(5px) brightness(80%);
+  backdrop-filter: blur(10px) brightness(80%);
   z-index: 50;
   width: 70vw;
-  animation: ${fadeIn} 1s;
+  animation: ${fadeIn} 3.3s;
   @media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
     width: 80vw;
   }
@@ -62,6 +65,8 @@ export const Wrapper = styled.main`
 `
 
 export const Title = styled(CommonTitle)`
+  text-align: left;
+  font-size: 100px;
   animation: ${fadeIn} 1s;
   @media only screen and (min-device-width: 320px) and (max-device-height: 640px) and (orientation: portrait) and (-webkit-device-pixel-ratio: 2) {
     font-size: 60px;
@@ -69,15 +74,15 @@ export const Title = styled(CommonTitle)`
 `
 
 export const FadeTitle = styled.span`
-  animation: ${fadeIn} 1s;
+  animation: ${fadeIn} 2s;
 `
 
 export const FadeTitleB = styled.span`
-  animation: ${fadeIn} 1s;
+  animation: ${fadeIn} 2.5s;
 `
 
 export const FadeTitleC = styled.span`
-  animation: ${fadeIn} 1s;
+  animation: ${fadeIn} 3s;
 `
 
 export const IntroSection = styled.div`

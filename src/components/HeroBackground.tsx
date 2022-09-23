@@ -10,10 +10,10 @@ const HeroBackground = ({ className }: { className: string }) => {
     <StaticQuery
       query={graphql`
         {
-          projectsbg: file(relativePath: { eq: "hero/computersplash3.jpg" }) {
+          projectsbg: file(relativePath: { eq: "hero/wavepattern.png" }) {
             childImageSharp {
               gatsbyImageData(
-                quality: 80
+                quality: 100
                 placeholder: NONE
                 layout: FULL_WIDTH
               )

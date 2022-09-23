@@ -4,13 +4,13 @@ export const Tooltip = styled.div`
   position: fixed;
   display: inline-block;
   width: 40px;
-  bottom: 190px;
+  top: 190px;
   right: 65px;
   z-index: 1000;
 `
 
 export const TooltipMenu = styled(Tooltip)`
-  bottom: 140px;
+  top: 140px;
 `
 
 export const TooltipText = styled.span`
@@ -72,13 +72,13 @@ export const Float = styled.a`
   position: fixed;
   width: ${({ state }) => (state === "entered" ? "20px" : "60px")};
   height: ${({ state }) => (state === "entered" ? "20px" : "60px")};
-  bottom: ${({ state }) => (state === "entered" ? "60px" : "40px")};
+  top: ${({ state }) => (state === "entered" ? "60px" : "40px")};
   right: ${({ state }) => (state === "entered" ? "40px" : "20px")};
-  background-color: #efd318;
+  background-color: #483f06;
   border-radius: 1em;
   text-align: center;
   cursor: pointer;
-  box-shadow: 2px 2px 3px #483f06;
+  box-shadow: 2px 2px 3px #efd318;
   z-index: 1000;
   animation: ${swing} 0.5s ease;
   animation-delay: 2s;
@@ -120,7 +120,7 @@ export const Hamburger = styled.div`
   transform: translate(-50%, -50%);
 
   span {
-    background-color: #414033;
+    background-color: #efd318;
     position: absolute;
     border-radius: 2px;
     transition: 0.3s cubic-bezier(0.8, 0.5, 0.2, 1.4);
@@ -158,7 +158,7 @@ export const List = styled.ul`
   right: 20px;
   border-radius: 1em;
   padding: 0 0.2em 0 0.2em;
-  bottom: 90px;
+  top: 90px;
   z-index: 100;
   text-align: end;
   line-height: 1.5em;

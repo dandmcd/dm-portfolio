@@ -1,4 +1,5 @@
 import { createGlobalStyle } from "styled-components"
+import wavepattern from "../images/hero/wavepattern5.svg"
 
 export const theme = {
   appBody: "#fff",
@@ -24,12 +25,17 @@ export const theme = {
 
 export const GlobalStyle = createGlobalStyle`
   body {
+    min-height: 100vh;
     z-index: 1;
   font-family: "Barlow Semi Condensed", sans-serif;
   margin: 0;
   padding: 0;
   color: #111;
   outline: none;
+  background-image: url(${wavepattern});
+  background-size: cover;
+  background-repeat: no-repeat;
+
   }
   button {
     font-family: "Barlow Semi Condensed", sans-serif;
