@@ -95,7 +95,7 @@ export const Float = styled.a`
 export const Email = styled.img`
   position: fixed;
   width: 40px;
-  bottom: 120px;
+  top: 120px;
   right: 30px;
   z-index: 100;
   cursor: pointer;

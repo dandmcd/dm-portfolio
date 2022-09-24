@@ -3,7 +3,7 @@ import { Link } from "gatsby"
 import links from "../../constants/links"
 
 import { Transition } from "react-transition-group"
-import email from "../../images/e-mail.png"
+import email from "../../images/email.png"
 
 import {
   Tooltip,

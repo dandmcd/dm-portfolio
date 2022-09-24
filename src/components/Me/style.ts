@@ -160,22 +160,25 @@ export const BlogSpan = styled.span`
 `
 
 export const Btn = styled.button`
-  background-color: rgba(255, 255, 255, 0.75);
-  border: 0.0625rem solid #80868b;
+  background-color: #fdfae5;
+  border: 0 solid #e2e8f0;
   outline: none;
-  border-radius: 1em;
-  text-indent: 0px;
+  border-radius: 1.5rem;
+  box-shadow: 0px 1px 2px rgba(166, 175, 195, 0.25);
+  box-sizing: border-box;
   min-width: 156px;
   width: 100%;
   display: inline-block;
   color: #414033;
-  font-size: 20px;
+  font-size: 1.2rem;
   font-weight: 600;
-  padding-top: 8px;
+  padding: 1rem 1.6rem;
+  /* padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 40px;
-  padding-right: 40px;
-  text-decoration: none;
+  padding-right: 40px; */
+  text-decoration: none #0d172a solid;
+  text-decoration-thickness: auto;
   text-align: center;
   cursor: pointer;
   transition: background-color 0.6s ease;
