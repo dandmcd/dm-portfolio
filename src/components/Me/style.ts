@@ -25,7 +25,6 @@ export const Hero = styled.div`
 export const Header = styled.header`
   grid-column: 2 / 3;
   grid-row: 1 / 2;
-  z-index: 50;
   color: #fff;
   background-color: #dfc412;
   padding: 0 0 20px 0;
@@ -48,12 +47,11 @@ export const Wrapper = styled.main`
   grid-row: 2 / 4;
   grid-column: 2 / 3;
   grid-column-gap: 5px;
-  margin: 0 auto;
+  margin: 2rem auto 0 auto;
   padding: 20px;
   border-radius: 1em;
   box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.25);
-  backdrop-filter: blur(10px) brightness(80%);
-  z-index: 50;
+  backdrop-filter: blur(15px) brightness(65%);
   width: 70vw;
   animation: ${fadeIn} 3.3s;
   @media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
@@ -65,8 +63,9 @@ export const Wrapper = styled.main`
 `
 
 export const Title = styled(CommonTitle)`
-  text-align: left;
+  text-align: center;
   font-size: 100px;
+
   animation: ${fadeIn} 1s;
   @media only screen and (min-device-width: 320px) and (max-device-height: 640px) and (orientation: portrait) and (-webkit-device-pixel-ratio: 2) {
     font-size: 60px;
@@ -114,6 +113,23 @@ export const Intro = styled.h2`
   }
 `
 
+export const MediaIcons = styled.div`
+  grid-column: 1 / 2;
+  grid-row: 2 / 2;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  padding-top: 1em;
+`
+
+export const MediaIcon = styled.img`
+  width: 25px;
+`
+
+export const MediaIconBig = styled(MediaIcon)`
+  width: 50px;
+`
+
 export const MeImg = styled(GatsbyImage)`
   grid-column: 1 / 2;
   grid-row: 1 / 2;
@@ -140,14 +156,18 @@ export const CtaBtns = styled.div`
   padding: 2em 2em;
 `
 
-export const BlogEntry = styled.p`
+export const BlogEntry = styled.h3`
   padding: 0.3em 0 0 0;
   color: #dfc412;
   text-align: center;
-  font-size: 18px;
-  line-height: 1.4;
+  font-size: 28px;
+  -webkit-text-stroke: 0.5px black;
+  text-shadow: 0px 1px 20px rgba(0, 0, 0, 0.25);
   a {
-    color: #fef8f5;
+    font-size: 24px;
+    color: #f9efac;
+    -webkit-text-stroke: transparent;
+    text-shadow: none;
     transition: color 0.6s ease;
     &:hover {
       color: rgba(254, 248, 245, 0.5);
@@ -161,10 +181,10 @@ export const BlogSpan = styled.span`
 
 export const Btn = styled.button`
   background-color: #fdfae5;
-  border: 0 solid #e2e8f0;
+  border: 0 solid #414033;
   outline: none;
-  border-radius: 1.5rem;
-  box-shadow: 0px 1px 2px rgba(166, 175, 195, 0.25);
+  border-radius: 1em;
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.25);
   box-sizing: border-box;
   min-width: 156px;
   width: 100%;
@@ -172,7 +192,7 @@ export const Btn = styled.button`
   color: #414033;
   font-size: 1.2rem;
   font-weight: 600;
-  padding: 1rem 1.6rem;
+  padding: 0.8rem 4rem;
   /* padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 40px;
@@ -183,7 +203,8 @@ export const Btn = styled.button`
   cursor: pointer;
   transition: background-color 0.6s ease;
   &:hover {
-    background-color: rgba(238, 238, 222, 0.5);
+    background-color: #f9efac;
+    transform: scale(1.1);
   }
   @media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
     width: 120px;
@@ -192,4 +213,12 @@ export const Btn = styled.button`
 
 export const Btn2 = styled(Btn)`
   margin-left: 0.2em;
+`
+
+export const Tools = styled.h2`
+  font-weight: 800;
+  -webkit-text-stroke: 1px black;
+  color: #dfc412;
+  text-shadow: 3px 3px 0 #000, -1px -1px 0 #000, 1px -1px 0 #000,
+    -1px 1px 0 #000, 1px 1px 0 #000;
 `

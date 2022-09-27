@@ -3,18 +3,18 @@ import { Link } from "gatsby"
 import links from "../../constants/links"
 
 import { Transition } from "react-transition-group"
-import email from "../../images/email.png"
+import email from "../../images/e-mail.png"
 
 import {
   Tooltip,
   TooltipMenu,
   TooltipText,
   Float,
-  Email,
   Hamburger,
   MyFloat,
   List,
   ListItem,
+  TooltipContact,
 } from "./style"
 import { TransitionProps } from "react-transition-group/Transition"
 
@@ -28,12 +28,13 @@ const Footer = ({ location }: { location: Location }): JSX.Element => {
       {(state: { state: TransitionProps }) => (
         <>
           <Tooltip>
-            <Link to="/contact">
-              <Email as={Email} src={email} state={state} alt="Email" />
-            </Link>
-            <TooltipText as={TooltipText} clicked={clicked} location={location}>
+            <TooltipContact
+              as={TooltipContact}
+              clicked={clicked}
+              location={location}
+            >
               Contact Me
-            </TooltipText>
+            </TooltipContact>
           </Tooltip>
           <TooltipMenu>
             <Float state={state} onClick={toggleMenu} id="menu-share">

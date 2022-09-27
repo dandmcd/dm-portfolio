@@ -21,6 +21,7 @@ export const theme = {
   success: "#71da71",
   link: "#ca3131",
   hoverLink: "#e08787",
+  //#483F06 dark yellow
 }
 
 export const GlobalStyle = createGlobalStyle`
@@ -32,6 +33,7 @@ export const GlobalStyle = createGlobalStyle`
   padding: 0;
   color: #111;
   outline: none;
+  background-color: #414033;
   background-image: url(${wavepattern});
   background-size: cover;
   background-repeat: no-repeat;

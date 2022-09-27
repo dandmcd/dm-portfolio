@@ -2,7 +2,9 @@ import React, { FC } from "react"
 import HeroBackground from "../HeroBackground"
 import { graphql, useStaticQuery, Link } from "gatsby"
 import { GatsbyImageProps } from "gatsby-plugin-image"
-
+import github from "../../images/github.png"
+import linkedin from "../../images/linkedin.png"
+import email from "../../images/message.png"
 import {
   Cta,
   Header,
@@ -22,6 +24,10 @@ import {
   BlogSpan,
   Btn,
   Btn2,
+  Tools,
+  MediaIcons,
+  MediaIcon,
+  MediaIconBig,
 } from "./style"
 
 interface GetCta {
@@ -75,12 +81,12 @@ const Me: FC = (): JSX.Element => {
     <Cta>
       <Header>
         <Title>
-          Developing your ideas
+          Developing your ideas,
           <FadeTitle>
             <br />
             front
           </FadeTitle>
-          <FadeTitleB> and</FadeTitleB> <FadeTitleC> back ...</FadeTitleC>
+          <FadeTitleB> and</FadeTitleB> <FadeTitleC> back.</FadeTitleC>
         </Title>
       </Header>
       <Wrapper>
@@ -93,12 +99,17 @@ const Me: FC = (): JSX.Element => {
               objectFit: "contain",
             }}
           />
+          <MediaIcons>
+            <MediaIcon as={MediaIcon} src={github} alt="Github"></MediaIcon>
+            <MediaIconBig as={MediaIcon} src={email} alt="Email"></MediaIconBig>
+            <MediaIcon as={MediaIcon} src={linkedin} alt="Github"></MediaIcon>
+          </MediaIcons>
           <IntroBox>
             <Intro>
-              Hello, I am Daniel McDermott, a full-stack software developer in
-              the United States for hire. I create full-stack web apps using the
-              latest tools like React, Typescript and Gatsby, backed with
-              GraphQL and SQL.
+              Hello, I am Daniel McDermott, a software developer in the USA. I
+              create full-stack apps using multiple programming languages
+              including TypeScript and Python, along with many of the latest
+              tools including React and GraphQL.
             </Intro>
           </IntroBox>
         </IntroSection>
@@ -107,9 +118,6 @@ const Me: FC = (): JSX.Element => {
           <ButtonFlex>
             <Link to="/projects">
               <Btn>Projects</Btn>
-            </Link>
-            <Link to="/contact">
-              <Btn2>Contact</Btn2>
             </Link>
           </ButtonFlex>
           <BlogEntry>
@@ -120,7 +128,6 @@ const Me: FC = (): JSX.Element => {
           </BlogEntry>
         </CtaBtns>
       </Wrapper>
-      <Footer></Footer>
     </Cta>
   )
 }
