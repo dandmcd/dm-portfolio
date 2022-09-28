@@ -113,26 +113,27 @@ export const Intro = styled.h2`
   }
 `
 
-export const MediaIcons = styled.div`
+export const Social = styled.div`
   grid-column: 1 / 2;
-  grid-row: 2 / 2;
+  grid-row: 1 / 2;
+`
+
+export const MediaIcons = styled.div`
   display: flex;
   justify-content: space-evenly;
   align-items: center;
-  padding-top: 1em;
+  padding: 1em 0 1em 0;
 `
 
 export const MediaIcon = styled.img`
-  width: 25px;
+  width: 30px;
 `
 
 export const MediaIconBig = styled(MediaIcon)`
-  width: 50px;
+  width: 40px;
 `
 
 export const MeImg = styled(GatsbyImage)`
-  grid-column: 1 / 2;
-  grid-row: 1 / 2;
   border-radius: 50%;
   border: 4px solid #f5e269;
   place-self: center center;
@@ -180,31 +181,32 @@ export const BlogSpan = styled.span`
 `
 
 export const Btn = styled.button`
+  -webkit-tap-highlight-color: transparent;
+  -webkit-appearance: button;
   background-color: #fdfae5;
-  border: 0 solid #414033;
+  color: #414033;
+  margin: 0;
   outline: none;
-  border-radius: 1em;
+  border-radius: 999px;
+  border: 0 solid;
   box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.25);
   box-sizing: border-box;
   min-width: 156px;
   width: 100%;
   display: inline-block;
-  color: #414033;
-  font-size: 1.2rem;
+
+  font-size: 1.4rem;
+  line-height: 1.5;
   font-weight: 600;
-  padding: 0.8rem 4rem;
-  /* padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 40px;
-  padding-right: 40px; */
+  padding: 1rem 5rem;
   text-decoration: none #0d172a solid;
   text-decoration-thickness: auto;
   text-align: center;
   cursor: pointer;
+  text-transform: uppercase;
   transition: background-color 0.6s ease;
   &:hover {
-    background-color: #f9efac;
-    transform: scale(1.1);
+    background-color: transparent;
   }
   @media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
     width: 120px;

@@ -28,6 +28,7 @@ import {
   MediaIcons,
   MediaIcon,
   MediaIconBig,
+  Social,
 } from "./style"
 
 interface GetCta {
@@ -91,19 +92,25 @@ const Me: FC = (): JSX.Element => {
       </Header>
       <Wrapper>
         <IntroSection>
-          <MeImg
-            as={MeImg}
-            alt="Img"
-            image={data.file.childImageSharp.gatsbyImageData}
-            imgStyle={{
-              objectFit: "contain",
-            }}
-          />
-          <MediaIcons>
-            <MediaIcon as={MediaIcon} src={github} alt="Github"></MediaIcon>
-            <MediaIconBig as={MediaIcon} src={email} alt="Email"></MediaIconBig>
-            <MediaIcon as={MediaIcon} src={linkedin} alt="Github"></MediaIcon>
-          </MediaIcons>
+          <Social>
+            <MediaIcons>
+              <MediaIcon as={MediaIcon} src={github} alt="Github"></MediaIcon>
+              <MediaIconBig
+                as={MediaIcon}
+                src={email}
+                alt="Email"
+              ></MediaIconBig>
+              <MediaIcon as={MediaIcon} src={linkedin} alt="Github"></MediaIcon>
+            </MediaIcons>
+            <MeImg
+              as={MeImg}
+              alt="Img"
+              image={data.file.childImageSharp.gatsbyImageData}
+              imgStyle={{
+                objectFit: "contain",
+              }}
+            />
+          </Social>
           <IntroBox>
             <Intro>
               Hello, I am Daniel McDermott, a software developer in the USA. I
