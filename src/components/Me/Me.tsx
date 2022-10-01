@@ -29,6 +29,7 @@ import {
   MediaIcon,
   MediaIconBig,
   Social,
+  BtnSpan,
 } from "./style"
 
 interface GetCta {
@@ -81,26 +82,37 @@ const Me: FC = (): JSX.Element => {
   return (
     <Cta>
       <Header>
+        <Title>Bringing ideas to life</Title>
         <Title>
-          Developing your ideas,
-          <FadeTitle>
-            <br />
-            front
-          </FadeTitle>
-          <FadeTitleB> and</FadeTitleB> <FadeTitleC> back.</FadeTitleC>
+          <FadeTitle>back</FadeTitle>
+          <FadeTitleB> to</FadeTitleB> <FadeTitleC> front</FadeTitleC>
         </Title>
       </Header>
       <Wrapper>
         <IntroSection>
           <Social>
             <MediaIcons>
-              <MediaIcon as={MediaIcon} src={github} alt="Github"></MediaIcon>
-              <MediaIconBig
-                as={MediaIcon}
-                src={email}
-                alt="Email"
-              ></MediaIconBig>
-              <MediaIcon as={MediaIcon} src={linkedin} alt="Github"></MediaIcon>
+              <a
+                href="https://github.com/givionte"
+                rel="noopener noreferrer"
+                target="_blank"
+              >
+                <MediaIcon as={MediaIcon} src={github} alt="Github"></MediaIcon>
+              </a>
+              <Link to="/contact">
+                <MediaIcon as={MediaIcon} src={email} alt="Email"></MediaIcon>
+              </Link>
+              <a
+                href="https://www.linkedin.com/in/dandmcd/"
+                rel="noopener noreferrer"
+                target="_blank"
+              >
+                <MediaIcon
+                  as={MediaIcon}
+                  src={linkedin}
+                  alt="LinkedIn"
+                ></MediaIcon>
+              </a>
             </MediaIcons>
             <MeImg
               as={MeImg}
@@ -122,18 +134,16 @@ const Me: FC = (): JSX.Element => {
         </IntroSection>
 
         <CtaBtns>
-          <ButtonFlex>
-            <Link to="/projects">
-              <Btn>Projects</Btn>
-            </Link>
-          </ButtonFlex>
-          <BlogEntry>
-            Latest Blog Entry:{" "}
-            <BlogSpan>
-              <Link to={`/blog/${lastEntry.slug}`}>{lastEntry.title}</Link>
-            </BlogSpan>
-          </BlogEntry>
+          <Link to="/projects">
+            <Btn>View My Projects</Btn>
+          </Link>
         </CtaBtns>
+        <BlogEntry>
+          Latest Blog Entry:{" "}
+          <BlogSpan>
+            <Link to={`/blog/${lastEntry.slug}`}>{lastEntry.title}</Link>
+          </BlogSpan>
+        </BlogEntry>
       </Wrapper>
     </Cta>
   )

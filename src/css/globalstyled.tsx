@@ -1,5 +1,5 @@
 import { createGlobalStyle } from "styled-components"
-import wavepattern from "../images/hero/wavepattern5.svg"
+import wavepattern from "../images/hero/wavepattern6.svg"
 
 export const theme = {
   appBody: "#fff",
@@ -43,11 +43,11 @@ export const GlobalStyle = createGlobalStyle`
     font-family: "Barlow Semi Condensed", sans-serif;
   }
   a {
-  color: #483f06;
+  color: #414033;
   text-decoration: none;
-  transition: color 0.5s;
+  transition: color 0.6s ease;
   :hover {
-    color: #706d57;
+    color: #f5e269;
   }
 }
 h1 {

@@ -25,7 +25,7 @@ export const ImgCaption = styled.p`
 `
 
 export const ContentfulHeading = styled.h2`
-  border-left: 3px solid #7b6c0a;
+  border-left: 3px solid #414033;
   padding: 0 0 0 0.2em;
   margin: 0 auto 0 0.5em;
 `
@@ -83,7 +83,7 @@ export const Preview = styled.h5`
   color: #706d57;
   margin: 3em;
   padding: 0.5em;
-  border-left: 5px solid #414033;
+  border-left: 3px solid #414033;
   text-align: left;
   font-weight: 400;
 `

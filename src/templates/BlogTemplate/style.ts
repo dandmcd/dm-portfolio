@@ -65,7 +65,7 @@ export const CodeBlock = styled.div`
 `
 
 export const ContentfulHeading = styled.h4`
-  border-left: 3px solid #7b6c0a;
+  border-left: 3px solid #414033;
   background-color: #f9efac;
   border-radius: 0 4px 4px 0;
   padding: 0 0 0 0.2em;

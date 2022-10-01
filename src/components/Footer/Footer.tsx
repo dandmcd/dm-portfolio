@@ -27,15 +27,6 @@ const Footer = ({ location }: { location: Location }): JSX.Element => {
     <Transition in={clicked} timeout={500}>
       {(state: { state: TransitionProps }) => (
         <>
-          <Tooltip>
-            <TooltipContact
-              as={TooltipContact}
-              clicked={clicked}
-              location={location}
-            >
-              Contact Me
-            </TooltipContact>
-          </Tooltip>
           <TooltipMenu>
             <Float state={state} onClick={toggleMenu} id="menu-share">
               <MyFloat>

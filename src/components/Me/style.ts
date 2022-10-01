@@ -3,36 +3,21 @@ import { GatsbyImage } from "gatsby-plugin-image"
 import { CommonTitle } from "../../css/styledCommon"
 
 export const Cta = styled.div`
-  display: grid;
   background-color: transparent;
-  grid-template-columns: 0 1fr 0;
-  grid-template-rows: auto 8em 1fr auto;
+  grid-template-columns: 0;
+  grid-template-rows: auto auto;
   width: 100%;
-  @media (min-width: 600px) {
-    grid-template-columns: 20px 1fr 20px;
-  }
-  :before {
-    content: "";
-    grid-column: 1/-1;
-    grid-row: 1/3;
-    background-color: #dfc412;
-  }
 `
+
 export const Hero = styled.div`
   background-color: black;
 `
 
 export const Header = styled.header`
-  grid-column: 2 / 3;
-  grid-row: 1 / 2;
-  color: #fff;
-  background-color: #dfc412;
-  padding: 0 0 20px 0;
+  text-shadow: 0px 1px 0px rgba(0, 0, 0, 0.5);
 `
 
 export const Footer = styled.footer`
-  grid-column: 2/3;
-  grid-row: -1;
   padding: 20px;
 `
 
@@ -43,15 +28,45 @@ const fadeIn = keyframes`
     100%   { opacity: 1; }
 `
 
+export const Title = styled(CommonTitle)`
+  background-color: white;
+  line-height: 1;
+  text-align: center;
+  font-size: 96px;
+  animation: ${fadeIn} 1s;
+  @media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
+    font-size: 60px;
+  }
+`
+
+export const FadeTitle = styled.span`
+  @media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
+    font-size: 60px;
+  }
+  animation: ${fadeIn} 2s;
+`
+
+export const FadeTitleB = styled.span`
+  font-size: 90px;
+  animation: ${fadeIn} 2.5s;
+  @media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
+    font-size: 52px;
+  }
+`
+
+export const FadeTitleC = styled.span`
+  @media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
+    font-size: 60px;
+  }
+  animation: ${fadeIn} 3s;
+`
+
 export const Wrapper = styled.main`
-  grid-row: 2 / 4;
-  grid-column: 2 / 3;
-  grid-column-gap: 5px;
   margin: 2rem auto 0 auto;
+  max-width: 1024px;
   padding: 20px;
   border-radius: 1em;
   box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.25);
-  backdrop-filter: blur(15px) brightness(65%);
   width: 70vw;
   animation: ${fadeIn} 3.3s;
   @media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
@@ -62,51 +77,31 @@ export const Wrapper = styled.main`
   }
 `
 
-export const Title = styled(CommonTitle)`
-  text-align: center;
-  font-size: 100px;
-
-  animation: ${fadeIn} 1s;
-  @media only screen and (min-device-width: 320px) and (max-device-height: 640px) and (orientation: portrait) and (-webkit-device-pixel-ratio: 2) {
-    font-size: 60px;
-  }
-`
-
-export const FadeTitle = styled.span`
-  animation: ${fadeIn} 2s;
-`
-
-export const FadeTitleB = styled.span`
-  animation: ${fadeIn} 2.5s;
-`
-
-export const FadeTitleC = styled.span`
-  animation: ${fadeIn} 3s;
-`
-
 export const IntroSection = styled.div`
   display: grid;
   grid-column-gap: 1em;
+  @media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
+  }
 `
 export const IntroBox = styled.div`
-  grid-column: 2 / 3;
+  grid-column: 2 / 2;
   grid-row: 1 / 2;
   position: relative;
   padding: 1em 1em;
   @media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
-    grid-row: 2 /3;
-    grid-column: 1 / 3;
+    grid-row: 2 / 3;
+    grid-column: 1 / 2;
   }
 `
 
 export const Intro = styled.h2`
   position: relative;
-  color: #fff8f1;
-  font-weight: 100;
+  color: #16140f;
+  font-weight: 200;
   text-align: left;
   margin: 0 auto;
   padding-left: 0.3em;
-  border-left: 3px solid #7b6c0a;
+  border-left: 3px solid #414033;
 
   @media only screen and (min-width: 1824px) {
     font-size: 28px;
@@ -123,19 +118,22 @@ export const MediaIcons = styled.div`
   justify-content: space-evenly;
   align-items: center;
   padding: 1em 0 1em 0;
+  @media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
+    justify-content: space-space-between;
+  }
 `
 
 export const MediaIcon = styled.img`
-  width: 30px;
-`
-
-export const MediaIconBig = styled(MediaIcon)`
-  width: 40px;
+  width: 32px;
+  :hover {
+    transform: scale(1.1);
+  }
 `
 
 export const MeImg = styled(GatsbyImage)`
+  margin: 0 auto;
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.25);
   border-radius: 50%;
-  border: 4px solid #f5e269;
   place-self: center center;
   @media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
     grid-column: 1 / 3;
@@ -150,71 +148,78 @@ export const ButtonFlex = styled.div`
 `
 
 export const CtaBtns = styled.div`
-  grid-column: 1 / 3;
-  grid-row: 2 / 3;
-  position: relative;
   animation: ${fadeIn} 1s;
   padding: 2em 2em;
 `
 
 export const BlogEntry = styled.h3`
   padding: 0.3em 0 0 0;
-  color: #dfc412;
+  color: #414033;
   text-align: center;
-  font-size: 28px;
-  -webkit-text-stroke: 0.5px black;
-  text-shadow: 0px 1px 20px rgba(0, 0, 0, 0.25);
+  font-size: 26px;
+  text-shadow: 0px 1px 0px rgba(0, 0, 0, 0.5);
+  font-weight: 600;
   a {
     font-size: 24px;
-    color: #f9efac;
-    -webkit-text-stroke: transparent;
-    text-shadow: none;
-    transition: color 0.6s ease;
-    &:hover {
-      color: rgba(254, 248, 245, 0.5);
-    }
   }
 `
 
 export const BlogSpan = styled.span`
+  font-weight: 400;
+  text-shadow: none;
   text-indent: 1em;
 `
 
-export const Btn = styled.button`
+export const Btn = styled.div`
   -webkit-tap-highlight-color: transparent;
   -webkit-appearance: button;
-  background-color: #fdfae5;
+  --webkit-mask-image: none;
+  width: 75%;
+  position: relative;
+  background-color: #dfc412;
   color: #414033;
-  margin: 0;
+  margin: 0 auto;
   outline: none;
   border-radius: 999px;
   border: 0 solid;
   box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.25);
   box-sizing: border-box;
   min-width: 156px;
-  width: 100%;
-  display: inline-block;
-
-  font-size: 1.4rem;
   line-height: 1.5;
   font-weight: 600;
-  padding: 1rem 5rem;
+  font-size: 1.5rem;
+  padding: 1rem 0;
   text-decoration: none #0d172a solid;
   text-decoration-thickness: auto;
   text-align: center;
+  letter-spacing: 0.1rem;
   cursor: pointer;
-  text-transform: uppercase;
   transition: background-color 0.6s ease;
+  &:before {
+    border: 0 solid;
+    box-sizing: border-box;
+    --thickness: 4px;
+    border: var(--thickness) solid #483f06;
+    border-radius: 999px;
+    content: "";
+    inset: calc(var(--thickness) * -1);
+    opacity: 0;
+    pointer-events: none;
+    position: absolute;
+    transform: scale(1.3);
+    transition: transform 0.2s, opacity 0.2s;
+  }
+  &:hover:before {
+    opacity: 1;
+    transform: scale(1);
+  }
   &:hover {
     background-color: transparent;
+    color: #414033;
   }
   @media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
-    width: 120px;
+    width: 220px;
   }
-`
-
-export const Btn2 = styled(Btn)`
-  margin-left: 0.2em;
 `
 
 export const Tools = styled.h2`

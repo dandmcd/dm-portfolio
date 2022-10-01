@@ -48,24 +48,24 @@ export const TooltipContact = styled(TooltipText)`
 export const swing = keyframes`
 
 15% {
+  -webkit-transform: translateX(4px);
+  transform: translateX(4px);
+}
+30% {
+  -webkit-transform: translateX(-4px);
+  transform: translateX(-4px);
+}
+50% {
   -webkit-transform: translateX(2px);
   transform: translateX(2px);
 }
-30% {
+65% {
   -webkit-transform: translateX(-2px);
   transform: translateX(-2px);
 }
-50% {
+80% {
   -webkit-transform: translateX(1px);
   transform: translateX(1px);
-}
-65% {
-  -webkit-transform: translateX(-1px);
-  transform: translateX(-1px);
-}
-80% {
-  -webkit-transform: translateX(0.5px);
-  transform: translateX(0.5px);
 }
 100% {
   -webkit-transform: translateX(0);
@@ -79,21 +79,21 @@ export const Float = styled.a`
   height: ${({ state }) => (state === "entered" ? "20px" : "60px")};
   bottom: ${({ state }) => (state === "entered" ? "60px" : "40px")};
   right: ${({ state }) => (state === "entered" ? "40px" : "20px")};
-  background-color: #efd318;
+  background-color: #f5e269;
   border-radius: 1em;
   text-align: center;
   cursor: pointer;
-  box-shadow: 2px 2px 3px #483f06;
+  box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.25);
   z-index: 1000;
   animation: ${swing} 0.5s ease;
-  animation-delay: 2s;
+  animation-delay: 3s;
   animation-iteration-count: 1;
   transition: background-color 0.5s;
   #menu-share + ul {
     visibility: hidden;
   }
   :hover {
-    background-color: #f5e269;
+    background-color: #f9efac;
     transform: scale(1.1);
   }
 `
@@ -174,7 +174,7 @@ export const List = styled.ul`
   margin: 0;
   transition: 0.5s;
   box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.25);
-  backdrop-filter: blur(15px) brightness(65%);
+  backdrop-filter: blur(5px) brightness(55%);
   opacity: ${({ state }) => (state === "entered" ? 1 : 0)};
   a {
     color: ${(props) =>
@@ -189,14 +189,14 @@ export const ListItem = styled.li`
   font-size: 24px;
   font-weight: 400;
   margin-bottom: 10px;
-  color: color: #dfc412;;
+  color: #dfc412;
   ::first-letter {
     text-shadow: 1px 1px 2px #f9efac;
     color: #efd318;
     transition: color 0.5s;
   }
   a {
-    color: #FEF8ED;
+    color: #fef8ed;
   }
   :hover {
     visibility: visible !important;
