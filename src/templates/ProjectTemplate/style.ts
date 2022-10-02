@@ -14,11 +14,13 @@ export const Img = styled.img`
 
 export const ImgCaption = styled.p`
   margin: 0 auto;
-  background-color: rgba(255, 249, 248, 0.85);
-  a {
-    font-weight: 400;
-  }
-  padding: 0.5em 0.7em;
+  border-radius: 1em;
+  backdrop-filter: blur(5px) brightness(55%);
+  opacity: 1;
+  max-width: 75%;
+  padding: 0.3em;
+  font-size: 18px;
+  color: #fef8ed;
   font-weight: 400;
   position: relative;
   overflow: hidden;
@@ -27,7 +29,6 @@ export const ImgCaption = styled.p`
 export const ContentfulHeading = styled.h2`
   border-left: 3px solid #414033;
   padding: 0 0 0 0.2em;
-  margin: 0 auto 0 0.5em;
 `
 
 export const ContentfulP = styled.p`
@@ -95,8 +96,6 @@ export const ViewButtons = styled.div`
 
 export const GitLink = styled(CommonButton)`
   margin: 0.3rem auto;
-  background-color: white;
-  width: 230px;
   display: inline-block;
   font-size: 18px;
 `
@@ -121,6 +120,7 @@ export const TagList = styled.ul`
 `
 
 export const Tag = styled.h4`
+  color: #16140f;
   font-weight: 600;
 `
 

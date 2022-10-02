@@ -24,7 +24,7 @@ export const ImgCaption = styled.p`
   backdrop-filter: blur(5px) brightness(55%);
   opacity: 1;
   max-width: 75%;
-  padding: 0.5em;
+  padding: 0.3em;
   font-size: 18px;
   color: #fef8ed;
   font-weight: 400;
