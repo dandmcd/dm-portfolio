@@ -1,9 +1,7 @@
 import styled from "styled-components"
-import { GatsbyImage } from "gatsby-plugin-image";
+import { GatsbyImage } from "gatsby-plugin-image"
 
-export const Container = styled.div`
-  max-width: 1100px;
-`
+export const Container = styled.div``
 
 export const Grid = styled.div`
   display: grid;
@@ -37,8 +35,7 @@ export const Preview = styled.h3`
 `
 
 export const ViewMore = styled.h2`
-  background-color: rgba(255, 249, 248, 0.85);
   padding: 0 3em 0 0;
-  font-weight: 200;
+  font-weight: 400;
   text-align: right;
 `

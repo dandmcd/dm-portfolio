@@ -2,7 +2,6 @@ import styled from "styled-components"
 
 export const CommonTitle = styled.h1`
   line-height: 1.2;
-  background-color: #dfc412;
   position: relative;
   color: #414033;
   margin: 0 auto;
@@ -10,7 +9,7 @@ export const CommonTitle = styled.h1`
   font-weight: 800;
   text-align: center;
   font-size: 72px;
-  @media only screen and (min-device-width: 320px) and (max-device-height: 640px) and (orientation: portrait) and (-webkit-device-pixel-ratio: 2) {
+  @media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
     font-size: 60px;
   }
 `
