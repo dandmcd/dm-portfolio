@@ -67,6 +67,7 @@ export const Wrapper = styled.main`
   padding: 20px;
   border-radius: 1em;
   box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.25);
+  backdrop-filter: blur(10px);
   width: 70vw;
   animation: ${fadeIn} 3.3s;
   @media only screen and (min-device-width: 320px) and (max-device-width: 480px) {

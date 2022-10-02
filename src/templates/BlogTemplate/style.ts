@@ -15,15 +15,18 @@ export const GoBackBlock = styled.div`
   display: flex;
   justify-content: flex-start;
   padding: 0.2em 0 0 0.8em;
+  margin-left: 0.5rem;
 `
 
 export const ImgCaption = styled.p`
   margin: 0 auto;
-  background-color: rgba(255, 249, 248, 0.85);
-  a {
-    font-weight: 400;
-  }
-  padding: 0.5em 0.7em;
+  border-radius: 1em;
+  backdrop-filter: blur(5px) brightness(55%);
+  opacity: 1;
+  max-width: 75%;
+  padding: 0.5em;
+  font-size: 18px;
+  color: #fef8ed;
   font-weight: 400;
   position: relative;
   overflow: hidden;
@@ -34,14 +37,15 @@ export const BlogLink = styled.a`
 `
 
 export const GoBack = styled.a`
+  font-size: 20px;
   cursor: pointer;
 `
 
 export const Arrow = styled.i`
-  border: solid #706d57;
-  border-width: 0 2px 2px 0;
+  border: solid #414033;
+  border-width: 0 3px 3px 0;
   display: inline-block;
-  padding: 4px;
+  padding: 5px;
   transform: rotate(135deg);
 `
 
