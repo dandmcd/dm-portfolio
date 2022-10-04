@@ -189,10 +189,10 @@ export const ListItem = styled.li`
   font-size: 24px;
   font-weight: 400;
   margin-bottom: 10px;
-  color: #dfc412;
+  color: #fef8ed;
   ::first-letter {
     text-shadow: 1px 1px 2px #f9efac;
-    color: #efd318;
+    color: #dfc412;
     transition: color 0.5s;
   }
   a {

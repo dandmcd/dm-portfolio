@@ -4,7 +4,7 @@ import { CommonButton } from "../../css/styledCommon"
 export const Form = styled.form`
   width: 340px;
   height: 490px;
-  background: #fdfae5;
+  background: #f9efac;
   border-radius: 1em;
   margin: 2em auto 2em auto;
   padding: 20px 30px;
@@ -67,8 +67,8 @@ export const PHidden = styled.p`
 `
 
 export const SubmitButton = styled(CommonButton)`
-  float: right;
-  font-size: 12px;
+  top: 30px;
+  font-size: 18px;
 `
 
 export const ContactSection = styled.div`
@@ -78,7 +78,6 @@ export const ContactSection = styled.div`
 export const EmailSection = styled.div`
   padding-top: 0.25em;
   padding-bottom: 1em;
-  background-color: #dfc412;
   position: relative;
   color: #414033;
   margin: 0 auto;

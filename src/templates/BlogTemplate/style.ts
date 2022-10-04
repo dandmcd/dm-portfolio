@@ -73,7 +73,7 @@ export const ContentfulHeading = styled.h4`
   background-color: #f9efac;
   border-radius: 0 4px 4px 0;
   padding: 0 0 0 0.2em;
-  font-size: 18px;
+  font-size: 20px;
   font-weight: 600;
   letter-spacing: 0.2px;
 `

@@ -1,5 +1,5 @@
 import styled from "styled-components"
-import { GatsbyImage } from "gatsby-plugin-image";
+import { GatsbyImage } from "gatsby-plugin-image"
 import { Link } from "gatsby"
 
 export const Figure = styled.div`
@@ -132,7 +132,7 @@ export const ProjectDescription = styled.p`
   margin: 1em;
   padding: 0.5em;
   opacity: 0;
-  font-size: 14px;
+  font-size: 18px;
   -webkit-transition: opacity 0.35s, -webkit-transform 0.35s;
   transition: opacity 0.35s, transform 0.35s;
   -webkit-transform: translate3d(100%, 0, 0);

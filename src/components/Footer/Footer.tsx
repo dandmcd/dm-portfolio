@@ -44,9 +44,11 @@ const Footer = ({ location }: { location: Location }): JSX.Element => {
           <List as={List} location={location} state={state}>
             {links.map((item, index) => {
               return (
-                <ListItem as={ListItem} clicked={clicked} key={index}>
-                  <Link to={item.path}>{item.text}</Link>
-                </ListItem>
+                <Link to={item.path}>
+                  <ListItem as={ListItem} clicked={clicked} key={index}>
+                    {item.text}
+                  </ListItem>
+                </Link>
               )
             })}
           </List>

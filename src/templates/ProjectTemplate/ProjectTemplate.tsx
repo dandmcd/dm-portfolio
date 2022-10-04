@@ -156,8 +156,9 @@ const ProjectTemplate: FC<GetProjects> = ({ data }) => {
               </a>
             </ViewButtons>
           </LinkSection>
-          <PackageBox>Tech Stack:</PackageBox>
+
           <TechTags>
+            <PackageBox>Tech Stack:</PackageBox>
             <TagList>
               {technology.map((tag, index) => (
                 <Fragment key={index}>

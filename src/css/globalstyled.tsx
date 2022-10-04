@@ -1,5 +1,5 @@
 import { createGlobalStyle } from "styled-components"
-import wavepattern from "../images/hero/wavepattern6.svg"
+import wavepattern from "../images/hero/wavepatterne.svg"
 
 export const theme = {
   appBody: "#fff",
@@ -33,7 +33,7 @@ export const GlobalStyle = createGlobalStyle`
   padding: 0;
   color: #111;
   outline: none;
-  background-color: #414033;
+  background-color: #DFC412;
   background-image: url(${wavepattern});
   background-size: cover;
   background-repeat: no-repeat;

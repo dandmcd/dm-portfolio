@@ -16,6 +16,7 @@ import {
 } from "./style"
 
 import { CommonTitle } from "../../css/styledCommon"
+import { Link } from "gatsby"
 
 const Contact: FC = (): JSX.Element => {
   return (
@@ -24,9 +25,9 @@ const Contact: FC = (): JSX.Element => {
       <EmailSection>
         <EmailDiv>
           <EmailSmHeader>Contact me by email:</EmailSmHeader>
-          <form action="mailto:mail@danielmcdermott.me">
-            <EmailButton type="submit">mail@danielmcdermott.me</EmailButton>
-          </form>
+          <Link to="mailto:mail@danielmcdermott.me">
+            <EmailButton type="">mail@danielmcdermott.me</EmailButton>
+          </Link>
         </EmailDiv>
       </EmailSection>
 
@@ -59,9 +60,9 @@ const Contact: FC = (): JSX.Element => {
             Message: <InputMsg name="message"></InputMsg>
           </label>
         </P>
-        <P>
+        <div>
           <SubmitButton type="submit">Send</SubmitButton>
-        </P>
+        </div>
       </Form>
     </ContactSection>
   )
