@@ -1,5 +1,5 @@
+import { Link } from "gatsby"
 import React, { FC } from "react"
-
 import { NodeProps } from "../ProjectsList/ProjectsList"
 import {
   Figure,
@@ -7,7 +7,6 @@ import {
   ProjectTitle,
   FeaturedSpan,
   ProjectViewMore,
-  ProjectLink,
   ProjectImg,
   ProjectDescription,
 } from "./style"
@@ -22,7 +21,7 @@ const FeaturedProject: FC<NodeProps> = ({ node }): JSX.Element => {
   } = node
   return (
     <>
-      <ProjectLink to={`/project/${slug}`}>
+      <Link to={`/project/${slug}`}>
         <Figure>
           <FigCaption>
             <ProjectTitle>
@@ -39,7 +38,7 @@ const FeaturedProject: FC<NodeProps> = ({ node }): JSX.Element => {
             />
           </div>
         </Figure>
-      </ProjectLink>
+      </Link>
     </>
   )
 }

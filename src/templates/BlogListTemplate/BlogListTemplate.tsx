@@ -7,12 +7,12 @@ import { GatsbyImageProps } from "gatsby-plugin-image"
 import {
   BlogListing,
   PageTurner,
-  Title,
   Prev,
   Next,
   ArrowLeft,
   ArrowRight,
 } from "./style"
+import { CommonTitle } from "../../css/styledCommon"
 
 export interface GetPosts {
   data: {
@@ -83,7 +83,7 @@ const BlogListTemplate: FC<GetPosts> = (props) => {
 
   return (
     <>
-      <Title>The Whatever Blog</Title>
+      <CommonTitle>The Whatever Blog</CommonTitle>
       {data.posts.edges.map(({ node }) => {
         return (
           <BlogListing key={node.contentful_id}>

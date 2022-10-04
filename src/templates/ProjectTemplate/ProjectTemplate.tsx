@@ -20,7 +20,6 @@ import {
   ContentSide,
   ProjectTitle,
   SideBar,
-  LinkSection,
   Preview,
   ViewButtons,
   GitLink,
@@ -144,7 +143,7 @@ const ProjectTemplate: FC<GetProjects> = ({ data }) => {
           {description && renderRichText(description, options)}
         </ContentSide>
         <SideBar>
-          <LinkSection>
+          <div>
             <ProjectTitle>{title}</ProjectTitle>
             <Preview>{preview}</Preview>
             <ViewButtons>
@@ -155,7 +154,7 @@ const ProjectTemplate: FC<GetProjects> = ({ data }) => {
                 <DemoLink>See Live App</DemoLink>
               </a>
             </ViewButtons>
-          </LinkSection>
+          </div>
 
           <TechTags>
             <PackageBox>Tech Stack:</PackageBox>

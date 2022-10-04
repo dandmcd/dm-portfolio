@@ -27,16 +27,16 @@ export const ImgCaption = styled.p`
   overflow: hidden;
 `
 
-export const ContentfulHeading = styled.h2`
-  border-left: 3px solid #414033;
-  padding: 0 0 0 0.2em;
-`
-
 export const ContentfulP = styled.p`
   padding: 0 0.5em 0.5em 1em;
   a {
     text-decoration: underline;
   }
+`
+
+export const ContentfulHeading = styled.h2`
+  border-left: 3px solid #414033;
+  padding: 0 0 0 0.2em;
 `
 
 export const Container = styled.div`
@@ -101,14 +101,6 @@ export const ContentSide = styled.div`
     display: contents;
   }
 `
-export const ProjectTitle = styled.h1`
-  color: #414033;
-  margin: 0 auto;
-  font-weight: 800;
-  text-align: center;
-  font-size: 52px;
-  letter-spacing: 2px;
-`
 
 export const SideBar = styled.div`
   grid-column: 2 / 3;
@@ -119,7 +111,15 @@ export const SideBar = styled.div`
     grid-column: 1 / 2;
   }
 `
-export const LinkSection = styled.div``
+
+export const ProjectTitle = styled.h1`
+  color: #414033;
+  margin: 0 auto;
+  font-weight: 800;
+  text-align: center;
+  font-size: 52px;
+  letter-spacing: 2px;
+`
 
 export const Preview = styled.h4`
   color: #706d57;
@@ -143,14 +143,6 @@ export const GitLink = styled(CommonButton)`
 
 export const DemoLink = styled(GitLink)``
 
-export const PackageBox = styled.h2`
-  margin-top: 2rem;
-  text-align: center;
-  @media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
-    margin-top: 0;
-  }
-`
-
 export const TechTags = styled.div`
   margin: 0 auto;
   text-align: center;
@@ -161,6 +153,15 @@ export const TechTags = styled.div`
     backdrop-filter: blur(10px);
   }
 `
+
+export const PackageBox = styled.h2`
+  margin-top: 2rem;
+  text-align: center;
+  @media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
+    margin-top: 0;
+  }
+`
+
 export const TagList = styled.ul`
   margin: 0 auto;
   padding: 0;

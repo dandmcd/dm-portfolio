@@ -1,8 +1,6 @@
 import styled from "styled-components"
 import { GatsbyImage } from "gatsby-plugin-image"
 
-export const Container = styled.div``
-
 export const Grid = styled.div`
   display: grid;
   grid-template-columns: 200px 3fr;

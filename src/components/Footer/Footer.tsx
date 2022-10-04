@@ -1,20 +1,16 @@
 import React, { useState } from "react"
 import { Link } from "gatsby"
 import links from "../../constants/links"
-
 import { Transition } from "react-transition-group"
-import email from "../../images/e-mail.png"
 
 import {
   Tooltip,
-  TooltipMenu,
   TooltipText,
   Float,
   Hamburger,
   MyFloat,
   List,
   ListItem,
-  TooltipContact,
 } from "./style"
 import { TransitionProps } from "react-transition-group/Transition"
 
@@ -27,7 +23,7 @@ const Footer = ({ location }: { location: Location }): JSX.Element => {
     <Transition in={clicked} timeout={500}>
       {(state: { state: TransitionProps }) => (
         <>
-          <TooltipMenu>
+          <Tooltip>
             <Float state={state} onClick={toggleMenu} id="menu-share">
               <MyFloat>
                 <Hamburger as={Hamburger} clicked={clicked}>
@@ -40,7 +36,7 @@ const Footer = ({ location }: { location: Location }): JSX.Element => {
             <TooltipText as={TooltipText} clicked={clicked} location={location}>
               Menu
             </TooltipText>
-          </TooltipMenu>
+          </Tooltip>
           <List as={List} location={location} state={state}>
             {links.map((item, index) => {
               return (

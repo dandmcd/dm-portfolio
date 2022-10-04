@@ -6,13 +6,13 @@ import {
   InputMsg,
   EmailSmHeader,
   EmailExSmHeader,
-  P,
+  Paragraph,
   SubmitButton,
   ContactSection,
   EmailSection,
   EmailDiv,
   EmailButton,
-  PHidden,
+  ParagraphHidden,
 } from "./style"
 
 import { CommonTitle } from "../../css/styledCommon"
@@ -40,26 +40,26 @@ const Contact: FC = (): JSX.Element => {
         <EmailSmHeader>No time for email? </EmailSmHeader>
         <EmailExSmHeader>Fill in the easy contact form below:</EmailExSmHeader>
         <input type="hidden" name="form-name" value="contact" />
-        <PHidden>
+        <ParagraphHidden>
           <label>
             Don’t fill this out if you’re human: <input name="bot-field" />
           </label>
-        </PHidden>
-        <P>
+        </ParagraphHidden>
+        <Paragraph>
           <label>
             Your Name: <Input type="text" name="name" />
           </label>
-        </P>
-        <P>
+        </Paragraph>
+        <Paragraph>
           <label>
             Your Email: <Input type="email" name="email" />
           </label>
-        </P>
-        <P>
+        </Paragraph>
+        <Paragraph>
           <label>
             Message: <InputMsg name="message"></InputMsg>
           </label>
-        </P>
+        </Paragraph>
         <div>
           <SubmitButton type="submit">Send</SubmitButton>
         </div>

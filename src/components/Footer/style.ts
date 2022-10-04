@@ -4,45 +4,9 @@ export const Tooltip = styled.div`
   position: fixed;
   display: inline-block;
   width: 40px;
-  bottom: 190px;
+  bottom: 140px;
   right: 65px;
   z-index: 1000;
-`
-
-export const TooltipMenu = styled(Tooltip)`
-  bottom: 140px;
-`
-
-export const TooltipText = styled.span`
-  visibility: hidden;
-  width: 100px;
-  background-color: ${(props) =>
-    props.location.pathname === "/" ? "#f9efac" : "#483f06"};
-  color: ${(props) =>
-    props.location.pathname === "/" ? "#483f06" : "#fdfae5"};
-  text-align: center;
-  padding: 5px 0;
-  border-radius: 0.5em;
-  position: absolute;
-  z-index: 5000;
-  ${Tooltip}:hover & {
-    visibility: ${(props) => (props.clicked ? "hidden" : "visible")};
-  }
-  ::after {
-    content: " ";
-    position: absolute;
-    top: 100%;
-    left: 50%;
-    border-width: 5px;
-    border-style: solid;
-    border-color: black transparent transparent transparent;
-  }
-`
-
-export const TooltipContact = styled(TooltipText)`
-  :hover {
-    visibility: ${(props) => (props.clicked ? "visible" : "hidden")};
-  }
 `
 
 export const swing = keyframes`
@@ -98,23 +62,9 @@ export const Float = styled.a`
   }
 `
 
-// export const Email = styled.img`
-//   visibility: ${(props) => (props.clicked ? "hidden" : "visible")};
-//   position: fixed;
-//   width: 60px;
-//   bottom: 120px;
-//   right: 20px;
-//   z-index: 100;
-//   cursor: pointer;
-//   opacity: ${({ state }) => (state === "entered" ? 0 : 1)};
-//   animation: ${swing} 0.5s ease;
-//   animation-delay: 2s;
-//   animation-iteration-count: 1;
-//   transition: all 0.2s ease-in-out;
-//   :hover {
-//     transform: scale(1.1);
-//   }
-// `
+export const MyFloat = styled.div`
+  display: inline-block;
+`
 
 export const Hamburger = styled.div`
   width: 35px;
@@ -156,8 +106,30 @@ export const Hamburger = styled.div`
   }
 `
 
-export const MyFloat = styled.div`
-  display: inline-block;
+export const TooltipText = styled.span`
+  visibility: hidden;
+  width: 100px;
+  background-color: ${(props) =>
+    props.location.pathname === "/" ? "#f9efac" : "#483f06"};
+  color: ${(props) =>
+    props.location.pathname === "/" ? "#483f06" : "#fdfae5"};
+  text-align: center;
+  padding: 5px 0;
+  border-radius: 0.5em;
+  position: absolute;
+  z-index: 5000;
+  ${Tooltip}:hover & {
+    visibility: ${(props) => (props.clicked ? "hidden" : "visible")};
+  }
+  ::after {
+    content: " ";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    border-width: 5px;
+    border-style: solid;
+    border-color: black transparent transparent transparent;
+  }
 `
 
 export const List = styled.ul`

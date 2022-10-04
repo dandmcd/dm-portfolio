@@ -1,5 +1,4 @@
 import React, { FC } from "react"
-import HeroBackground from "../HeroBackground"
 import { graphql, useStaticQuery, Link } from "gatsby"
 import { GatsbyImageProps } from "gatsby-plugin-image"
 import github from "../../images/github.png"
@@ -8,7 +7,6 @@ import email from "../../images/message.png"
 import {
   Cta,
   Header,
-  Footer,
   Wrapper,
   Title,
   FadeTitle,
@@ -18,19 +16,14 @@ import {
   IntroBox,
   Intro,
   MeImg,
-  ButtonFlex,
   CtaBtns,
   BlogEntry,
   BlogSpan,
-  Btn,
-  Btn2,
-  Tools,
   MediaIcons,
   MediaIcon,
-  MediaIconBig,
   Social,
-  BtnSpan,
 } from "./style"
+import { CommonButton } from "../../css/styledCommon"
 
 interface GetCta {
   file: {
@@ -135,7 +128,7 @@ const Me: FC = (): JSX.Element => {
 
         <CtaBtns>
           <Link to="/projects">
-            <Btn>View My Projects</Btn>
+            <CommonButton>View My Projects</CommonButton>
           </Link>
         </CtaBtns>
         <BlogEntry>

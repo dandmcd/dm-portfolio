@@ -18,8 +18,6 @@ export const PageTurner = styled.div`
   justify-content: center;
 `
 
-export const Title = styled(CommonTitle)``
-
 export const Prev = styled.div`
   font-size: 20px;
   padding: 1em;
