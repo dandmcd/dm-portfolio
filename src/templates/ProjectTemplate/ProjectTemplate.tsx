@@ -20,7 +20,6 @@ import {
   ContentSide,
   ProjectTitle,
   SideBar,
-  LinkSection,
   Preview,
   ViewButtons,
   GitLink,
@@ -144,24 +143,21 @@ const ProjectTemplate: FC<GetProjects> = ({ data }) => {
           {description && renderRichText(description, options)}
         </ContentSide>
         <SideBar>
-          <LinkSection>
+          <div>
             <ProjectTitle>{title}</ProjectTitle>
             <Preview>{preview}</Preview>
             <ViewButtons>
-              <GitLink>
-                <a href={githubLink} rel="noopener noreferrer" target="_blank">
-                  View Github
-                </a>
-              </GitLink>
-              <DemoLink>
-                <a href={demoLink} rel="noopener noreferrer" target="_blank">
-                  See Live App
-                </a>
-              </DemoLink>
+              <a href={githubLink} rel="noopener noreferrer" target="_blank">
+                <GitLink>View Github</GitLink>
+              </a>
+              <a href={demoLink} rel="noopener noreferrer" target="_blank">
+                <DemoLink>See Live App</DemoLink>
+              </a>
             </ViewButtons>
-          </LinkSection>
-          <PackageBox>Tech Stack:</PackageBox>
+          </div>
+
           <TechTags>
+            <PackageBox>Tech Stack:</PackageBox>
             <TagList>
               {technology.map((tag, index) => (
                 <Fragment key={index}>

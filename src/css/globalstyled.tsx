@@ -1,4 +1,5 @@
 import { createGlobalStyle } from "styled-components"
+import wavepattern from "../images/hero/wavepattern6.svg"
 
 export const theme = {
   appBody: "#fff",
@@ -20,33 +21,40 @@ export const theme = {
   success: "#71da71",
   link: "#ca3131",
   hoverLink: "#e08787",
+  //#483F06 dark yellow
 }
 
 export const GlobalStyle = createGlobalStyle`
   body {
+    min-height: 100vh;
     z-index: 1;
   font-family: "Barlow Semi Condensed", sans-serif;
   margin: 0;
   padding: 0;
   color: #111;
   outline: none;
+  background-color: #DFC412;
+  background-image: url(${wavepattern});
+  background-size: cover;
+  background-repeat: no-repeat;
+
   }
   button {
     font-family: "Barlow Semi Condensed", sans-serif;
   }
   a {
-  color: #483f06;
+  color: #414033;
   text-decoration: none;
-  transition: color 0.5s;
+  transition: color 0.6s ease;
   :hover {
-    color: #706d57;
+    color: #f5e269;
   }
 }
 h1 {
       font-size: 36px;
   }
     h2 {
-      color: #16140F;
+      color: #414033;
       font-size: 24px;
   }
     h3 {

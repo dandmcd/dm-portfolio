@@ -18,12 +18,12 @@ export const ProjectsContainer = styled.div`
   display: grid;
   z-index: 2;
   position: relative;
-  grid-template-columns: repeat(auto-fit, minmax(330px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(420px, 1fr));
   row-gap: 20px;
   column-gap: 5px;
   align-items: center;
   justify-items: center;
-  max-width: 900px;
+  max-width: 1024px;
   padding: 1em 0;
   left: 50%;
   transform: translateX(-50%);

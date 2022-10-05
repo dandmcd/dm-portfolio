@@ -4,63 +4,32 @@ export const Tooltip = styled.div`
   position: fixed;
   display: inline-block;
   width: 40px;
-  bottom: 190px;
+  bottom: 140px;
   right: 65px;
   z-index: 1000;
-`
-
-export const TooltipMenu = styled(Tooltip)`
-  bottom: 140px;
-`
-
-export const TooltipText = styled.span`
-  visibility: hidden;
-  width: 100px;
-  background-color: ${(props) =>
-    props.location.pathname === "/" ? "#f9efac" : "#483f06"};
-  color: ${(props) =>
-    props.location.pathname === "/" ? "#483f06" : "#fdfae5"};
-
-  text-align: center;
-  padding: 5px 0;
-  border-radius: 0.5em;
-  position: absolute;
-  z-index: 5000;
-  ${Tooltip}:hover & {
-    visibility: ${(props) => (props.clicked ? "hidden" : "visible")};
-  }
-  ::after {
-    content: " ";
-    position: absolute;
-    top: 100%;
-    left: 50%;
-    border-width: 5px;
-    border-style: solid;
-    border-color: black transparent transparent transparent;
-  }
 `
 
 export const swing = keyframes`
 
 15% {
+  -webkit-transform: translateX(4px);
+  transform: translateX(4px);
+}
+30% {
+  -webkit-transform: translateX(-4px);
+  transform: translateX(-4px);
+}
+50% {
   -webkit-transform: translateX(2px);
   transform: translateX(2px);
 }
-30% {
+65% {
   -webkit-transform: translateX(-2px);
   transform: translateX(-2px);
 }
-50% {
+80% {
   -webkit-transform: translateX(1px);
   transform: translateX(1px);
-}
-65% {
-  -webkit-transform: translateX(-1px);
-  transform: translateX(-1px);
-}
-80% {
-  -webkit-transform: translateX(0.5px);
-  transform: translateX(0.5px);
 }
 100% {
   -webkit-transform: translateX(0);
@@ -74,39 +43,27 @@ export const Float = styled.a`
   height: ${({ state }) => (state === "entered" ? "20px" : "60px")};
   bottom: ${({ state }) => (state === "entered" ? "60px" : "40px")};
   right: ${({ state }) => (state === "entered" ? "40px" : "20px")};
-  background-color: #efd318;
+  background-color: #f5e269;
   border-radius: 1em;
   text-align: center;
   cursor: pointer;
-  box-shadow: 2px 2px 3px #483f06;
+  box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.25);
   z-index: 1000;
   animation: ${swing} 0.5s ease;
-  animation-delay: 2s;
+  animation-delay: 3s;
   animation-iteration-count: 1;
   transition: background-color 0.5s;
   #menu-share + ul {
     visibility: hidden;
   }
   :hover {
-    background-color: #f5e269;
+    background-color: #f9efac;
+    transform: scale(1.1);
   }
 `
 
-export const Email = styled.img`
-  position: fixed;
-  width: 40px;
-  bottom: 120px;
-  right: 30px;
-  z-index: 100;
-  cursor: pointer;
-  opacity: ${({ state }) => (state === "entered" ? 0 : 1)};
-  animation: ${swing} 0.5s ease;
-  animation-delay: 2s;
-  animation-iteration-count: 1;
-  transition: all 0.2s ease-in-out;
-  :hover {
-    transform: scale(1.1);
-  }
+export const MyFloat = styled.div`
+  display: inline-block;
 `
 
 export const Hamburger = styled.div`
@@ -128,29 +85,51 @@ export const Hamburger = styled.div`
   }
   span:nth-child(1) {
     width: 100%;
-    height: 4px;
+    height: 3px;
     display: block;
     top: 0px;
     left: 0px;
   }
   span:nth-child(2) {
     width: 100%;
-    height: 4px;
+    height: 3px;
     display: block;
     top: 13px;
     left: 0px;
   }
   span:nth-child(3) {
     width: 100%;
-    height: 4px;
+    height: 3px;
     display: block;
     bottom: 0px;
     left: 0px;
   }
 `
 
-export const MyFloat = styled.div`
-  display: inline-block;
+export const TooltipText = styled.span`
+  visibility: hidden;
+  width: 100px;
+  background-color: ${(props) =>
+    props.location.pathname === "/" ? "#f9efac" : "#483f06"};
+  color: ${(props) =>
+    props.location.pathname === "/" ? "#483f06" : "#fdfae5"};
+  text-align: center;
+  padding: 5px 0;
+  border-radius: 0.5em;
+  position: absolute;
+  z-index: 5000;
+  ${Tooltip}:hover & {
+    visibility: ${(props) => (props.clicked ? "hidden" : "visible")};
+  }
+  ::after {
+    content: " ";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    border-width: 5px;
+    border-style: solid;
+    border-color: black transparent transparent transparent;
+  }
 `
 
 export const List = styled.ul`
@@ -166,7 +145,8 @@ export const List = styled.ul`
   list-style-type: none;
   margin: 0;
   transition: 0.5s;
-  backdrop-filter: blur(5px) brightness(110%);
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.25);
+  backdrop-filter: blur(5px) brightness(55%);
   opacity: ${({ state }) => (state === "entered" ? 1 : 0)};
   a {
     color: ${(props) =>
@@ -181,13 +161,18 @@ export const ListItem = styled.li`
   font-size: 24px;
   font-weight: 400;
   margin-bottom: 10px;
+  color: #fef8ed;
   ::first-letter {
     text-shadow: 1px 1px 2px #f9efac;
-    color: #efd318;
+    color: #dfc412;
     transition: color 0.5s;
+  }
+  a {
+    color: #fef8ed;
   }
   :hover {
     visibility: visible !important;
     opacity: 1 !important;
+    transform: scale(1.1);
   }
 `

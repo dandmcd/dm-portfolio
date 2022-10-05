@@ -1,11 +1,11 @@
 /* eslint-disable react/display-name */
 import React, { FC } from "react"
-import { graphql } from "gatsby"
+import { graphql, Link } from "gatsby"
 import {
   ContentfulRichTextGatsbyReference,
   renderRichText,
 } from "gatsby-source-contentful/rich-text"
-import { BLOCKS } from "@contentful/rich-text-types"
+import { BLOCKS, INLINES } from "@contentful/rich-text-types"
 import SEO from "../../components/SEO"
 import CodeSnippet from "../../components/CodeSnippet"
 
@@ -50,6 +50,7 @@ interface ContentfulProps {
       codeSnippet: {
         codeSnippet: string
       }
+      slug: string
     }
   }
 }
@@ -73,7 +74,13 @@ export const query = graphql`
             __typename
           }
           ... on ContentfulEntry {
+            id
             contentful_id
+            __typename
+          }
+          ... on ContentfulDmPortfolioBlog {
+            id
+            slug
             __typename
           }
           ... on ContentfulAsset {
@@ -91,6 +98,7 @@ export const query = graphql`
 `
 
 const BlogTemplate: FC<GetPost> = ({ data }) => {
+  console.log(data)
   const {
     title,
     updatedAt,
@@ -133,9 +141,15 @@ const BlogTemplate: FC<GetPost> = ({ data }) => {
           </CodeBlock>
         )
       },
+      [INLINES.ENTRY_HYPERLINK]: (
+        node: ContentfulProps,
+        children: ContentfulRichTextGatsbyReference
+      ) => {
+        return <Link to={`/blog/${node.data.target.slug}`}>{children}</Link>
+      },
     },
   }
-
+  console.log(options)
   return (
     <>
       <SEO title={title} description={previewText} />

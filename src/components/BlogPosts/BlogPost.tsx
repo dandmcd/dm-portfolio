@@ -3,7 +3,6 @@ import { Link } from "gatsby"
 import { GatsbyImageProps } from "gatsby-plugin-image"
 
 import {
-  Container,
   Grid,
   BlogImg,
   TextFields,
@@ -37,7 +36,7 @@ const BlogPost: FunctionComponent<Props> = ({ blog }) => {
   } = blog
   const image = images[0].gatsbyImageData
   return (
-    <Container>
+    <>
       <Grid>
         <BlogImg as={BlogImg} image={image} alt="test" />
         <TextFields>
@@ -51,7 +50,7 @@ const BlogPost: FunctionComponent<Props> = ({ blog }) => {
           </ViewMore>
         </TextFields>
       </Grid>
-    </Container>
+    </>
   )
 }
 

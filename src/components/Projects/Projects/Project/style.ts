@@ -78,6 +78,25 @@ export const ProjectTitle = styled.h2`
   }
 `
 
+export const ProjectDescription = styled.p`
+  grid-row: 2 / 4;
+  color: #faf9f8;
+  margin: 1em;
+  padding: 0.5em;
+  opacity: 0;
+  font-size: 18px;
+  -webkit-transition: opacity 0.35s, -webkit-transform 0.35s;
+  transition: opacity 0.35s, transform 0.35s;
+  -webkit-transform: translate3d(100%, 0, 0);
+  transform: translate3d(100%, 0, 0);
+  ${Figure}:hover & {
+    opacity: 1;
+    border-left: 5px solid #414033;
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+  }
+`
+
 export const ProjectViewMore = styled.h2`
   background-color: rgba(255, 255, 255, 0.6);
   a {
@@ -99,7 +118,6 @@ export const ProjectViewMore = styled.h2`
     transform: translate3d(0, 0, 0);
   }
 `
-export const ProjectLink = styled(Link)``
 
 export const ProjectImg = styled(GatsbyImage)`
   grid-row: 1 / 4;
@@ -115,25 +133,6 @@ export const ProjectImg = styled(GatsbyImage)`
   transform: translate3d(-50px, 0, 0);
   ${Figure}:hover & {
     opacity: 0.2;
-    -webkit-transform: translate3d(0, 0, 0);
-    transform: translate3d(0, 0, 0);
-  }
-`
-
-export const ProjectDescription = styled.p`
-  grid-row: 2 / 4;
-  color: #faf9f8;
-  margin: 1em;
-  padding: 0.5em;
-  opacity: 0;
-  font-size: 14px;
-  -webkit-transition: opacity 0.35s, -webkit-transform 0.35s;
-  transition: opacity 0.35s, transform 0.35s;
-  -webkit-transform: translate3d(100%, 0, 0);
-  transform: translate3d(100%, 0, 0);
-  ${Figure}:hover & {
-    opacity: 1;
-    border-left: 5px solid #414033;
     -webkit-transform: translate3d(0, 0, 0);
     transform: translate3d(0, 0, 0);
   }

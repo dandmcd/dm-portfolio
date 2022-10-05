@@ -1,16 +1,12 @@
 import React, { useState } from "react"
 import { Link } from "gatsby"
 import links from "../../constants/links"
-
 import { Transition } from "react-transition-group"
-import email from "../../images/e-mail.png"
 
 import {
   Tooltip,
-  TooltipMenu,
   TooltipText,
   Float,
-  Email,
   Hamburger,
   MyFloat,
   List,
@@ -28,14 +24,6 @@ const Footer = ({ location }: { location: Location }): JSX.Element => {
       {(state: { state: TransitionProps }) => (
         <>
           <Tooltip>
-            <Link to="/contact">
-              <Email as={Email} src={email} state={state} alt="Email" />
-            </Link>
-            <TooltipText as={TooltipText} clicked={clicked} location={location}>
-              Contact Me
-            </TooltipText>
-          </Tooltip>
-          <TooltipMenu>
             <Float state={state} onClick={toggleMenu} id="menu-share">
               <MyFloat>
                 <Hamburger as={Hamburger} clicked={clicked}>
@@ -48,13 +36,15 @@ const Footer = ({ location }: { location: Location }): JSX.Element => {
             <TooltipText as={TooltipText} clicked={clicked} location={location}>
               Menu
             </TooltipText>
-          </TooltipMenu>
+          </Tooltip>
           <List as={List} location={location} state={state}>
             {links.map((item, index) => {
               return (
-                <ListItem as={ListItem} clicked={clicked} key={index}>
-                  <Link to={item.path}>{item.text}</Link>
-                </ListItem>
+                <Link to={item.path}>
+                  <ListItem as={ListItem} clicked={clicked} key={index}>
+                    {item.text}
+                  </ListItem>
+                </Link>
               )
             })}
           </List>
