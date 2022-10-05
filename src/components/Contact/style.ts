@@ -2,7 +2,8 @@ import styled from "styled-components"
 import { CommonButton } from "../../css/styledCommon"
 
 export const ContactSection = styled.div`
-  max-width: 100vw;
+  margin: 0 auto;
+  max-width: 1024px;
 `
 
 export const EmailSection = styled.div`

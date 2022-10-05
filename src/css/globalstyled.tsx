@@ -1,5 +1,5 @@
 import { createGlobalStyle } from "styled-components"
-import wavepattern from "../images/hero/wavepatterne.svg"
+import wavepattern from "../images/hero/wavepattern6.svg"
 
 export const theme = {
   appBody: "#fff",

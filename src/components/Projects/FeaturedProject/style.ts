@@ -6,7 +6,6 @@ export const Figure = styled.div`
   z-index: 2;
   position: relative;
   overflow: hidden;
-  border-radius: 4px;
   min-width: 320px;
   max-height: 360px;
   max-width: 900px;
