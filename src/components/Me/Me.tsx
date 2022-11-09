@@ -90,10 +90,22 @@ const Me: FC = (): JSX.Element => {
                 rel="noopener noreferrer"
                 target="_blank"
               >
-                <MediaIcon as={MediaIcon} src={github} alt="Github"></MediaIcon>
+                <MediaIcon
+                  as={MediaIcon}
+                  src={github}
+                  width="32"
+                  height="32"
+                  alt="Github"
+                ></MediaIcon>
               </a>
               <Link to="/contact">
-                <MediaIcon as={MediaIcon} src={email} alt="Email"></MediaIcon>
+                <MediaIcon
+                  as={MediaIcon}
+                  src={email}
+                  width="32"
+                  height="32"
+                  alt="Email"
+                ></MediaIcon>
               </Link>
               <a
                 href="https://www.linkedin.com/in/dandmcd/"
@@ -103,6 +115,8 @@ const Me: FC = (): JSX.Element => {
                 <MediaIcon
                   as={MediaIcon}
                   src={linkedin}
+                  width="32"
+                  height="32"
                   alt="LinkedIn"
                 ></MediaIcon>
               </a>

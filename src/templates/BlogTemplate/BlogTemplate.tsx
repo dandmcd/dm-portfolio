@@ -98,7 +98,6 @@ export const query = graphql`
 `
 
 const BlogTemplate: FC<GetPost> = ({ data }) => {
-  console.log(data)
   const {
     title,
     updatedAt,
@@ -149,7 +148,6 @@ const BlogTemplate: FC<GetPost> = ({ data }) => {
       },
     },
   }
-  console.log(options)
   return (
     <>
       <SEO title={title} description={previewText} />
