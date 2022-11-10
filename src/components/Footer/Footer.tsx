@@ -37,17 +37,17 @@ const Footer = ({ location }: { location: Location }): JSX.Element => {
               Menu
             </TooltipText>
           </Tooltip>
-          <List as={List} location={location} state={state}>
-            {links.map((item, index) => {
-              return (
-                <Link to={item.path}>
+          {clicked ? (
+            <List as={List} location={location} state={state}>
+              {links.map((item, index) => {
+                return (
                   <ListItem as={ListItem} clicked={clicked} key={index}>
-                    {item.text}
+                    <Link to={item.path}>{item.text}</Link>
                   </ListItem>
-                </Link>
-              )
-            })}
-          </List>
+                )
+              })}
+            </List>
+          ) : null}
         </>
       )}
     </Transition>
