@@ -37,7 +37,7 @@ export const swing = keyframes`
 }
 `
 
-export const Float = styled.a`
+export const Float = styled.div`
   position: fixed;
   width: ${({ state }) => (state === "entered" ? "20px" : "60px")};
   height: ${({ state }) => (state === "entered" ? "20px" : "60px")};
