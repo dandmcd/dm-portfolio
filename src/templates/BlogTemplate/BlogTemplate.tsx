@@ -51,6 +51,7 @@ interface ContentfulProps {
         codeSnippet: string
       }
       slug: string
+      __typename: string
     }
   }
 }
@@ -80,6 +81,12 @@ export const query = graphql`
           }
           ... on ContentfulDmPortfolioBlog {
             id
+            slug
+            __typename
+          }
+          ... on ContentfulDmPortfolioProjects {
+            id
+            contentful_id
             slug
             __typename
           }
@@ -144,7 +151,13 @@ const BlogTemplate: FC<GetPost> = ({ data }) => {
         node: ContentfulProps,
         children: ContentfulRichTextGatsbyReference
       ) => {
-        return <Link to={`/blog/${node.data.target.slug}`}>{children}</Link>
+        if (node.data.target.__typename === "ContentfulDmPortfolioProjects") {
+          return (
+            <Link to={`/project/${node.data.target.slug}`}>{children}</Link>
+          )
+        } else {
+          return <Link to={`/blog/${node.data.target.slug}`}>{children}</Link>
+        }
       },
     },
   }
