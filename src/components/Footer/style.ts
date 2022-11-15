@@ -109,17 +109,15 @@ export const Hamburger = styled.div`
 export const TooltipText = styled.span`
   visibility: hidden;
   width: 100px;
-  background-color: ${(props) =>
-    props.location.pathname === "/" ? "#f9efac" : "#483f06"};
-  color: ${(props) =>
-    props.location.pathname === "/" ? "#483f06" : "#fdfae5"};
+  background-color: #483f06;
+  color: #fdfae5;
   text-align: center;
   padding: 5px 0;
   border-radius: 0.5em;
   position: absolute;
   z-index: 5000;
   ${Tooltip}:hover & {
-    visibility: ${(props) => (props.clicked ? "hidden" : "visible")};
+    visibility: visible;
   }
   ::after {
     content: " ";

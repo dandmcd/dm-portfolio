@@ -17,7 +17,7 @@ import { TransitionProps } from "react-transition-group/Transition"
 const Footer = ({ location }: { location: Location }): JSX.Element => {
   const [clicked, setIsClicked] = useState(false)
   const toggleMenu = () => {
-    setIsClicked(clicked === false ? true : false)
+    setIsClicked((prevClick) => !prevClick)
   }
   return (
     <Transition in={clicked} timeout={500}>
@@ -33,7 +33,7 @@ const Footer = ({ location }: { location: Location }): JSX.Element => {
                 </Hamburger>
               </MyFloat>
             </Float>
-            <TooltipText as={TooltipText} clicked={clicked} location={location}>
+            <TooltipText as={TooltipText} location={location}>
               Menu
             </TooltipText>
           </Tooltip>
