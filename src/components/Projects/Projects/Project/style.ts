@@ -1,5 +1,4 @@
 import styled from "styled-components"
-import { Link } from "gatsby"
 import { GatsbyImage } from "gatsby-plugin-image"
 
 export const Figure = styled.div`

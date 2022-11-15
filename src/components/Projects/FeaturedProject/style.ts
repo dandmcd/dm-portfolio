@@ -1,6 +1,5 @@
 import styled from "styled-components"
 import { GatsbyImage } from "gatsby-plugin-image"
-import { Link } from "gatsby"
 
 export const Figure = styled.div`
   z-index: 2;
