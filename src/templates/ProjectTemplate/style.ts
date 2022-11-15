@@ -131,6 +131,7 @@ export const Preview = styled.h4`
 `
 
 export const ViewButtons = styled.div`
+  padding-bottom: 0.5rem;
   text-align: center;
   margin: 0 auto;
 `
@@ -155,7 +156,7 @@ export const TechTags = styled.div`
 `
 
 export const PackageBox = styled.h2`
-  margin-top: 2rem;
+  margin-top: 1rem;
   text-align: center;
   @media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
     margin-top: 0;

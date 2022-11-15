@@ -54,7 +54,7 @@ export const FadeTitleC = styled.span`
 `
 
 export const Wrapper = styled.main`
-  margin: 2rem auto 0 auto;
+  margin: 2rem auto 2rem auto;
   max-width: 1024px;
   padding: 20px;
   border-radius: 1em;
