@@ -132,10 +132,10 @@ const Me: FC = (): JSX.Element => {
           </Social>
           <IntroBox>
             <Intro>
-              Hello, I am Daniel McDermott, a software developer in the USA. I
-              create full-stack apps using multiple programming languages
-              including TypeScript and Python, along with many of the latest
-              tools including React and GraphQL.
+              Hello, I am Daniel McDermott, a software developer majoring in
+              Computer Science. I create full-stack apps using multiple
+              programming languages including TypeScript and Python, along with
+              many of the latest tools including React and GraphQL.
             </Intro>
           </IntroBox>
         </IntroSection>
