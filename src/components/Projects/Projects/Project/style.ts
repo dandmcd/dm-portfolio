@@ -9,7 +9,7 @@ export const Figure = styled.div`
   border-radius: 4px;
   min-width: 420px;
   max-width: 420px;
-  max-height: 360px;
+  height: 360px;
   width: 48%;
   text-align: center;
   cursor: pointer;
